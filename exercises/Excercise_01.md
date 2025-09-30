@@ -1,6 +1,6 @@
 # Excercise 1: Get Pre-Packaged B2B Integration Content and import it
 In this exercise, you will learn how to work with pre-packaged B2B integration content using SAP Integration Suite. By following the steps, you will:
-- Download and explore the ****B2B Integration Factory - Order-to-Cash B2B Scenario**** content from the SAP Business Accelerator Hub.
+- Download and explore the **B2B Integration Factory - Order-to-Cash B2B Scenario** content from the SAP Business Accelerator Hub.
 - Retrieve essential artifacts such as Trading Partner Agreements (TPAs), Message Implementation Guidelines (MIGs), and Mapping Guidelines (MAGs).
 - Simulate importing MAGs into the SAP Integration Advisor to understand how content consistency is validated.
 - Simulate importing a TPA template and TPA example into the Trading Partner Management (TPM) system to see how pre-packaged agreements are integrated.
@@ -8,19 +8,19 @@ In this exercise, you will learn how to work with pre-packaged B2B integration c
 By completing this exercise, you will understand how to leverage SAP’s pre-built B2B content to accelerate integration scenarios and manage trading partner configurations effectively.
 
 ## Step 1 - Get ot the Community Section
-First of all, you should download the prepackaged B2B integration content ****B2B Integration Factory - Order-to-Cash B2B Scenario**** in form of TPA, MIGs and MAGs ferom the Business Accelerator Hub. Theerfore, go to http://api.sap.com and do the following steps:
-- (a) Click on ****More**** so that you will see the ****Community**** section.
-- (b) Select ****Community**** in where you can search for the B2B Integration Content packages.
-- (c) In the ****Community**** section, click on ****View All****.
+First of all, you should download the prepackaged B2B integration content **B2B Integration Factory - Order-to-Cash B2B Scenario** in form of TPA, MIGs and MAGs ferom the Business Accelerator Hub. Theerfore, go to http://api.sap.com and do the following steps:
+- (a) Click on **More** so that you will see the **Community** section.
+- (b) Select **Community** in where you can search for the B2B Integration Content packages.
+- (c) In the **Community** section, click on **View All**.
 
 ![IN260 Figure 01.01](assets/IN260_01.01.png)
 
 ## Step 2 - Search for the B2B Integration packages
 Now search for the appropriate pre-packaged B2B integration content and select it via the following steps:
-- (a) Enter in the ****Search**** filed the value: `B2B Integration Factory - Order-to-Cash`
-- (b) Click on the tile ****B2B Integration Factory - Order-to-Cash B2B Scenario**** so that you'll see the details of this package.
-- (c) In the details, click on the tab ****Documents**** so that you can see the available packages.
-- (d) Select the package ****Github - B2B Integration Factory - Order-to-Cash iDOC Scenario****
+- (a) Enter in the **Search** filed the value: `B2B Integration Factory - Order-to-Cash`
+- (b) Click on the tile **B2B Integration Factory - Order-to-Cash B2B Scenario** so that you'll see the details of this package.
+- (c) In the details, click on the tab **Documents** so that you can see the available packages.
+- (d) Select the package **Github - B2B Integration Factory - Order-to-Cash iDOC Scenario**
 
 ![IN260 Figure 01.02](assets/IN260_01.02.png)
 
@@ -29,7 +29,7 @@ You will be redirected to the GitHub window, in which you should then follow the
 - (a) Select the file: `MAGs-B2B-Integration-Factory_Order-To-Cash_B2B-Scenario_UNEDIFACT-D.01B.zip` for downloading the required MIGs and MAGs, and
 - (b) Click on the downloads button, and repeat the same actions with 
 - (c) TPA_UNEDIFACT_D96A.zip for downloading the required TPA template
-- (d) So that you can finally see in the ****Downloads**** folder the
+- (d) So that you can finally see in the **Downloads** folder the
 - (e) Two files:
   - `MAGs-B2B-Integration-Factory_Order-To-Cash_B2B-Scenario_UNEDIFACT-D.01B.zip`
   - `TPA_UNEDIFACT_D96A.zip`
@@ -39,19 +39,19 @@ You will be redirected to the GitHub window, in which you should then follow the
 ## Step 4 - Login into Integration Suite and got to MAGs
 Go now into the Integration Suite by the following steps:
 - (a) Log in to the tenant. Your trainers will provide the URL.
-  - User: UserXX, where ****XX**** is your participant number. This number is essential and will be used in several places during the exercise. Wherever ****XX**** is mentioned, replace it with your number.
+  - User: UserXX, where **XX** is your participant number. This number is essential and will be used in several places during the exercise. Wherever **XX** is mentioned, replace it with your number.
   - You will receive the password from your trainers.
-- (b) Click on the ****Logon**** button.
-- (c) Once you log in, you should see the landing page of the SAP Integration Suite. In this landing page, go to the left-hand navigation to ****Design --> B2B Scenarios****.
+- (b) Click on the **Logon** button.
+- (c) Once you log in, you should see the landing page of the SAP Integration Suite. In this landing page, go to the left-hand navigation to **Design --> B2B Scenarios**.
 
 ![IN260 Figure 01.04](assets/IN260_01.04.png)
 
 ## Step 5 - Upload the prepackaged MAGs
 This and the next step are optional and should give you an idea, how you can import the exported MAGs into the SAP Integration Advisor. Because of consistency checks of the already imported MAGs, you can just simulate the kind of uploading. If you are on the overview page of the MAGs (Mapping Guidelines), you can import the downloaded MAGs by following these steps:
-- (a) Click on the ****Import**** button.
-- (b) In the opened window ****Select Mapping Guidelines for Import****, click on the button ****Browse****.
+- (a) Click on the **Import** button.
+- (b) In the opened window **Select Mapping Guidelines for Import**, click on the button **Browse**.
 - (c) Select from the downloads folder the exported archive which with the file name `MAGs-B2B-Integration-Factory_Order-To-Cash_B2B-Scenario_UNEDIFACT-D.96A.zip`, and
-- (d) Click on the button ****Open**** for uploading.
+- (d) Click on the button **Open** for uploading.
 
 Please note that the corresponding MIGs do not need to be imported, as they will be implicitly uploaded along with them.
 
@@ -59,33 +59,36 @@ Please note that the corresponding MIGs do not need to be imported, as they will
 
 ## Step 6 - Check the to be uploaded MAGs
 If you have any interest anyway and you have already selected the archive file, you should do the following steps
-- (a) Click on the button ****Check****. The Integration Advisor is going to check if the MAGs are already imported.
+- (a) Click on the button **Check**. The Integration Advisor is going to check if the MAGs are already imported.
 - (b) After a short while, you'll get the checking result, which shows in this case that the MAGs can't be imported
 - (c) You will get the reason for the details once you click on the status icon. In this case, the MAG already exists unchanged.
   - Please consider: The icon will be in green and the check box will be enabled, if it is possible to import the MAG.
-- (d) Please click on the ****Cancel**** button.
+- (d) Please click on the **Cancel** button.
 
 ![IN260 Figure 01.06](assets/IN260_01.06.png)
 
 ## Step 7 - Go to the upload section for TPAs
 Now it is about importing the provided TPA template and sample TPA. This step is also optional, because the corresponding TPA template is already available. This step is only intended to simulate how the pre-packaged content should be imported into the TPM system. For this purpose, do the following steps:
-- (a) Open the Trading Partner Management (TPM) by selecting in the left navigation panel ****Design --> B2B Scenarios.
-- (b) In the TPM, go to the tab ****Cross Actions****
-- (c) Click on the tile ****Export and Import****.
-- (d) In the opened window, ****Choose Action**** select ****Import Agreement**** and
-- (e) Enter in ****Action Name**** a name such as `IN260-User XX - Import of Pre-Packaged B2B Integration Content`  (Whereby XX should be changed with your number).
+- (a) Open the Trading Partner Management (TPM) by selecting in the left navigation panel **Design --> B2B Scenarios**.
+- (b) In the TPM, go to the tab **Cross Actions**
+- (c) Click on the tile **Export and Import**.
+- (d) In the opened window, **Choose Action** select **Import Agreement** and
+- (e) Enter in **Action Name** a name such as `IN260-User XX - Import of Pre-Packaged B2B Integration Content`  (Whereby XX should be changed with your number).
 - (f) Click on the create button.
 
 ![IN260 Figure 01.07](assets/IN260_01.07.png)
 
 ## Step 8 - Upload the prepackaged TPA and TPA template
-You'll get a new window ****IN260-User XX - Import of Pre-Packaged B2B Integration Content****
+You'll get a new window **IN260-User XX - Import of Pre-Packaged B2B Integration Content**
 where you can select the archive file you want to import and make any further configurations, such as when and how matching data should be overwritten. Please do the following steps:
-- (a) Click on the button ****Browse****.
+- (a) Click on the button **Browse**.
 - (b) Pick the file that starts with  `TPA...` from your downloads folder.
-- (c) Click on the button ****Open****.
-- (d) In any case, be sure to select the update to the latest versions for the MIG and MAG references, so that the imported MIGs and MAGs are automatically selected with their latest versions.
-- (e) Keep all other configurations as it is and click on the ****Import**** button.
+- (c) Click on the button **Open**.
+- (d) Select at Parameters: **Skip**
+- (e) Select at Activity Parameters: **Skip**
+- (f) Select at MIG References: **Update to the Latest Version** so that the MIGs will be automatically updated to the latest version.
+- (g) Select at MAG References: **Update to the Latest Version** so that the MAGs will be automatically updated to the latest version.
+- (h) Keep all other configurations as it is and click on the **Import** button.
 
 ![IN260 Figure 01.08](assets/IN260_01.08.png)
 

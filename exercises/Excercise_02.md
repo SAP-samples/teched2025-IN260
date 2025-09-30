@@ -142,8 +142,8 @@ You need another communication channel on the receiver side. For this additional
 
 ![IN260 Figure 02.12](assets/IN260_02.12.png)
 
-## Step  13 - Create a trading partner related (Activity) Parameter
-(Activity) parameters can be used in a wide variety of ways. They can either be used to initialize additional values in the envelope header, to provide further values in the mappings, or they can also be used in pre-/post-processing integration flows or their scripts for further control or processing. It is beneficial to create the parameters in the trading partner profiles if these are trading partner-related, so that the trading partner agreements can dynamically access the trading partner-specific parameters. These trading partner-specific parameters can be created as follows:
+## Step  13 - Create a trading partner related Parameter
+Parameters can be used in a wide variety of ways. They can either be used to initialize additional values in the envelope header, to provide further values in the mappings, or they can also be used in pre-/post-processing integration flows or their scripts for further control or processing. It is beneficial to create the parameters in the trading partner profiles if these are trading partner-related, so that the trading partner agreements can dynamically access the trading partner-specific parameters. These trading partner-specific parameters can be created as follows:
 - (a) Go to the Trading Partner Profile to the tab **Parameters**
 - (b) Click on the button **Create** so that a pop-up window will be opened.
 - (c) In the new window, enter in **Parameter Key** the value: `SAP_EDI_REC_Receiver_Routing_Address`
@@ -154,7 +154,7 @@ Remark: This value will be inserted into the UNB interchange header via the asse
 
 ![IN260 Figure 02.13](assets/IN260_02.13.png)
 
-## Step  14 - Create further required (Activity) Parameters
+## Step  14 - Create further required Parameters
 Enter the further required parameters by
 - (a) Clicking on button **Create**
 - (b) The parameters should be as shown in the following table.
