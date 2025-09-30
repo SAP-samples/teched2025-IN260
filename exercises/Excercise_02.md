@@ -88,10 +88,13 @@ You should now see an entry of a new identifier group in where you can add the i
 
 ## Step  8 - Add a second Identifier do Group Identifier
 Add a second identifier in the same group
-- (a) With the values:
+- (a) Open the details view of the group identifier
+- (b) Click on the **Add** button.
+- (c) Enter the values:
   - Identification: `E2-XX`, and
   - Sub-Organization Name: `Suborg. E2`
-- (b) Enable the Activation Status so that the identifiers of this group will be recognized at the sender side of incoming EANCOM interchanges.
+- (d) Click on the **Save** button.
+- (e) Enable the Activation Status so that the identifiers of this group will be recognized at the sender side of incoming EANCOM interchanges.
 
 ![IN260 Figure 02.08](assets/IN260_02.08.png)
 
