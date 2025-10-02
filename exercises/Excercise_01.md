@@ -7,8 +7,8 @@ In this exercise, you will learn how to work with pre-packaged B2B integration c
 
 By completing this exercise, you will understand how to leverage SAP’s pre-built B2B content to accelerate integration scenarios and manage trading partner configurations effectively.
 
-## Step 1 - Get ot the Community Section
-First of all, you should download the prepackaged B2B integration content **B2B Integration Factory - Order-to-Cash B2B Scenario** in form of TPA, MIGs and MAGs ferom the Business Accelerator Hub. Theerfore, go to http://api.sap.com and do the following steps:
+## Step 1 - Get to the Community Section
+First of all, you should download the prepackaged B2B integration content **B2B Integration Factory - Order-to-Cash B2B Scenario** in form of TPA, MIGs and MAGs ferom the Business Accelerator Hub. Therefore, go to http://api.sap.com and do the following steps:
 - (a) Click on **More** so that you will see the **Community** section.
 - (b) Select **Community** in where you can search for the B2B Integration Content packages.
 - (c) In the **Community** section, click on **View All**.
