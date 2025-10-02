@@ -1,4 +1,4 @@
-# Excercise 1: Get Pre-Packaged B2B Integration Content and import it
+# Excercise 1 -  Get Pre-Packaged B2B Integration Content and import it
 In this exercise, you will learn how to work with pre-packaged B2B integration content using SAP Integration Suite. By following the steps, you will:
 - Download and explore the **B2B Integration Factory - Order-to-Cash B2B Scenario** content from the SAP Business Accelerator Hub.
 - Retrieve essential artifacts such as Trading Partner Agreements (TPAs), Message Implementation Guidelines (MIGs), and Mapping Guidelines (MAGs).

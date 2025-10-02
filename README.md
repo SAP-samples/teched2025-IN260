@@ -1,4 +1,4 @@
-# Session ID - Session Title
+# IN260 - Master integrations: Integration Advisor and Trading Partner Management
 
 ## Description
 
@@ -10,24 +10,19 @@ This session introduces attendees to...
 
 ## Requirements
 
-The requirements to follow the exercises in this repository are...
+The requirements to follow the exercises in this repository are the updload of the content into 
+Bruno
 
 ## Exercises
 
 Provide the exercise content here directly in README.md using [markdown](https://guides.github.com/features/mastering-markdown/) and linking to the specific exercise pages, below is an example.
 
-- [Getting Started](exercises/ex0/)
-- [Exercise 1 - First Exercise Description](exercises/ex1/)
-    - [Exercise 1.1 - Exercise 1 Sub Exercise 1 Description](exercises/ex1#exercise-11-sub-exercise-1-description)
-    - [Exercise 1.2 - Exercise 1 Sub Exercise 2 Description](exercises/ex1#exercise-12-sub-exercise-2-description)
-- [Exercise 2 - Second Exercise Description](exercises/ex2/)
-    - [Exercise 2.1 - Exercise 2 Sub Exercise 1 Description](exercises/ex2#exercise-21-sub-exercise-1-description)
-    - [Exercise 2.2 - Exercise 2 Sub Exercise 2 Description](exercises/ex2#exercise-22-sub-exercise-2-description)
+- [Getting Started](GettingStarted.md)
+- [Exercise 1 - Get Pre-Packaged B2B Integration Content and import it](exercises/Excercise_01.md)
+- [Exercise 2 - Create the necessary Trading Partner Profile](exercises/Excercise_02.md)
+- [Exercise 3 - Creating a Trading Partner Agreement (TPA) from a Template](exercises/Excercise_03.md)
 
   
-**OR** Link to the Tutorial Navigator for example...
-
-Start the exercises [here](https://developers.sap.com/tutorials/abap-environment-trial-onboarding.html).
 
 **IMPORTANT**
 
