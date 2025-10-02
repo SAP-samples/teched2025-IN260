@@ -1,15 +1,20 @@
-# Excercise 3: -Creating a TPA based on the TPA template
+# Exercise 3: Creating a Trading Partner Agreement (TPA) from a Template
+
+This exercise will teach you to create a Trading Partner Agreement (TPA) using a predefined template within the Trading Partner Management system. You will be guided through verifying and updating activity parameters, adding company and trading partner-specific parameters, and finalizing the agreement setup. By this exercise's end, you can confidently configure and activate a TPA tailored to your trading partner's requirements.
+
 ## Step 1 - Open the TPA Template
-First, check if all required (activity) parameters are correctly set in the uploaded Trading Partner Agreement Template (TPA-Template) and make any necessary changes, if required. For this reason:
-- (a) Go in the Trading Partner Management system to the tab **Agreement Templates**
+First, check if all required (activity) parameters are correctly set in the uploaded Trading Partner Agreement Template (TPA-Template) and make any necessary changes. For this reason:
+- (a) Go to the Trading Partner Management system to the tab **Agreement Templates**
 - (b) And open the template **[B2B Integration Factory] - Order to Cash B2B Scenario for SAP IDoc with UN/EDIFACT D.96A – Template**
 
 ![IN260 Figure 03.01](assets/IN260_03.01.png)
 
-## Step 2 - Check and may update the TPA-Template
-Now, you should review the required (activity) parameters in each Business Transaction. If these are not available, add the required (activity) parameters as described in step 3. You should check if the following (activity) parameters are set:
-- (a) in tab **B2B Scenarios**
-- (b) In Business Transaction: **01.) Sales Order Request/Response**
+## Step 2 - Check, review, and update the TPA-Template
+You should review the required (activity) parameters for each business transaction. Add the necessary (activity) parameters described in step 3 if these are unavailable. You should check if the following (activity) parameters are set via the following steps:
+- (a) Go to tab **B2B Scenarios**.
+- (b) Expand Business Transaction: **01.) Sales Order Request/Response**
+- (c) Go to tab **Activity Parameters**, and
+- (d) Check if the following Activity Parameters are available:
   
 | Activity | Role | Data Source | Private Key | Private Value |
 | --- | --- | --- | --- | --- |
@@ -19,277 +24,97 @@ Now, you should review the required (activity) parameters in each Business Trans
 | Inbound | SENDER | | SAP_EDI_REC_Sender_System_ID | *Derived from TPP* |
 | Inbound | SENDER | | SAP_EDI_REC_Sender_Partner_Function | *Derived from TPP* |
 | Inbound | SENDER | | SAP_EDI_REC_Sender_Partner_Type | *Derived from TPP* |
-| Outbound | RECEIVER | SAP_EDI_REC_Receiver_Routing_Address | *Derived from TPP* |
+| Outbound | RECEIVER | |  SAP_EDI_REC_Receiver_Routing_Address | *Derived from TPP* |
 | Outbound | SENDER | [Company Name] | SAP_EDI_REC_Sender_Routing_Address | FromCI |
 
-- (c) In Business Transaction: **02.) Delivery Notification – Outbound**
+- (e) Expand the Business Transaction: **02.) Delivery Notification – Outbound** and check if the following Activity Parameters are set:
   
 | Activity | Role | Data Source | Private Key | Private Value |
 | --- | --- | --- | --- | --- |
 | Outbound | RECEIVER | | SAP_EDI_REC_Receiver_Routing_Address | *Derived from TPP* |
 | Outbound | SENDER | [Company Name] | SAP_EDI_REC_Sender_Routing_Address | FromCI |
 
-- (d) In Business Transaction: **03.) Invoice - Outbound**
+- (f) Finally, expand Business Transaction: **03.) Invoice - Outbound** and review these Activity Parameters. The following should be set:
   
 | Activity | Role | Data Source | Private Key | Private Value |
 | --- | --- | --- | --- | --- |
 | Outbound | RECEIVER | | SAP_EDI_REC_Receiver_Routing_Address | *Derived from TPP* |
 | Outbound | SENDER | [Company Name] | SAP_EDI_REC_Sender_Routing_Address | FromCI |
-
-- (e)
-- (f)
-- (g)
-- (h)
-- (i)
-- (j)
 
 ![IN260 Figure 03.02](assets/IN260_03.02.png)
 
-## Step 3 - Add (Activity) Parameters in TPA Template
-- (a)
-- (b)
-- (c)
-- (d)
-- (e)
-- (f)
-- (g)
-- (h)
-- (i)
-- (j)
+## Step 3 - Add Company Inbound Parameters in TPA Template
+You review and do not see any activity parameters due to the import of the TPA templates by another participant; these parameters have been overwritten because they did not set "Select Parameters" and "Select Activity Parameters" to Skip before the import (see Exercise 1, Step 8). If this is the case, then these (activity) parameters should be entered afterwards in the tab "B2B Scenarios" using the following steps:
+- (a) Stay in tab **B2B Scenarios** and click on the **Edit** button.
+- (b) If you are in edit mode, go to the first business transaction **01.) Sales Order Request/Response**
+- (c) In  **Activity Parameters** select **Add Parameters --> Extend from Company --> Inbound** and a new pop-up window will be opened
+- (e) In this pop-up window, you can now select the required **Company Parameters**, which are in this case:
+  - `SAP_EDI_REC_Receiver_System_ID`
+  - `SAP_EDI_REC_Receiver_Partner_Type`
+  - `SAP_EDI_REC_Receiver_Partner_Function`
+- (f) Click the **Save** button.
 
 ![IN260 Figure 03.03](assets/IN260_03.03.png)
 
-## Step 4 - Create a TPA via Copy of a TPA Template
-In order to create in the Trading Partner Management a new TPA (Trading Partner Agreement) via the copy from a TPA template function, do the following steps:
-- (a) Open the tab “Agreements”
-- (a) Click on the button “Create”, a new popup will open
-- (c) Select the TPA template
-- (d) Choose “Next”
-- (e)Select “Copy from Template”
-- (f) Make sure to select the transactions all transactions
-- (g) Select your Trading Partner from the drop-down list
-- (h) Click on “Open Draft”
-
-***General Note:*** It is not always necessary to select all transactions. This depends on the trading partner. Choose only the transactions that are relevant for your trading partner.
+## Step 4 -  Add Trading Partner Inbound Parameters in TPA Template
+You must proceed with the following steps to add the trading partner-related parameters in the inbound direction. These trading partner-related parameters are in the template and will be automatically filled once a TPA is created from this TPA template via "Copy" or "Bind".
+- (a) Select in the menu **Add Parameters --> Create Trading Partner Parameters --> Inbound** and a new pop-up window will be displayed.
+- (b) Enter in **Parameter Key** the value `SAP_EDI_REC_Sender_System_ID`
+- (c) Click the **Save** button.
 
 ![IN260 Figure 03.04](assets/IN260_03.04.png)
 
-## Step 5 - Check and update the Overview of the TPA
-You are in the overview screen of your agreement
-- (a) Change the name and the description of your agreement. Make sure to replace XX with your UserID and Trading Partner Name. Scroll down to the section “Trading Partner Details”
-- (b) Copy the response and enter it in the “Description” field.
-- (c) Check if the same aliases are defined in your Trading Partner Profile. 
-- (d) Click on the “Save” button
+## Step 5 - Add Outbound Parameters in TPA Template
+You must do the same for the Business Transaction Activities in the outbound direction. This can be realized by following the steps:
+- (a) Stay in tab **B2B Scenarios**, go to **Edit** mode, and select in tab **Activity Parameters** in menu **Add Parameters --> Extend from Company --> Outbound** so that you will see a pop-up window **Company Parameters**.
+- (b) In this pop-up window, select the parameter `SAP_EDI_REC_Sender_Routing_Address`.
+- (c) Click the **Save** button.
+- (d) Select in the menu **Add Parameters --> Create Trading Partner Parameters --> Outbound** so that you'll see the pop-up window **Add Trading Partner Parameter**
+- (e) In this pop-up window, enter the value in **Parameter Key**: `SAP_EDI_REC_Receiver_Routing_Address`.
+- (f) Click the **Save** button.
+- (g) Repeat the steps (5.a) to (5.f) in the Business Transaction: **02.) Delivery Notification – Outbound**
+- (h) Repeat the steps (a) to (f) in the Business Transaction: **03.) Invoice - Outbound** 
+- (i) Finally, all activity parameters should be set, as shown in step 2. If this is the case, click the **Save** button after adding activity parameters to each business transaction.
 
-![IN260 Figure 03.05](assets/IN260_05.05.png)
+![IN260 Figure 03.05](assets/IN260_03.05.png)
 
-## Step 6 - Check, if all set in TPA
-Stay in your newly created agreement and switch to the “B2B scenarios” tab.
-- (a) Check if the same aliases are used in your Trading Partner system.
-- (b) Check if the values that have been empty in the agreement template are filled with your Trading Partner parameters.
-- (c)
-- (d)
-- (e)
-- (f)
-- (g)
-- (h)
-- (i)
-- (j)
+## Step 6 - Create a TPA via Copy of a TPA Template
+To create a new TPA (Trading Partner Agreement) in the Trading Partner Management via the copy from a TPA template function, do the following steps:
+- (a) Open the tab “Agreements”
+- (a) Click the **Create** button to open a new pop-up window
+- (c) Select the TPA template `[B2B Integration Factory] - Order to Cash B2B Scenario for SAP IDoc with UN/EDIFACT D.96A - Template`
+- (d) Click the **Next** button
+- (e) Enable the radio button **Copy from Template**
+- (f) Make sure to select all business transactions
+- (g) Select your Trading Partner **INT260-XX** from the drop-down list. The XX should represent your user ID.
+- (h) Click the **Open Draft** button
+
+***General Note:*** Selecting all transactions is not always necessary. This depends on the trading partner. Choose only the transactions that are relevant for your trading partner.
 
 ![IN260 Figure 03.06](assets/IN260_03.06.png)
 
-## Step 7 - Activate the TPA
-- (a)
-- (b)
-- (c)
-- (d)
-- (e)
-- (f)
-- (g)
-- (h)
-- (i)
-- (j)
+## Step 7 - Finalize the Overview of the TPA
+A new Trading Partner Agreement (TPA) for your trading partner will be created. You'll see as default the **Overview** tab of your TPA, where you should update and finalize the overview accordingly:
+- (a) Change your agreement's name and description where you substitute the term `[B2B Integration Factory]` with `INT260-XX`. Make sure to replace XX with your UserID and Trading Partner Name. 
+- (b) Ìn the **Trading Partner Details**, set the **Type System** value to `GS1 EANCOM`
+- (c) Select in the same details the **Type System Version**: `D.96A S3`
+- (d) Click on **Identifier in Company Type System** on the value help to display a pop-up window.
+- (e) In this pop-up window, go to the tab **Identifier Groups**
+- (f) Select the identifier group with the **Group Name**: GE-XX (as you know, the XX is a placeholder for your user ID).
+- (g) In the **My Company Details** select in **Identifier in Trading Partner Type System** the value: `EAN-COMP01`.
+- (h) Click the **Save** button.
 
 ![IN260 Figure 03.07](assets/IN260_03.07.png)
 
-## Step 8 - Prepare the source files
-- (a)
-- (b)
-- (c)
-- (d)
-- (e)
-- (f)
-- (g)
-- (h)
-- (i)
-- (j)
-  
+## Step 8 - Review, review, and update and activate the TPA
+For finalization and activation of the TPA,  stay in your newly created TPA and 
+- (a) switch to the **B2B scenarios** tab.
+- (b) Check if all the activity parameters defined in step 2 are set and filled. Filling means that the trading partner-related activity partners should have values derived from the corresponding parameters described in the Trading Partner Profile. Repeat this review with the other two business transactions.
+  - 02.) Delivery Notification - Outbound
+  - 03.) Invoice - Outbound
+- (b) Check if the empty values in the agreement template are filled with your Trading Partner parameters.
+- (c) If everything is fine, you can activate this TPA by clicking on the **Activate** button.
+- (d) After a short while, you should see the **Activation Status**: **Active**
+- (e) And the **Activate** button should be substituted with **Deactivate**
+
 ![IN260 Figure 03.08](assets/IN260_03.08.png)
-
-## Step 9 - 
-- (a)
-- (b)
-- (c)
-- (d)
-- (e)
-- (f)
-- (g)
-- (h)
-- (i)
-- (j)
-
-![IN260 Figure 03.09](assets/IN260_03.09.png)
-
-## Step 10 - 
-- (a)
-- (b)
-- (c)
-- (d)
-- (e)
-- (f)
-- (g)
-- (h)
-- (i)
-- (j)
-
-![IN260 Figure 03.10](assets/IN260_03.10.png)
-
-## Step 11 - 
-- (a)
-- (b)
-- (c)
-- (d)
-- (e)
-- (f)
-- (g)
-- (h)
-- (i)
-- (j)
-
-![IN260 Figure 03.11](assets/IN260_03.11.png)
-
-## Step 12 - 
-- (a)
-- (b)
-- (c)
-- (d)
-- (e)
-- (f)
-- (g)
-- (h)
-- (i)
-- (j)
-
-![IN260 Figure 03.12](assets/IN260_03.12.png)
-
-## Step 13 - 
-- (a)
-- (b)
-- (c)
-- (d)
-- (e)
-- (f)
-- (g)
-- (h)
-- (i)
-- (j)
-
-![IN260 Figure 03.13](assets/IN260_03.13.png)
-
-## Step 14 - 
-- (a)
-- (b)
-- (c)
-- (d)
-- (e)
-- (f)
-- (g)
-- (h)
-- (i)
-- (j)
-
-![IN260 Figure 03.14](assets/IN260_03.14.png)
-
-## Step 15 - 
-- (a)
-- (b)
-- (c)
-- (d)
-- (e)
-- (f)
-- (g)
-- (h)
-- (i)
-- (j)
-
-![IN260 Figure 03.15](assets/IN260_03.15.png)
-
-## Step 16 - 
-- (a)
-- (b)
-- (c)
-- (d)
-- (e)
-- (f)
-- (g)
-- (h)
-- (i)
-- (j)
-
-![IN260 Figure 03.16](assets/IN260_03.16.png)
-
-## Step 17 - 
-- (a)
-- (b)
-- (c)
-- (d)
-- (e)
-- (f)
-- (g)
-- (h)
-- (i)
-- (j)
-
-![IN260 Figure 03.17](assets/IN260_03.17.png)
-
-## Step 18 - 
-- (a)
-- (b)
-- (c)
-- (d)
-- (e)
-- (f)
-- (g)
-- (h)
-- (i)
-- (j)
-
-![IN260 Figure 03.18](assets/IN260_03.18.png)
-
-## Step 19 - 
-- (a)
-- (b)
-- (c)
-- (d)
-- (e)
-- (f)
-- (g)
-- (h)
-- (i)
-- (j)
-
-![IN260 Figure 03.19](assets/IN260_03.19.png)
-
-## Step 20 - 
-- (a)
-- (b)
-- (c)
-- (d)
-- (e)
-- (f)
-- (g)
-- (h)
-- (i)
-- (j)
-
-![IN260 Figure 03.20](assets/IN260_03.20.png)
