@@ -1,4 +1,4 @@
-# Excercise 3: 
+# Excercise 3: Finalize the Business Transaction Activity: 01. a) Sales Order Request - Inbound
 ## Step 1 - 
 - (a)
 - (b)
