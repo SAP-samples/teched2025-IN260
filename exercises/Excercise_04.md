@@ -127,8 +127,8 @@ The MIG will be initially created. After a while, you'll see a pop-up window tha
 ## Step 8 - Set further qualifier markers
 Unfortunately, the automatic qualifier setting procedure while creating a MIG via payload, as described in step 5, does not yet recognize all the necessary qualifier markers and qualifications. Therefore, some of the qualifier markers have to be manually set via the following steps:  
 - (a) Go to the data element (leaf) node that will be used to qualify a segment or segment group. In this case, the data element **6347** (Currency details qualifier) should qualify segment group 7, which might be used to express different kinds of currencies, including the usage of the other segments in this segment group. 
-- (b) In the details panel at **Details** tab go to the section **Properties** and click at **Qualiifers** the **[+]** (Add) button.
-- (c) You should now select the ** SG7 ** in the pop-up window so that this segment group can also be qualified by this data element.
+- (b) In the details panel at **Details** tab go to the section **Properties** and click at **Qualifiers** the **[+]** (Add) button.
+- (c) You should now select the **SG7** in the pop-up window so that this segment group can also be qualified by this data element.
 - (d) Click on the **Create** button. 
 - (e) You'll see a further (grey) qualifier marker arrow from the data element **6347** to the segment group **SG7**.
 -   
