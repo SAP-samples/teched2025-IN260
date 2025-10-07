@@ -1,0 +1,333 @@
+<?xml version='1.0' encoding='utf-8'?>
+<ORDERS05>
+   <IDOC BEGIN="1">
+      <EDI_DC40 SEGMENT="1">
+         <TABNAM>EDI_DC40</TABNAM>
+         <DOCNUM>00000000000010</DOCNUM>
+         <DIRECT>1</DIRECT>
+         <OUTMOD>2</OUTMOD>
+         <TEST>X</TEST>
+         <IDOCTYP>ORDERS05</IDOCTYP>
+         <MESTYP>ORDRSP</MESTYP>
+         <MESCOD>HOS</MESCOD>
+         <MESFCT>B2B</MESFCT>
+         <STD>E</STD>
+         <STDVRS>4060</STDVRS>
+         <SNDPOR>EDIXMLEQ1</SNDPOR>
+         <SNDPFC>AG</SNDPFC>
+         <SNDPRN>I-XX</SNDPRN>
+         <RCVPRT>LS</RCVPRT>
+         <RCVPFC>MA</RCVPFC>
+         <RCVPRN>Company_IDOC_ID</RCVPRN>
+         <CREDAT>20251006</CREDAT>
+         <CRETIM>211205</CRETIM>
+         <REFINT>A0001</REFINT>
+         <REFMES>00620</REFMES>
+      </EDI_DC40>
+      <E1EDK01 SEGMENT="1">
+         <CURCY>EUR</CURCY>
+         <BELNR>10040</BELNR>
+         <BSART>ORDR</BSART>
+      </E1EDK01>
+      <E1EDK03 SEGMENT="1">
+         <IDDAT>002</IDDAT>
+         <DATUM>20251001</DATUM>
+         <UZEIT>1230</UZEIT>
+      </E1EDK03>
+      <E1EDK03 SEGMENT="1">
+         <IDDAT>010</IDDAT>
+         <DATUM>20251014</DATUM>
+         <UZEIT>0945</UZEIT>
+      </E1EDK03>
+      <E1EDKA1 SEGMENT="1">
+         <PARVW>AG</PARVW>
+         <LIFNR>IN260-UserXX</LIFNR>
+         <NAME1>IN260-UserXX GmbH</NAME1>
+         <NAME2>Gunther Stuhec</NAME2>
+         <STRAS>Main Street 1</STRAS>
+         <ORT01>Walldorf</ORT01>
+         <PSTLZ>69190</PSTLZ>
+         <LAND1>DE</LAND1>
+         <TELF1>0621-123456</TELF1>
+      </E1EDKA1>
+      <E1EDKA1 SEGMENT="1">
+         <PARVW>LF</PARVW>
+         <PARTN>BestRun</PARTN>
+         <NAME1>Berlin</NAME1>
+         <STRAS>10115</STRAS>
+         <ORT01>DE</ORT01>
+      </E1EDKA1>
+      <E1EDKA1 SEGMENT="1">
+         <PARVW>WE</PARVW>
+         <LIFNR>BestRun</LIFNR>
+         <NAME1>Logistikstraße 12</NAME1>
+         <STRAS>Berlin</STRAS>
+         <ORT01>10115</ORT01>
+         <REGIO>DE</REGIO>
+      </E1EDKA1>
+      <E1EDK02 SEGMENT="1">
+         <QUALF>001</QUALF>
+         <BELNR>10040</BELNR>
+         <DATUM>20250929</DATUM>
+      </E1EDK02>
+      <E1EDK02 SEGMENT="1">
+         <QUALF>006</QUALF>
+         <BELNR>10040</BELNR>
+      </E1EDK02>
+      <E1EDP01 SEGMENT="1">
+         <POSEX>1</POSEX>
+         <MENGE>144</MENGE>
+         <MENEE>H87</MENEE>
+         <VPREI>0.89</VPREI>
+         <CURCY>EUR</CURCY>
+         <E1EDC01> </E1EDC01>
+         <WMENG>144</WMENG>
+         <VPREI>0.89</VPREI>
+         <MENEE>H87</MENEE>
+         <CURCY>EUR</CURCY>
+         <E1EDP19 SEGMENT="1">
+            <QUALF>001</QUALF>
+            <IDTNR>100001</IDTNR>
+            <KTEXT>BestRun VitalCrisp</KTEXT>
+         </E1EDP19>
+         <E1EDP19 SEGMENT="1">
+            <QUALF>002</QUALF>
+            <IDTNR>BR-VCB-001</IDTNR>
+         </E1EDP19>
+         <E1EDP19 SEGMENT="1">
+            <QUALF>003</QUALF>
+            <IDTNR>4000001000012</IDTNR>
+         </E1EDP19>
+         
+      </E1EDP01>
+      <E1EDP01 SEGMENT="1">
+         <POSEX>2</POSEX>
+         <MENGE>144</MENGE>
+         <MENEE>H87</MENEE>
+         <VPREI>2.49</VPREI>
+         <CURCY>EUR</CURCY>
+         <WMENG>144</WMENG>
+         <VPREI>2.49</VPREI>
+         <MENEE>H87</MENEE>
+         <CURCY>EUR</CURCY>
+         <E1EDP19 SEGMENT="1">
+            <QUALF>001</QUALF>
+            <IDTNR>100002</IDTNR>
+            <KTEXT>BestRun KornKraft</KTEXT>
+         </E1EDP19>
+         <E1EDP19 SEGMENT="1">
+            <QUALF>002</QUALF>
+            <IDTNR>BR-KKWB-002</IDTNR>
+         </E1EDP19>
+         <E1EDP19 SEGMENT="1">
+            <QUALF>003</QUALF>
+            <IDTNR>4000001000029</IDTNR>
+         </E1EDP19>
+         
+      </E1EDP01>
+      <E1EDP01 SEGMENT="1">
+         <POSEX>3</POSEX>
+         <MENGE>144</MENGE>
+         <MENEE>H87</MENEE>
+         <VPREI>3.29</VPREI>
+         <CURCY>EUR</CURCY>
+         <WMENG>144</WMENG>
+         <VPREI>3.29</VPREI>
+         <MENEE>H87</MENEE>
+         <CURCY>EUR</CURCY>
+         <E1EDP19 SEGMENT="1">
+            <QUALF>001</QUALF>
+            <IDTNR>100003</IDTNR>
+            <KTEXT>BestRun MorgenGold</KTEXT>
+         </E1EDP19>
+         <E1EDP19 SEGMENT="1">
+            <QUALF>002</QUALF>
+            <IDTNR>BR-MGOP-003</IDTNR>
+         </E1EDP19>
+         <E1EDP19 SEGMENT="1">
+            <QUALF>003</QUALF>
+            <IDTNR>4000001000036</IDTNR>
+         </E1EDP19>
+         
+      </E1EDP01>
+      <E1EDP01 SEGMENT="1">
+         <POSEX>4</POSEX>
+         <MENGE>144</MENGE>
+         <MENEE>H87</MENEE>
+         <VPREI>4.99</VPREI>
+         <CURCY>EUR</CURCY>
+         <WMENG>144</WMENG>
+         <VPREI>4.99</VPREI>
+         <MENEE>H87</MENEE>
+         <CURCY>EUR</CURCY>
+         <E1EDP19 SEGMENT="1">
+            <QUALF>001</QUALF>
+            <IDTNR>100004</IDTNR>
+            <KTEXT>BestRun FitFrucht</KTEXT>
+         </E1EDP19>
+         <E1EDP19 SEGMENT="1">
+            <QUALF>002</QUALF>
+            <IDTNR>BR-FFSM-004</IDTNR>
+         </E1EDP19>
+         <E1EDP19 SEGMENT="1">
+            <QUALF>003</QUALF>
+            <IDTNR>4000001000043</IDTNR>
+         </E1EDP19>
+         
+      </E1EDP01>
+      <E1EDP01 SEGMENT="1">
+         <POSEX>5</POSEX>
+         <MENGE>144</MENGE>
+         <MENEE>H87</MENEE>
+         <VPREI>3.79</VPREI>
+         <CURCY>EUR</CURCY>
+         <WMENG>144</WMENG>
+         <VPREI>3.79</VPREI>
+         <MENEE>H87</MENEE>
+         <CURCY>EUR</CURCY>
+         <E1EDP19 SEGMENT="1">
+            <QUALF>001</QUALF>
+            <IDTNR>100005</IDTNR>
+            <KTEXT>BestRun ProteinPower</KTEXT>
+         </E1EDP19>
+         <E1EDP19 SEGMENT="1">
+            <QUALF>002</QUALF>
+            <IDTNR>BR-PPLS-005</IDTNR>
+         </E1EDP19>
+         <E1EDP19 SEGMENT="1">
+            <QUALF>003</QUALF>
+            <IDTNR>4000001000050</IDTNR>
+         </E1EDP19>
+         
+      </E1EDP01>
+      <E1EDP01 SEGMENT="1">
+         <POSEX>6</POSEX>
+         <MENGE>144</MENGE>
+         <MENEE>H87</MENEE>
+         <VPREI>2.99</VPREI>
+         <CURCY>EUR</CURCY>
+         <WMENG>144</WMENG>
+         <VPREI>2.99</VPREI>
+         <MENEE>H87</MENEE>
+         <CURCY>EUR</CURCY>
+         <E1EDP19 SEGMENT="1">
+            <QUALF>001</QUALF>
+            <IDTNR>100006</IDTNR>
+            <KTEXT>BestRun ChocoCharge</KTEXT>
+         </E1EDP19>
+         <E1EDP19 SEGMENT="1">
+            <QUALF>002</QUALF>
+            <IDTNR>BR-CCEB-006</IDTNR>
+         </E1EDP19>
+         <E1EDP19 SEGMENT="1">
+            <QUALF>003</QUALF>
+            <IDTNR>4000001000067</IDTNR>
+         </E1EDP19>
+         <E1EDPT1 SEGMENT="1">
+            <TDID>ZAP1</TDID>
+            <TSSPRAS>E</TSSPRAS>
+            <E1EDPT2> </E1EDPT2>
+         </E1EDPT1>
+      </E1EDP01>
+      <E1EDP01 SEGMENT="1">
+         <POSEX>7</POSEX>
+         <MENGE>144</MENGE>
+         <MENEE>H87</MENEE>
+         <VPREI>4.49</VPREI>
+         <CURCY>EUR</CURCY>
+         <WMENG>144</WMENG>
+         <VPREI>4.49</VPREI>
+         <MENEE>H87</MENEE>
+         <CURCY>EUR</CURCY>
+         <E1EDP19 SEGMENT="1">
+            <QUALF>001</QUALF>
+            <IDTNR>100007</IDTNR>
+            <KTEXT>BestRun GreenFuel</KTEXT>
+         </E1EDP19>
+         <E1EDP19 SEGMENT="1">
+            <QUALF>002</QUALF>
+            <IDTNR>BR-GFQB-007</IDTNR>
+         </E1EDP19>
+         <E1EDP19 SEGMENT="1">
+            <QUALF>003</QUALF>
+            <IDTNR>4000001000074</IDTNR>
+         </E1EDP19>
+         
+      </E1EDP01>
+      <E1EDP01 SEGMENT="1">
+         <POSEX>8</POSEX>
+         <MENGE>144</MENGE>
+         <MENEE>H87</MENEE>
+         <VPREI>3.59</VPREI>
+         <CURCY>EUR</CURCY>
+         <WMENG>144</WMENG>
+         <VPREI>3.59</VPREI>
+         <MENEE>H87</MENEE>
+         <CURCY>EUR</CURCY>
+         <E1EDP19 SEGMENT="1">
+            <QUALF>001</QUALF>
+            <IDTNR>100008</IDTNR>
+            <KTEXT>BestRun BerryBoost</KTEXT>
+         </E1EDP19>
+         <E1EDP19 SEGMENT="1">
+            <QUALF>002</QUALF>
+            <IDTNR>BR-BBGM-008</IDTNR>
+         </E1EDP19>
+         <E1EDP19 SEGMENT="1">
+            <QUALF>003</QUALF>
+            <IDTNR>4000001000081</IDTNR>
+         </E1EDP19>
+         
+      </E1EDP01>
+      <E1EDP01 SEGMENT="1">
+         <POSEX>9</POSEX>
+         <MENGE>144</MENGE>
+         <MENEE>H87</MENEE>
+         <VPREI>1.49</VPREI>
+         <CURCY>EUR</CURCY>
+         <WMENG>144</WMENG>
+         <VPREI>1.49</VPREI>
+         <MENEE>H87</MENEE>
+         <CURCY>EUR</CURCY>
+         <E1EDP19 SEGMENT="1">
+            <QUALF>001</QUALF>
+            <IDTNR>100009</IDTNR>
+            <KTEXT>BestRun AquaPure</KTEXT>
+         </E1EDP19>
+         <E1EDP19 SEGMENT="1">
+            <QUALF>002</QUALF>
+            <IDTNR>BR-APEW-009</IDTNR>
+         </E1EDP19>
+         <E1EDP19 SEGMENT="1">
+            <QUALF>003</QUALF>
+            <IDTNR>4000001000098</IDTNR>
+         </E1EDP19>
+         
+      </E1EDP01>
+      <E1EDP01 SEGMENT="1">
+         <POSEX>10</POSEX>
+         <MENGE>144</MENGE>
+         <MENEE>H87</MENEE>
+         <VPREI>2.19</VPREI>
+         <CURCY>EUR</CURCY>
+         <WMENG>144</WMENG>
+         <VPREI>2.19</VPREI>
+         <MENEE>H87</MENEE>
+         <CURCY>EUR</CURCY>
+         <E1EDP19 SEGMENT="1">
+            <QUALF>001</QUALF>
+            <IDTNR>100010</IDTNR>
+            <KTEXT>BestRun NutriSnack</KTEXT>
+         </E1EDP19>
+         <E1EDP19 SEGMENT="1">
+            <QUALF>002</QUALF>
+            <IDTNR>BR-NSVC-010</IDTNR>
+         </E1EDP19>
+         <E1EDP19 SEGMENT="1">
+            <QUALF>003</QUALF>
+            <IDTNR>4000001000104</IDTNR>
+         </E1EDP19>
+         
+      </E1EDP01>
+   </IDOC>
+</ORDERS05>
