@@ -1,4 +1,15 @@
-# Excercise 6: 
+# Excercise 6: Finalize the Business Transaction Activity: 2) Delivery Notification - Outbound
+
+- Pretransformation
+- Post Processing for getting right oder
+
+Steps: 
+Explain how to get Overlay MIG and initial Overlay MAG similar like in Excercise 04 - Step 4 to Step 12. Either can do this, if they have time, if not than they to copy the prepared Overlay MIG and MAG. No use of proposal service3
+
+Pre-transformation is just possible in the Overlay MAG
+- Explain the pre-transformation
+- Insert of a a prepared post processing flow which is doing the target sorting using XSLT function the for-each group by 
+
 ## Step 1 - 
 - (a)
 - (b)

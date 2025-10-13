@@ -1,4 +1,11 @@
-# Excercise 7: 
+# Excercise 7: Finalize the Business Transaction Activity: 3.) Invoice - Outbound
+
+How to create and insert 2 to 3 complex mapping functions. 
+And use of shared code. The mapping functions will be prepared.
+Explain that an Joule (AI) will support you on this case soon.
+
+Explain how to get Overlay MIG and initial Overlay MAG similar like in Excercise 04 - Step 4 to Step 12. Either can do this, if they have time, if not than they to copy the prepared Overlay MIG and MAG. No use of proposal service
+
 ## Step 1 - 
 - (a)
 - (b)

@@ -1,4 +1,12 @@
-# Excercise 3: Finalize the Business Transaction Activity: 01. a) Sales Order Request - Inbound
+# Excercise 5: Finalize the Business Transaction Activity: 01. a) Sales Order Response - Outbound
+
+- Code Value Mapping
+- Compound Code Value
+
+Steps: Explain how to get Overlay MIG and initial Overlay MAG similar like in Excercise 04 - Step 4 to Step 12. Either can do this, if they have time, if not than they to copy the prepared Overlay MIG and MAG. No use of proposal
+Explain the insertion of additional code lists
+Explain how to create a simple code value mapping and complex code value mapping in the Overlay MAG
+
 ## Step 1 - 
 - (a)
 - (b)

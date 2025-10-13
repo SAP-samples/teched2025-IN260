@@ -3,7 +3,7 @@
    <IDOC BEGIN="1">
       <EDI_DC40 SEGMENT="1">
          <TABNAM>EDI_DC40</TABNAM>
-         <DOCNUM>00000000000010</DOCNUM>
+         <DOCNUM>00000000000006</DOCNUM>
          <DIRECT>2</DIRECT>
          <OUTMOD>2</OUTMOD>
          <TEST>X</TEST>
@@ -12,17 +12,19 @@
          <MESCOD>HOS</MESCOD>
          <MESFCT>B2B</MESFCT>
          <STD>E</STD>
-         <STDVRS>4060</STDVRS>
-         <SNDPOR>EDIXMLEQ1</SNDPOR>
+         <STDVRS>D.96A</STDVRS>
+         <SNDPOR>CPIFALLBAC</SNDPOR>
+         <SNDPRT>KU</SNDPRT>
          <SNDPFC>AG</SNDPFC>
          <SNDPRN>I-XX</SNDPRN>
          <RCVPRT>LS</RCVPRT>
          <RCVPFC>MA</RCVPFC>
          <RCVPRN>Company_IDOC_ID</RCVPRN>
-         <CREDAT>20251006</CREDAT>
-         <CRETIM>220210</CRETIM>
+         <CREDAT>20251010</CREDAT>
+         <CRETIM>100513</CRETIM>
          <REFINT>A0001</REFINT>
          <REFMES>00620</REFMES>
+         <SERIAL>202510101005</SERIAL>
       </EDI_DC40>
       <E1EDK01 SEGMENT="1">
          <CURCY>EUR</CURCY>
@@ -48,9 +50,10 @@
       </E1EDK03>
       <E1EDKA1 SEGMENT="1">
          <PARVW>AG</PARVW>
-         <LIFNR>IN260-UserXX</LIFNR>
+         <PARTN>IN260-UserXX</PARTN>
+         <LIFNR>VN-XX</LIFNR>
          <NAME1>IN260-UserXX GmbH</NAME1>
-         <NAME2>Gunther Stuhec</NAME2>
+         <NAME2>Your Name</NAME2>
          <STRAS>Main Street 1</STRAS>
          <ORT01>Walldorf</ORT01>
          <PSTLZ>69190</PSTLZ>
@@ -59,18 +62,22 @@
       </E1EDKA1>
       <E1EDKA1 SEGMENT="1">
          <PARVW>LF</PARVW>
-         <PARTN>BestRun</PARTN>
-         <NAME1>Berlin</NAME1>
-         <STRAS>10115</STRAS>
-         <ORT01>DE</ORT01>
+         <PARTN>BR-PN-ID</PARTN>
+         <NAME1>BestRun GmbH</NAME1>
+         <STRAS>Healthy Way 5</STRAS>
+         <ORT01>Berlin</ORT01>
+         <PSTLZ>10115</PSTLZ>
+         <LAND1>DE</LAND1>
       </E1EDKA1>
       <E1EDKA1 SEGMENT="1">
          <PARVW>WE</PARVW>
-         <LIFNR>BestRun</LIFNR>
-         <NAME1>Logistikstraße 12</NAME1>
-         <STRAS>Berlin</STRAS>
-         <ORT01>10115</ORT01>
-         <REGIO>DE</REGIO>
+         <PARTN>WE-UserXX</PARTN>
+         <LIFNR>VN-XX</LIFNR>
+         <NAME1>IN260-UserXX GmbH</NAME1>
+         <STRAS>Get Material Road 12</STRAS>
+         <ORT01>Walldorf</ORT01>
+         <PSTLZ>69190</PSTLZ>
+         <LAND1>DE</LAND1>
       </E1EDKA1>
       <E1EDK02 SEGMENT="1">
          <QUALF>001</QUALF>
@@ -91,15 +98,19 @@
          <TDID>007</TDID>
          <TSSPRAS>E</TSSPRAS>
          <E1EDKT2 SEGMENT="1">
-            <TDLINE>Order for BestRun health food products</TDLINE>
+            <TDLINE>HUGO for BestRun health food products</TDLINE>
          </E1EDKT2>
       </E1EDKT1>
       <E1EDP01 SEGMENT="1">
          <POSEX>1</POSEX>
+         <PSTYP>0</PSTYP>
          <MENGE>144</MENGE>
          <MENEE>H87</MENEE>
+         <PMENE>1</PMENE>
          <VPREI>0.89</VPREI>
+         <PEINH>1</PEINH>
          <CURCY>EUR</CURCY>
+         <PSTYV>BR</PSTYV>
          <E1EDP19 SEGMENT="1">
             <QUALF>001</QUALF>
             <IDTNR>100001</IDTNR>
@@ -114,7 +125,7 @@
             <IDTNR>4000001000012</IDTNR>
          </E1EDP19>
          <E1EDPT1 SEGMENT="1">
-            <TDID>ZAP1</TDID>
+            <TDID>004</TDID>
             <TSSPRAS>E</TSSPRAS>
             <E1EDPT2 SEGMENT="1">
                <TDLINE>BestRun VitalCrisp - Cereal Bar</TDLINE>
@@ -129,10 +140,14 @@
       </E1EDP01>
       <E1EDP01 SEGMENT="1">
          <POSEX>2</POSEX>
-         <MENGE>144</MENGE>
+         <PSTYP>N</PSTYP>
+         <MENGE>100</MENGE>
          <MENEE>H87</MENEE>
+         <PMENE>1</PMENE>
          <VPREI>2.49</VPREI>
+         <PEINH>1</PEINH>
          <CURCY>EUR</CURCY>
+         <PSTYV>BD</PSTYV>
          <E1EDP19 SEGMENT="1">
             <QUALF>001</QUALF>
             <IDTNR>100002</IDTNR>
@@ -147,19 +162,29 @@
             <IDTNR>4000001000029</IDTNR>
          </E1EDP19>
          <E1EDPT1 SEGMENT="1">
-            <TDID>ZAP1</TDID>
+            <TDID>004</TDID>
             <TSSPRAS>E</TSSPRAS>
             <E1EDPT2 SEGMENT="1">
                <TDLINE>BestRun KornKraft - Whole-Grain Bread</TDLINE>
             </E1EDPT2>
          </E1EDPT1>
+         <E1EDC01 SEGMENT="1">
+            <SGTYP>001</SGTYP>
+            <POSEX>1</POSEX>
+            <MATKL>RO</MATKL>
+            <MENGE>100</MENGE>
+         </E1EDC01>
       </E1EDP01>
       <E1EDP01 SEGMENT="1">
          <POSEX>3</POSEX>
-         <MENGE>144</MENGE>
+         <PSTYP>0</PSTYP>
+         <MENGE>150</MENGE>
          <MENEE>H87</MENEE>
+         <PMENE>1</PMENE>
          <VPREI>3.29</VPREI>
+         <PEINH>1</PEINH>
          <CURCY>EUR</CURCY>
+         <PSTYV>PG</PSTYV>
          <E1EDP19 SEGMENT="1">
             <QUALF>001</QUALF>
             <IDTNR>100003</IDTNR>
@@ -174,19 +199,29 @@
             <IDTNR>4000001000036</IDTNR>
          </E1EDP19>
          <E1EDPT1 SEGMENT="1">
-            <TDID>ZAP1</TDID>
+            <TDID>004</TDID>
             <TSSPRAS>E</TSSPRAS>
             <E1EDPT2 SEGMENT="1">
                <TDLINE>BestRun MorgenGold - Organic Porridge</TDLINE>
             </E1EDPT2>
          </E1EDPT1>
+         <E1EDC01 SEGMENT="1">
+            <SGTYP>001</SGTYP>
+            <POSEX>1</POSEX>
+            <MATKL>BG</MATKL>
+            <MENGE>150</MENGE>
+         </E1EDC01>
       </E1EDP01>
       <E1EDP01 SEGMENT="1">
          <POSEX>4</POSEX>
-         <MENGE>144</MENGE>
+         <PSTYP>F</PSTYP>
+         <MENGE>120</MENGE>
          <MENEE>H87</MENEE>
+         <PMENE>1</PMENE>
          <VPREI>4.99</VPREI>
+         <PEINH>1</PEINH>
          <CURCY>EUR</CURCY>
+         <PSTYV>MX</PSTYV>
          <E1EDP19 SEGMENT="1">
             <QUALF>001</QUALF>
             <IDTNR>100004</IDTNR>
@@ -201,19 +236,29 @@
             <IDTNR>4000001000043</IDTNR>
          </E1EDP19>
          <E1EDPT1 SEGMENT="1">
-            <TDID>ZAP1</TDID>
+            <TDID>004</TDID>
             <TSSPRAS>E</TSSPRAS>
             <E1EDPT2 SEGMENT="1">
                <TDLINE>BestRun FitFrucht - Smoothie Mix</TDLINE>
             </E1EDPT2>
          </E1EDPT1>
+         <E1EDC01 SEGMENT="1">
+            <SGTYP>001</SGTYP>
+            <POSEX>1</POSEX>
+            <MATKL>BW</MATKL>
+            <MENGE>20</MENGE>
+         </E1EDC01>
       </E1EDP01>
       <E1EDP01 SEGMENT="1">
          <POSEX>5</POSEX>
-         <MENGE>144</MENGE>
+         <PSTYP>0</PSTYP>
+         <MENGE>250</MENGE>
          <MENEE>H87</MENEE>
+         <PMENE>1</PMENE>
          <VPREI>3.79</VPREI>
+         <PEINH>1</PEINH>
          <CURCY>EUR</CURCY>
+         <PSTYV>BL</PSTYV>
          <E1EDP19 SEGMENT="1">
             <QUALF>001</QUALF>
             <IDTNR>100005</IDTNR>
@@ -228,19 +273,29 @@
             <IDTNR>4000001000050</IDTNR>
          </E1EDP19>
          <E1EDPT1 SEGMENT="1">
-            <TDID>ZAP1</TDID>
+            <TDID>004</TDID>
             <TSSPRAS>E</TSSPRAS>
             <E1EDPT2 SEGMENT="1">
                <TDLINE>BestRun ProteinPower - Lentil Salad Bowl</TDLINE>
             </E1EDPT2>
          </E1EDPT1>
+         <E1EDC01 SEGMENT="1">
+            <SGTYP>001</SGTYP>
+            <POSEX>1</POSEX>
+            <MATKL>PK</MATKL>
+            <MENGE>25</MENGE>
+         </E1EDC01>
       </E1EDP01>
       <E1EDP01 SEGMENT="1">
          <POSEX>6</POSEX>
-         <MENGE>144</MENGE>
+         <PSTYP>S</PSTYP>
+         <MENGE>300</MENGE>
          <MENEE>H87</MENEE>
+         <PMENE>1</PMENE>
          <VPREI>2.99</VPREI>
+         <PEINH>1</PEINH>
          <CURCY>EUR</CURCY>
+         <PSTYV>BY</PSTYV>
          <E1EDP19 SEGMENT="1">
             <QUALF>001</QUALF>
             <IDTNR>100006</IDTNR>
@@ -255,19 +310,29 @@
             <IDTNR>4000001000067</IDTNR>
          </E1EDP19>
          <E1EDPT1 SEGMENT="1">
-            <TDID>ZAP1</TDID>
+            <TDID>004</TDID>
             <TSSPRAS>E</TSSPRAS>
             <E1EDPT2 SEGMENT="1">
                <TDLINE>BestRun ChocoCharge - Energy Bytes</TDLINE>
             </E1EDPT2>
          </E1EDPT1>
+         <E1EDC01 SEGMENT="1">
+            <SGTYP>001</SGTYP>
+            <POSEX>1</POSEX>
+            <MATKL>PK</MATKL>
+            <MENGE>30</MENGE>
+         </E1EDC01>
       </E1EDP01>
       <E1EDP01 SEGMENT="1">
          <POSEX>7</POSEX>
-         <MENGE>144</MENGE>
+         <PSTYP>N</PSTYP>
+         <MENGE>240</MENGE>
          <MENEE>H87</MENEE>
+         <PMENE>1</PMENE>
          <VPREI>4.49</VPREI>
+         <PEINH>1</PEINH>
          <CURCY>EUR</CURCY>
+         <PSTYV>BL</PSTYV>
          <E1EDP19 SEGMENT="1">
             <QUALF>001</QUALF>
             <IDTNR>100007</IDTNR>
@@ -282,19 +347,29 @@
             <IDTNR>4000001000074</IDTNR>
          </E1EDP19>
          <E1EDPT1 SEGMENT="1">
-            <TDID>ZAP1</TDID>
+            <TDID>004</TDID>
             <TSSPRAS>E</TSSPRAS>
             <E1EDPT2 SEGMENT="1">
                <TDLINE>BestRun GreenFuel - Quinoa Bowl</TDLINE>
             </E1EDPT2>
          </E1EDPT1>
+         <E1EDC01 SEGMENT="1">
+            <SGTYP>001</SGTYP>
+            <POSEX>1</POSEX>
+            <MATKL>CT</MATKL>
+            <MENGE>40</MENGE>
+         </E1EDC01>
       </E1EDP01>
       <E1EDP01 SEGMENT="1">
          <POSEX>8</POSEX>
-         <MENGE>144</MENGE>
+         <PSTYP>0</PSTYP>
+         <MENGE>60</MENGE>
          <MENEE>H87</MENEE>
+         <PMENE>1</PMENE>
          <VPREI>3.59</VPREI>
+         <PEINH>1</PEINH>
          <CURCY>EUR</CURCY>
+         <PSTYV>MX</PSTYV>
          <E1EDP19 SEGMENT="1">
             <QUALF>001</QUALF>
             <IDTNR>100008</IDTNR>
@@ -309,19 +384,29 @@
             <IDTNR>4000001000081</IDTNR>
          </E1EDP19>
          <E1EDPT1 SEGMENT="1">
-            <TDID>ZAP1</TDID>
+            <TDID>004</TDID>
             <TSSPRAS>E</TSSPRAS>
             <E1EDPT2 SEGMENT="1">
                <TDLINE>BestRun BerryBoost - Granola Mix</TDLINE>
             </E1EDPT2>
          </E1EDPT1>
+         <E1EDC01 SEGMENT="1">
+            <SGTYP>001</SGTYP>
+            <POSEX>1</POSEX>
+            <MATKL>EC</MATKL>
+            <MENGE>60</MENGE>
+         </E1EDC01>
       </E1EDP01>
       <E1EDP01 SEGMENT="1">
          <POSEX>9</POSEX>
-         <MENGE>144</MENGE>
+         <PSTYP>S</PSTYP>
+         <MENGE>300</MENGE>
          <MENEE>H87</MENEE>
+         <PMENE>1</PMENE>
          <VPREI>1.49</VPREI>
+         <PEINH>1</PEINH>
          <CURCY>EUR</CURCY>
+         <PSTYV>WT</PSTYV>
          <E1EDP19 SEGMENT="1">
             <QUALF>001</QUALF>
             <IDTNR>100009</IDTNR>
@@ -336,19 +421,29 @@
             <IDTNR>4000001000098</IDTNR>
          </E1EDP19>
          <E1EDPT1 SEGMENT="1">
-            <TDID>ZAP1</TDID>
+            <TDID>004</TDID>
             <TSSPRAS>E</TSSPRAS>
             <E1EDPT2 SEGMENT="1">
                <TDLINE>BestRun AquaPure - Electrolyte Water</TDLINE>
             </E1EDPT2>
          </E1EDPT1>
+         <E1EDC01 SEGMENT="1">
+            <SGTYP>001</SGTYP>
+            <POSEX>1</POSEX>
+            <MATKL>BW</MATKL>
+            <MENGE>25</MENGE>
+         </E1EDC01>
       </E1EDP01>
       <E1EDP01 SEGMENT="1">
          <POSEX>10</POSEX>
-         <MENGE>144</MENGE>
+         <PSTYP>F</PSTYP>
+         <MENGE>450</MENGE>
          <MENEE>H87</MENEE>
+         <PMENE>1</PMENE>
          <VPREI>2.19</VPREI>
+         <PEINH>1</PEINH>
          <CURCY>EUR</CURCY>
+         <PSTYV>CH</PSTYV>
          <E1EDP19 SEGMENT="1">
             <QUALF>001</QUALF>
             <IDTNR>100010</IDTNR>
@@ -363,12 +458,18 @@
             <IDTNR>4000001000104</IDTNR>
          </E1EDP19>
          <E1EDPT1 SEGMENT="1">
-            <TDID>ZAP1</TDID>
+            <TDID>004</TDID>
             <TSSPRAS>E</TSSPRAS>
             <E1EDPT2 SEGMENT="1">
                <TDLINE>BestRun NutriSnack - Veggie Chips</TDLINE>
             </E1EDPT2>
          </E1EDPT1>
+         <E1EDC01 SEGMENT="1">
+            <SGTYP>001</SGTYP>
+            <POSEX>1</POSEX>
+            <MATKL>CT</MATKL>
+            <MENGE>30</MENGE>
+         </E1EDC01>
       </E1EDP01>
    </IDOC>
 </ORDERS05>
