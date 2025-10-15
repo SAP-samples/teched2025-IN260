@@ -1,183 +1,120 @@
-# Exercise 2 - Create the necessary Trading Partner Profile
-In this exercise, you will learn how to set up a complete Trading Partner Profile for EDI processing within a B2B integration scenario. The steps guide you through:
-- Creating a unique Interchange Control Number (ICN) using number ranges.
-- Setting up a Trading Partner Profile, including company details and identifiers for EANCOM and IDOC payloads.
-- Configuring Identifier Groups to manage multiple sender identifiers.
-- Defining Trading Partner System Details, including type systems and communication channels.
-- Creating Trading Partner Parameters to support dynamic data injection into mappings and headers.
-- Assigning Number Ranges to ensure proper tracking of EDI transactions.
+# Exercise 2: Creating a Trading Partner Agreement (TPA) from a Template
 
-By completing this exercise, you will gain hands-on experience in configuring the foundational elements required for secure and structured electronic data interchange between business partners.
+This exercise will teach you to create a Trading Partner Agreement (TPA) using a predefined template within the Trading Partner Management system. You will be guided through verifying and updating activity parameters, adding company and trading partner-specific parameters, and finalizing the agreement setup. By this exercise's end, you can confidently configure and activate a TPA tailored to your trading partner's requirements.
 
-## Step  1 - Go to the Number Range objects
-A unique interchange number should be added while sending out documents for EDI processing. To add, e.g., an interchange number, you can use Number Ranges. Every IN260 participant should create their his own interchange number. For this purpose
-- (a) Click on **Integrations and APIs** inside the Monitor section
-- (b) Select the box **Number Ranges**
+## Step 1 - Open the TPA Template
+First, check if all required (activity) parameters are correctly set in the uploaded Trading Partner Agreement Template (TPA-Template) and make any necessary changes. For this reason:
+- (a) Go to the Trading Partner Management system to the tab **Agreement Templates**
+- (b) And open the template **[B2B Integration Factory] - Order to Cash B2B Scenario for SAP IDoc with UN/EDIFACT D.96A – Template**
 
 ![IN260 Figure 02.01](assets/IN260_02.01.png)
 
-## Step  2 - Create a Number Range object
-Create in the new window your number range for the Interchange Control Number (ICN) by following steps:
-- (a) Click on **Add**, and a pop-up will open
-- (b) Enter the name `ICN_EDIFACT_IN260_XX` (Make sure to replace XX with your UserID.)
-- (c) Set the minimum value to `0`.
-- (d) Set the maximum value to `99999999999999`.
-- (e) Enter the field length `14`.
-- (f) Select the checkbox for `Rotate`.
-- (g) Click on button **OK**.
+## Step 2 - Check, review, and update the TPA-Template
+You should review the required (activity) parameters for each business transaction. Add the necessary (activity) parameters described in step 3 if these are unavailable. You should check if the following (activity) parameters are set via the following steps:
+- (a) Go to tab **B2B Scenarios**.
+- (b) Expand Business Transaction: **01.) Sales Order Request/Response**
+- (c) Go to tab **Activity Parameters**, and
+- (d) Check if the following Activity Parameters are available:
+  
+| Activity | Role | Data Source | Private Key | Private Value |
+| --- | --- | --- | --- | --- |
+| Inbound | RECEIVER | [Company Name] | SAP_EDI_REC_Receiver_System_ID | SAPDS2 |
+| Inbound | RECEIVER | [Company Name] | SAP_EDI_REC_Receiver_Partner_Type | LS |
+| Inbound | RECEIVER | [Company Name] | SAP_EDI_REC_Receiver_Partner_Function | MA |
+| Inbound | SENDER | | SAP_EDI_REC_Sender_System_ID | *Derived from TPP* |
+| Inbound | SENDER | | SAP_EDI_REC_Sender_Partner_Function | *Derived from TPP* |
+| Inbound | SENDER | | SAP_EDI_REC_Sender_Partner_Type | *Derived from TPP* |
+| Outbound | RECEIVER | |  SAP_EDI_REC_Receiver_Routing_Address | *Derived from TPP* |
+| Outbound | SENDER | [Company Name] | SAP_EDI_REC_Sender_Routing_Address | FromCI |
 
-Note: The interchange control number is a unique identifier assigned to each interchange of EDI transactions. It is used to track and manage data exchange between trading partners. On the other hand, the group control number is used to identify and manage the individual groups of transactions within an interchange.
+- (e) Expand the Business Transaction: **02.) Delivery Notification – Outbound** and check if the following Activity Parameters are set:
+  
+| Activity | Role | Data Source | Private Key | Private Value |
+| --- | --- | --- | --- | --- |
+| Outbound | RECEIVER | | SAP_EDI_REC_Receiver_Routing_Address | *Derived from TPP* |
+| Outbound | SENDER | [Company Name] | SAP_EDI_REC_Sender_Routing_Address | FromCI |
+
+- (f) Finally, expand Business Transaction: **03.) Invoice - Outbound** and review these Activity Parameters. The following should be set:
+  
+| Activity | Role | Data Source | Private Key | Private Value |
+| --- | --- | --- | --- | --- |
+| Outbound | RECEIVER | | SAP_EDI_REC_Receiver_Routing_Address | *Derived from TPP* |
+| Outbound | SENDER | [Company Name] | SAP_EDI_REC_Sender_Routing_Address | FromCI |
 
 ![IN260 Figure 02.02](assets/IN260_02.02.png)
 
-## Step  3 - Create a new Trading Partner Profile
-Now, you should start to create your own trading partner profile so that you can create your specific Trading Partner Agreement based on the imported Trading Partner Agreement template.
-- (a) Therefore navigate to the B2B Scnearios for displaying the Trading Partner Management (TPM)
-- (b) Go to the **Partner Profiles** and
-- (c) Create a new trading partner by clicking on Create --> Trading Partner
-- (d) In the **Overview** tab for the new trading partner Company Name: `IN260-UserXX` (replace XX with your number), and
-- (e) Company Short Name: `IN260-UserXX`
-- (f) Click on the button **Save**.
+## Step 3 - Add Company Inbound Parameters in TPA Template
+You review and do not see any activity parameters due to the import of the TPA templates by another participant; these parameters have been overwritten because they did not set "Select Parameters" and "Select Activity Parameters" to Skip before the import (see Exercise 1, Step 8). If this is the case, then these (activity) parameters should be entered afterwards in the tab "B2B Scenarios" using the following steps:
+- (a) Stay in tab **B2B Scenarios** and click on the **Edit** button.
+- (b) If you are in edit mode, go to the first business transaction **01.) Sales Order Request/Response**
+- (c) In  **Activity Parameters** select **Add Parameters --> Extend from Company --> Inbound** and a new pop-up window will be opened
+- (e) In this pop-up window, you can now select the required **Company Parameters**, which are in this case:
+  - `SAP_EDI_REC_Receiver_System_ID`
+  - `SAP_EDI_REC_Receiver_Partner_Type`
+  - `SAP_EDI_REC_Receiver_Partner_Function`
+- (f) Click the **Save** button.
 
 ![IN260 Figure 02.03](assets/IN260_02.03.png)
 
-## Step  4 - Create a Single Identifier for EANCOM
-Set first of all single identifiers for the outgoing EANCOM interchanges. For this purpose
-- (a) Stay on the Trading Partner Profile and choose the tab **Identifiers**
-- (b) Click on **Create** button, a pop-up will open.
-- (c) Enter the identification number `E-XX`, where XX has to be replaced by your 
-  UserID. Ensure the identification number is no longer than 14 characters; otherwise, remove leading zeros.
-- (d) Enter the Alias: `TP_UNEDIFACT_ID`
-- (e) Select the Type System: `GS1 EANCOM`
-- (f) Select the Scheme: `Mutually defined` with the value `ZZZ`
-- (g) Click on the button **Save**.
+## Step 4 -  Add Trading Partner Inbound Parameters in TPA Template
+You must proceed with the following steps to add the trading partner-related parameters in the inbound direction. These trading partner-related parameters are in the template and will be automatically filled once a TPA is created from this TPA template via "Copy" or "Bind".
+- (a) Select in the menu **Add Parameters --> Create Trading Partner Parameters --> Inbound** and a new pop-up window will be displayed.
+- (b) Enter in **Parameter Key** the value `SAP_EDI_REC_Sender_System_ID`
+- (c) Click the **Save** button.
 
 ![IN260 Figure 02.04](assets/IN260_02.04.png)
 
-## Step  5 - Create a Single Identifier for SAP IDoc
-Enter the further required identifier like step 4 by
-- (a) Clicking on button **Create** and entering the following values:
-  - Identification: `I-XX` , where XX has to be replaced by your UserID. Ensure the identification number is no longer than 10 characters; otherwise, remove leading zeros.
-  - Alias: `TP_IDOC_ID`
-  - Type System: `SAP S/4HANA On Premise IDoc`
-  - Scheme: `N/A`
-- (b) The should be than shown in the list after clicking on **Save** button.
+## Step 5 - Add Outbound Parameters in TPA Template
+You must do the same for the Business Transaction Activities in the outbound direction. This can be realized by following the steps:
+- (a) Stay in tab **B2B Scenarios**, go to **Edit** mode, and select in tab **Activity Parameters** in menu **Add Parameters --> Extend from Company --> Outbound** so that you will see a pop-up window **Company Parameters**.
+- (b) In this pop-up window, select the parameter `SAP_EDI_REC_Sender_Routing_Address`.
+- (c) Click the **Save** button.
+- (d) Select in the menu **Add Parameters --> Create Trading Partner Parameters --> Outbound** so that you'll see the pop-up window **Add Trading Partner Parameter**
+- (e) In this pop-up window, enter the value in **Parameter Key**: `SAP_EDI_REC_Receiver_Routing_Address`.
+- (f) Click the **Save** button.
+- (g) Repeat the steps (5.a) to (5.f) in the Business Transaction: **02.) Delivery Notification – Outbound**
+- (h) Repeat the steps (a) to (f) in the Business Transaction: **03.) Invoice - Outbound** 
+- (i) Finally, all activity parameters should be set, as shown in step 2. If this is the case, click the **Save** button after adding activity parameters to each business transaction.
 
 ![IN260 Figure 02.05](assets/IN260_02.05.png)
 
-## Step  6 - Create a Group Identifier for EANCOM
-You should now create an Identifier Group for incoming EANCOM interchanges, which might have different sender identifiers in the UNB segment. For this reason, you should carry out the following steps:
-- (a) Scroll down to **Identifier Groups**
-- (b) Click on the **Create** button, and a pop-up will open.
-- (c) Enter the identification number `GE-XX`, where G standard for the group and where XX has to be replaced by your UserID. Ensure the identification number is no longer than 14 characters; otherwise, remove leading zeros.
-- (d) Enter the Alias: `TP_EANCOM_G`
-- (e) Select the Type System: `GS1 EANCOM`
-- (f) Select the Scheme: `Mutually defined` with the value `ZZZ`
-- (g) Click on the button **Save**.
+## Step 6 - Create a TPA via Copy of a TPA Template
+To create a new TPA (Trading Partner Agreement) in the Trading Partner Management via the copy from a TPA template function, do the following steps:
+- (a) Open the tab “Agreements”
+- (a) Click the **Create** button to open a new pop-up window
+- (c) Select the TPA template `[B2B Integration Factory] - Order to Cash B2B Scenario for SAP IDoc with UN/EDIFACT D.96A - Template`
+- (d) Click the **Next** button
+- (e) Enable the radio button **Copy from Template**
+- (f) Make sure to select all business transactions
+- (g) Select your Trading Partner **INT260-XX** from the drop-down list. The XX should represent your user ID.
+- (h) Click the **Open Draft** button
+
+***General Note:*** Selecting all transactions is not always necessary. This depends on the trading partner. Choose only the transactions that are relevant for your trading partner.
 
 ![IN260 Figure 02.06](assets/IN260_02.06.png)
 
-## Step  7 - Add an Identifier do Group Identifier
-You should now see an entry of a new identifier group in where you can add the identifiers itself by
-- (a) Click on the **Add** button.
-- (b) In the new pop-up, enter in Identification: `E1-XX`, and
-- (c) In Sub-Organization Name: `Suborg. E1`.
-- (d) Click on **Save** button.
+## Step 7 - Finalize the Overview of the TPA
+A new Trading Partner Agreement (TPA) for your trading partner will be created. You'll see as default the **Overview** tab of your TPA, where you should update and finalize the overview accordingly:
+- (a) Change your agreement's name and description where you substitute the term `[B2B Integration Factory]` with `INT260-XX`. Make sure to replace XX with your UserID and Trading Partner Name. 
+- (b) Ìn the **Trading Partner Details**, set the **Type System** value to `GS1 EANCOM`
+- (c) Select in the same details the **Type System Version**: `D.96A S3`
+- (d) Click on **Identifier in Company Type System** on the value help to display a pop-up window.
+- (e) In this pop-up window, go to the tab **Identifier Groups**
+- (f) Select the identifier group with the **Group Name**: GE-XX (as you know, the XX is a placeholder for your user ID).
+- (g) In the **My Company Details** select in **Identifier in Trading Partner Type System** the value: `EAN-COMP01`.
+- (h) Click the **Save** button.
 
 ![IN260 Figure 02.07](assets/IN260_02.07.png)
 
-## Step  8 - Add a second Identifier do Group Identifier
-Add a second identifier in the same group
-- (a) Open the details view of the group identifier
-- (b) Click on the **Add** button.
-- (c) Enter the values:
-  - Identification: `E2-XX`, and
-  - Sub-Organization Name: `Suborg. E2`
-- (d) Click on the **Save** button.
-- (e) Enable the Activation Status so that the identifiers of this group will be recognized at the sender side of incoming EANCOM interchanges.
+## Step 8 - Review, review, and update and activate the TPA
+For finalization and activation of the TPA,  stay in your newly created TPA and 
+- (a) switch to the **B2B scenarios** tab.
+- (b) Check if all the activity parameters defined in step 2 are set and filled. Filling means that the trading partner-related activity partners should have values derived from the corresponding parameters described in the Trading Partner Profile. Repeat this review with the other two business transactions.
+  - 02.) Delivery Notification - Outbound
+  - 03.) Invoice - Outbound
+- (b) Check if the empty values in the agreement template are filled with your Trading Partner parameters.
+- (c) If everything is fine, you can activate this TPA by clicking on the **Activate** button.
+- (d) After a short while, you should see the **Activation Status**: **Active**
+- (e) And the **Activate** button should be substituted with **Deactivate**
 
 ![IN260 Figure 02.08](assets/IN260_02.08.png)
-
-## Step  9 - Create a trading partners B2B System
-Add Trading Partner System Details so that you can define the trading partner system-specific configuration, such as the configuration of the communication channels.
-To proceed, you’ll need to add the specifics of the trading partner system:
-- (a) Navigate to the **Systems** tab.
-- (b) Click **Create System** – a pop-up window will appear.
-- (c) Enter the System Name `B2B System`
-- (d) Enter Alias, `UN-EDIFACT_B2B-System`
-- (e) Select the Type: `B2B System`
-- (f) Select the Purpose: `Dev`
-- (g) Click **Save** to finalize the configuration.
-
-![IN260 Figure 02.09](assets/IN260_02.09.png)
-
-## Step  10 - Create the trading partner's Type System
-Go to your newly created System and set the further configuration which belongs to the trading partners system. The following steps are required for it:
-- (a) Go to the details of the **System**
-- (b) You'll see the details of the tab **Type Systems**, where you should click on the **Create Type System** button. A pop-up will open.
-- (c) In the pop-up **Assign Type System Version(s)** choose `GS1 EANCOM` and
-- (d) Select version `D.96A S3` using the drop-down boxes.
-- (e) Click on **Add**. You will see the newly created type systems.
-
-![IN260 Figure 02.10](assets/IN260_02.10.png)
-
-## Step  11 - Create the Receiver Communication Channel
-The next step is the setting of the communication channels. Since this session focuses exclusively on interchange payload processing, it is entirely sufficient to create so-called simulation channels. Session INT164 focuses in particular on communication with external systems, such as via the AS2 communication protocol. The communication channels can be added as follows:
-- (a) Go to tab **Communications**
-- (b) Click on the button **Create Communication** so that you will get a new pop-up window.
-- (c) Enter in this new window the Name: `B2B-Simulation.Receiver`
-- (d) Enter the Alias: `B2B-Simulation.Receiver`
-- (e) Select in Direction the value: `Receiver`
-- (f) Select in Adapter the value: `Process_Direct`
-- (g) Enter in the connection details the address: `/tpm/b2b-simulation/receiver`
-- (h) Click on the **Save** button.
-
-![IN260 Figure 02.11](assets/IN260_02.11.png)
-
-## Step  12 - Create the Sender Communication Channel
-You need another communication channel on the receiver side. For this additional channel,
-- (a) Click in the tab **Communications** on the **Create** button, and
-- (b) Enter the values as follows:
-  - Name: `B2B-Simulation.Sender`
-  - Alias: `B2B-Simulation.Sender`
-  - Direction: `Sender`
-  - Adapter: `Process_Direct`
-
-![IN260 Figure 02.12](assets/IN260_02.12.png)
-
-## Step  13 - Create a trading partner related Parameter
-Parameters can be used in a wide variety of ways. They can either be used to initialize additional values in the envelope header, to provide further values in the mappings, or they can also be used in pre-/post-processing integration flows or their scripts for further control or processing. It is beneficial to create the parameters in the trading partner profiles if these are trading partner-related, so that the trading partner agreements can dynamically access the trading partner-specific parameters. These trading partner-specific parameters can be created as follows:
-- (a) Go to the Trading Partner Profile to the tab **Parameters**
-- (b) Click on the button **Create** so that a pop-up window will be opened.
-- (c) In the new window, enter in **Parameter Key** the value: `SAP_EDI_REC_Receiver_Routing_Address`
-- (d) And enter in **Value**: `ToTestERP`
-- (e) Click on the **Save** button.
-
-Remark: This value will be inserted into the UNB interchange header via the assembly step.
-
-![IN260 Figure 02.13](assets/IN260_02.13.png)
-
-## Step  14 - Create further required Parameters
-Enter the further required parameters by
-- (a) Clicking on button **Create**
-- (b) The parameters should be as shown in the following table.
-
-| Parameter Key | Value | Purpose |
-| --- | --- | --- |
-| `DESADV_ContractPartyReferenceNumber` | `REF-IN260-XX` | Injection into the MAG |
-| `DESADV_KindOfNumberOfTotalPackages` | `CBP` | Injection into a XSLT script at a post-prossing flow |
-| `SAP_EDI_REC_Sender_System_ID` | `CPIFALLBAC` | Injection into the SAP IDOC EDI_DC40 header segment in incoming transactions |
-| `SAP_EDI_REC_Sender_Partner_Function` | `AG` | Injection into the SAP IDOC EDI_DC40 header segment in incoming transactions |
-| `SAP_EDI_REC_Sender_Partner_Type`| `KU`| Injection into the SAP IDOC EDI_DC40 header segment in incoming transactions |
-
-![IN260 Figure 02.14](assets/IN260_02.14.png)
-
-## Step  15 - Assign the created Number Range object
-The defined number range from step 2 should now be assigned to the trading partner. This number is relevant for inserting a trading partner-specific interchange control number into the UNB interchange header --> data element 0020 (Interchange Control Reference). The following steps are required for it:
-- (a) Switch to the tab **Number Ranges**
-- (b) Click on **Add**.
-- (c) Select the Number Range `ICN_EDIFACT_IN260_XX` and use the same name for the alias.
-- (d) Enter the value in Alias: `ICN_EDIFACT`
-- (e) Save it by clicking on **Save** button.
-
-![IN260 Figure 02.15](assets/IN260_02.15.png)

@@ -1,98 +1,183 @@
-# Excercise 1 -  Get Pre-Packaged B2B Integration Content and import it
-In this exercise, you will learn how to work with pre-packaged B2B integration content using SAP Integration Suite. By following the steps, you will:
-- Download and explore the **B2B Integration Factory - Order-to-Cash B2B Scenario** content from the SAP Business Accelerator Hub.
-- Retrieve essential artifacts such as Trading Partner Agreements (TPAs), Message Implementation Guidelines (MIGs), and Mapping Guidelines (MAGs).
-- Simulate importing MAGs into the SAP Integration Advisor to understand how content consistency is validated.
-- Simulate importing a TPA template and TPA example into the Trading Partner Management (TPM) system to see how pre-packaged agreements are integrated.
+# Exercise 1 - Create the necessary Trading Partner Profile
+In this exercise, you will learn how to set up a complete Trading Partner Profile for EDI processing within a B2B integration scenario. The steps guide you through:
+- Creating a unique Interchange Control Number (ICN) using number ranges.
+- Setting up a Trading Partner Profile, including company details and identifiers for EANCOM and IDOC payloads.
+- Configuring Identifier Groups to manage multiple sender identifiers.
+- Defining Trading Partner System Details, including type systems and communication channels.
+- Creating Trading Partner Parameters to support dynamic data injection into mappings and headers.
+- Assigning Number Ranges to ensure proper tracking of EDI transactions.
 
-By completing this exercise, you will understand how to leverage SAP’s pre-built B2B content to accelerate integration scenarios and manage trading partner configurations effectively.
+By completing this exercise, you will gain hands-on experience in configuring the foundational elements required for secure and structured electronic data interchange between business partners.
 
-## Step 1 - Get to the Community Section
-First of all, you should download the prepackaged B2B integration content **B2B Integration Factory - Order-to-Cash B2B Scenario** in form of TPA, MIGs and MAGs ferom the Business Accelerator Hub. Therefore, go to http://api.sap.com and do the following steps:
-- (a) Click on **More** so that you will see the **Community** section.
-- (b) Select **Community** in where you can search for the B2B Integration Content packages.
-- (c) In the **Community** section, click on **View All**.
+## Step  1 - Go to the Number Range objects
+A unique interchange number should be added while sending out documents for EDI processing. To add, e.g., an interchange number, you can use Number Ranges. Every IN260 participant should create their his own interchange number. For this purpose
+- (a) Click on **Integrations and APIs** inside the Monitor section
+- (b) Select the box **Number Ranges**
 
 ![IN260 Figure 01.01](assets/IN260_01.01.png)
 
-## Step 2 - Search for the B2B Integration packages
-Now search for the appropriate pre-packaged B2B integration content and select it via the following steps:
-- (a) Enter in the **Search** filed the value: `B2B Integration Factory - Order-to-Cash`
-- (b) Click on the tile **B2B Integration Factory - Order-to-Cash B2B Scenario** so that you'll see the details of this package.
-- (c) In the details, click on the tab **Documents** so that you can see the available packages.
-- (d) Select the package **Github - B2B Integration Factory - Order-to-Cash iDOC Scenario**
+## Step  2 - Create a Number Range object
+Create in the new window your number range for the Interchange Control Number (ICN) by following steps:
+- (a) Click on **Add**, and a pop-up will open
+- (b) Enter the name `ICN_EDIFACT_IN260_XX` (Make sure to replace XX with your UserID.)
+- (c) Set the minimum value to `0`.
+- (d) Set the maximum value to `99999999999999`.
+- (e) Enter the field length `14`.
+- (f) Select the checkbox for `Rotate`.
+- (g) Click on button **OK**.
+
+Note: The interchange control number is a unique identifier assigned to each interchange of EDI transactions. It is used to track and manage data exchange between trading partners. On the other hand, the group control number is used to identify and manage the individual groups of transactions within an interchange.
 
 ![IN260 Figure 01.02](assets/IN260_01.02.png)
 
-## Step 3 - Download the package files
-You will be redirected to the GitHub window, in which you should then follow the steps below to download the content:
-- (a) Select the file: `MAGs-B2B-Integration-Factory_Order-To-Cash_B2B-Scenario_UNEDIFACT-D.01B.zip` for downloading the required MIGs and MAGs, and
-- (b) Click on the downloads button, and repeat the same actions with 
-- (c) TPA_UNEDIFACT_D96A.zip for downloading the required TPA template
-- (d) So that you can finally see in the **Downloads** folder the
-- (e) Two files:
-  - `MAGs-B2B-Integration-Factory_Order-To-Cash_B2B-Scenario_UNEDIFACT-D.01B.zip`
-  - `TPA_UNEDIFACT_D96A.zip`
+## Step  3 - Create a new Trading Partner Profile
+Now, you should start to create your own trading partner profile so that you can create your specific Trading Partner Agreement based on the imported Trading Partner Agreement template.
+- (a) Therefore navigate to the B2B Scnearios for displaying the Trading Partner Management (TPM)
+- (b) Go to the **Partner Profiles** and
+- (c) Create a new trading partner by clicking on Create --> Trading Partner
+- (d) In the **Overview** tab for the new trading partner Company Name: `IN260-UserXX` (replace XX with your number), and
+- (e) Company Short Name: `IN260-UserXX`
+- (f) Click on the button **Save**.
 
 ![IN260 Figure 01.03](assets/IN260_01.03.png)
 
-## Step 4 - Login into Integration Suite and got to MAGs
-Go now into the Integration Suite by the following steps:
-- (a) Log in to the tenant. Your trainers will provide the URL.
-  - User: UserXX, where **XX** is your participant number. This number is essential and will be used in several places during the exercise. Wherever **XX** is mentioned, replace it with your number.
-  - You will receive the password from your trainers.
-- (b) Click on the **Logon** button.
-- (c) Once you log in, you should see the landing page of the SAP Integration Suite. In this landing page, go to the left-hand navigation to **Design --> B2B Scenarios**.
+## Step  4 - Create a Single Identifier for EANCOM
+Set first of all single identifiers for the outgoing EANCOM interchanges. For this purpose
+- (a) Stay on the Trading Partner Profile and choose the tab **Identifiers**
+- (b) Click on **Create** button, a pop-up will open.
+- (c) Enter the identification number `E-XX`, where XX has to be replaced by your 
+  UserID. Ensure the identification number is no longer than 14 characters; otherwise, remove leading zeros.
+- (d) Enter the Alias: `TP_UNEDIFACT_ID`
+- (e) Select the Type System: `GS1 EANCOM`
+- (f) Select the Scheme: `Mutually defined` with the value `ZZZ`
+- (g) Click on the button **Save**.
 
 ![IN260 Figure 01.04](assets/IN260_01.04.png)
 
-## Step 5 - Upload the prepackaged MAGs
-This and the next step are optional and should give you an idea, how you can import the exported MAGs into the SAP Integration Advisor. Because of consistency checks of the already imported MAGs, you can just simulate the kind of uploading. If you are on the overview page of the MAGs (Mapping Guidelines), you can import the downloaded MAGs by following these steps:
-- (a) Click on the **Import** button.
-- (b) In the opened window **Select Mapping Guidelines for Import**, click on the button **Browse**.
-- (c) Select from the downloads folder the exported archive which with the file name `MAGs-B2B-Integration-Factory_Order-To-Cash_B2B-Scenario_UNEDIFACT-D.96A.zip`, and
-- (d) Click on the button **Open** for uploading.
-
-Please note that the corresponding MIGs do not need to be imported, as they will be implicitly uploaded along with them.
+## Step  5 - Create a Single Identifier for SAP IDoc
+Enter the further required identifier like step 4 by
+- (a) Clicking on button **Create** and entering the following values:
+  - Identification: `I-XX` , where XX has to be replaced by your UserID. Ensure the identification number is no longer than 10 characters; otherwise, remove leading zeros.
+  - Alias: `TP_IDOC_ID`
+  - Type System: `SAP S/4HANA On Premise IDoc`
+  - Scheme: `N/A`
+- (b) The should be than shown in the list after clicking on **Save** button.
 
 ![IN260 Figure 01.05](assets/IN260_01.05.png)
 
-## Step 6 - Check the to be uploaded MAGs
-If you have any interest anyway and you have already selected the archive file, you should do the following steps
-- (a) Click on the button **Check**. The Integration Advisor is going to check if the MAGs are already imported.
-- (b) After a short while, you'll get the checking result, which shows in this case that the MAGs can't be imported
-- (c) You will get the reason for the details once you click on the status icon. In this case, the MAG already exists unchanged.
-  - Please consider: The icon will be in green and the check box will be enabled, if it is possible to import the MAG.
-- (d) Please click on the **Cancel** button.
+## Step  6 - Create a Group Identifier for EANCOM
+You should now create an Identifier Group for incoming EANCOM interchanges, which might have different sender identifiers in the UNB segment. For this reason, you should carry out the following steps:
+- (a) Scroll down to **Identifier Groups**
+- (b) Click on the **Create** button, and a pop-up will open.
+- (c) Enter the identification number `GE-XX`, where G standard for the group and where XX has to be replaced by your UserID. Ensure the identification number is no longer than 14 characters; otherwise, remove leading zeros.
+- (d) Enter the Alias: `TP_EANCOM_G`
+- (e) Select the Type System: `GS1 EANCOM`
+- (f) Select the Scheme: `Mutually defined` with the value `ZZZ`
+- (g) Click on the button **Save**.
 
 ![IN260 Figure 01.06](assets/IN260_01.06.png)
 
-## Step 7 - Go to the upload section for TPAs
-Now it is about importing the provided TPA template and sample TPA. This step is also optional, because the corresponding TPA template is already available. This step is only intended to simulate how the pre-packaged content should be imported into the TPM system. For this purpose, do the following steps:
-- (a) Open the Trading Partner Management (TPM) by selecting in the left navigation panel **Design --> B2B Scenarios**.
-- (b) In the TPM, go to the tab **Cross Actions**
-- (c) Click on the tile **Export and Import**.
-- (d) In the opened window, **Choose Action** select **Import Agreement** and
-- (e) Enter in **Action Name** a name such as `IN260-User XX - Import of Pre-Packaged B2B Integration Content`  (Whereby XX should be changed with your number).
-- (f) Click on the create button.
+## Step  7 - Add an Identifier do Group Identifier
+You should now see an entry of a new identifier group in where you can add the identifiers itself by
+- (a) Click on the **Add** button.
+- (b) In the new pop-up, enter in Identification: `E1-XX`, and
+- (c) In Sub-Organization Name: `Suborg. E1`.
+- (d) Click on **Save** button.
 
 ![IN260 Figure 01.07](assets/IN260_01.07.png)
 
-## Step 8 - Upload the prepackaged TPA and TPA template
-You'll get a new window **IN260-User XX - Import of Pre-Packaged B2B Integration Content**
-where you can select the archive file you want to import and make any further configurations, such as when and how matching data should be overwritten. Please do the following steps:
-- (a) Click on the button **Browse**.
-- (b) Pick the file that starts with  `TPA...` from your downloads folder.
-- (c) Click on the button **Open**.
-- (d) Select at Parameters: **Skip**
-- (e) Select at Activity Parameters: **Skip**
-- (f) Select at MIG References: **Update to the Latest Version** so that the MIGs will be automatically updated to the latest version.
-- (g) Select at MAG References: **Update to the Latest Version** so that the MAGs will be automatically updated to the latest version.
-- (h) Keep all other configurations as it is and click on the **Import** button.
+## Step  8 - Add a second Identifier do Group Identifier
+Add a second identifier in the same group
+- (a) Open the details view of the group identifier
+- (b) Click on the **Add** button.
+- (c) Enter the values:
+  - Identification: `E2-XX`, and
+  - Sub-Organization Name: `Suborg. E2`
+- (d) Click on the **Save** button.
+- (e) Enable the Activation Status so that the identifiers of this group will be recognized at the sender side of incoming EANCOM interchanges.
 
 ![IN260 Figure 01.08](assets/IN260_01.08.png)
 
-## Step 9 - Display the uploaded result
-After a short time, you should see in the action logs list that the TPA package has been imported correctly.
+## Step  9 - Create a trading partners B2B System
+Add Trading Partner System Details so that you can define the trading partner system-specific configuration, such as the configuration of the communication channels.
+To proceed, you’ll need to add the specifics of the trading partner system:
+- (a) Navigate to the **Systems** tab.
+- (b) Click **Create System** – a pop-up window will appear.
+- (c) Enter the System Name `B2B System`
+- (d) Enter Alias, `UN-EDIFACT_B2B-System`
+- (e) Select the Type: `B2B System`
+- (f) Select the Purpose: `Dev`
+- (g) Click **Save** to finalize the configuration.
 
 ![IN260 Figure 01.09](assets/IN260_01.09.png)
+
+## Step  10 - Create the trading partner's Type System
+Go to your newly created System and set the further configuration which belongs to the trading partners system. The following steps are required for it:
+- (a) Go to the details of the **System**
+- (b) You'll see the details of the tab **Type Systems**, where you should click on the **Create Type System** button. A pop-up will open.
+- (c) In the pop-up **Assign Type System Version(s)** choose `GS1 EANCOM` and
+- (d) Select version `D.96A S3` using the drop-down boxes.
+- (e) Click on **Add**. You will see the newly created type systems.
+
+![IN260 Figure 01.10](assets/IN260_01.10.png)
+
+## Step  11 - Create the Receiver Communication Channel
+The next step is the setting of the communication channels. Since this session focuses exclusively on interchange payload processing, it is entirely sufficient to create so-called simulation channels. Session INT164 focuses in particular on communication with external systems, such as via the AS2 communication protocol. The communication channels can be added as follows:
+- (a) Go to tab **Communications**
+- (b) Click on the button **Create Communication** so that you will get a new pop-up window.
+- (c) Enter in this new window the Name: `B2B-Simulation.Receiver`
+- (d) Enter the Alias: `B2B-Simulation.Receiver`
+- (e) Select in Direction the value: `Receiver`
+- (f) Select in Adapter the value: `Process_Direct`
+- (g) Enter in the connection details the address: `/tpm/b2b-simulation/receiver`
+- (h) Click on the **Save** button.
+
+![IN260 Figure 01.11](assets/IN260_01.11.png)
+
+## Step  12 - Create the Sender Communication Channel
+You need another communication channel on the receiver side. For this additional channel,
+- (a) Click in the tab **Communications** on the **Create** button, and
+- (b) Enter the values as follows:
+  - Name: `B2B-Simulation.Sender`
+  - Alias: `B2B-Simulation.Sender`
+  - Direction: `Sender`
+  - Adapter: `Process_Direct`
+
+![IN260 Figure 01.12](assets/IN260_01.12.png)
+
+## Step  13 - Create a trading partner related Parameter
+Parameters can be used in a wide variety of ways. They can either be used to initialize additional values in the envelope header, to provide further values in the mappings, or they can also be used in pre-/post-processing integration flows or their scripts for further control or processing. It is beneficial to create the parameters in the trading partner profiles if these are trading partner-related, so that the trading partner agreements can dynamically access the trading partner-specific parameters. These trading partner-specific parameters can be created as follows:
+- (a) Go to the Trading Partner Profile to the tab **Parameters**
+- (b) Click on the button **Create** so that a pop-up window will be opened.
+- (c) In the new window, enter in **Parameter Key** the value: `SAP_EDI_REC_Receiver_Routing_Address`
+- (d) And enter in **Value**: `ToTestERP`
+- (e) Click on the **Save** button.
+
+Remark: This value will be inserted into the UNB interchange header via the assembly step.
+
+![IN260 Figure 01.13](assets/IN260_01.13.png)
+
+## Step  14 - Create further required Parameters
+Enter the further required parameters by
+- (a) Clicking on button **Create**
+- (b) The parameters should be as shown in the following table.
+
+| Parameter Key | Value | Purpose |
+| --- | --- | --- |
+| `DESADV_ContractPartyReferenceNumber` | `REF-IN260-XX` | Injection into the MAG |
+| `DESADV_KindOfNumberOfTotalPackages` | `CBP` | Injection into a XSLT script at a post-prossing flow |
+| `SAP_EDI_REC_Sender_System_ID` | `CPIFALLBAC` | Injection into the SAP IDOC EDI_DC40 header segment in incoming transactions |
+| `SAP_EDI_REC_Sender_Partner_Function` | `AG` | Injection into the SAP IDOC EDI_DC40 header segment in incoming transactions |
+| `SAP_EDI_REC_Sender_Partner_Type`| `KU`| Injection into the SAP IDOC EDI_DC40 header segment in incoming transactions |
+
+![IN260 Figure 01.14](assets/IN260_01.14.png)
+
+## Step  15 - Assign the created Number Range object
+The defined number range from step 2 should now be assigned to the trading partner. This number is relevant for inserting a trading partner-specific interchange control number into the UNB interchange header --> data element 0020 (Interchange Control Reference). The following steps are required for it:
+- (a) Switch to the tab **Number Ranges**
+- (b) Click on **Add**.
+- (c) Select the Number Range `ICN_EDIFACT_IN260_XX` and use the same name for the alias.
+- (d) Enter the value in Alias: `ICN_EDIFACT`
+- (e) Save it by clicking on **Save** button.
+
+![IN260 Figure 01.15](assets/IN260_01.15.png)

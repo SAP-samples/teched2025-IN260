@@ -1,120 +1,275 @@
-# Exercise 3: Creating a Trading Partner Agreement (TPA) from a Template
+# Exercise 3: Finalize the Business Transaction Activity: 01. a) Sales Order Request - Inbound
 
-This exercise will teach you to create a Trading Partner Agreement (TPA) using a predefined template within the Trading Partner Management system. You will be guided through verifying and updating activity parameters, adding company and trading partner-specific parameters, and finalizing the agreement setup. By this exercise's end, you can confidently configure and activate a TPA tailored to your trading partner's requirements.
+In this exercise, you will complete and test the Business Transaction Activity **01. a) Sales Order Request - Inbound** using the SAP Integration Suite. The goal is to simulate a sales order request, analyze any errors, and refine the configuration to ensure successful processing. You will create and configure a Source MIG (Message Implementation Guideline), generate an Overlay MAG (Mapping Guideline), and update the Trading Partner Agreement (TPA) accordingly.
 
-## Step 1 - Open the TPA Template
-First, check if all required (activity) parameters are correctly set in the uploaded Trading Partner Agreement Template (TPA-Template) and make any necessary changes. For this reason:
-- (a) Go to the Trading Partner Management system to the tab **Agreement Templates**
-- (b) And open the template **[B2B Integration Factory] - Order to Cash B2B Scenario for SAP IDoc with UN/EDIFACT D.96A – Template**
+**What you will do:**
+- Trigger the inbound test and analyze the initial syntax error in the B2B Monitor.
+- Save the partner’s payload and create a source MIG from it.
+- Qualify key segments and refine data types/formatting in the MIG.
+- Create an Overlay MAG from the base MAG and align mappings to your MIG.
+- Use the proposal service to add non-conflicting mappings and simulate the result.
+- Update the TPA to use your Overlay MAG and re-run the end-to-end test.
+
+**Prerequisites:**
+- Your TPA is created and activated (from previous exercises).
+- You know your sender ID(s) from Exercise 2, Step 8.
+- Access to SAP Integration Suite (Cloud Integration), including Design and Monitor.
+- Notepad++ (or a text editor) installed.
+
+Follow each step carefully to complete the configuration and ensure the business transaction is correctly processed.
+
+## Step 1 - Test 01. a) Sales Order Request - Inbound
+After activation of the TPA, go to the test tool and proceed with the test of the first Business Transaction Activity
+- (a) Select the Get Request: **01. a) Sales Order Request - Inbound**
+- (b) Open the tab **Body** (if this is not open yet)
+- (c) Change the sender ID to one of these, which you entered in Exercise 2 - Step 8
+- (d) Substitute the `XX` in **UserXX** with your user ID.
+- (e) Click on the **Save** button.
+- (f) Run this test.
+- (g) After a short while, you'll get an error message.
 
 ![IN260 Figure 03.01](assets/IN260_03.01.png)
 
-## Step 2 - Check, review, and update the TPA-Template
-You should review the required (activity) parameters for each business transaction. Add the necessary (activity) parameters described in step 3 if these are unavailable. You should check if the following (activity) parameters are set via the following steps:
-- (a) Go to tab **B2B Scenarios**.
-- (b) Expand Business Transaction: **01.) Sales Order Request/Response**
-- (c) Go to tab **Activity Parameters**, and
-- (d) Check if the following Activity Parameters are available:
-  
-| Activity | Role | Data Source | Private Key | Private Value |
-| --- | --- | --- | --- | --- |
-| Inbound | RECEIVER | [Company Name] | SAP_EDI_REC_Receiver_System_ID | SAPDS2 |
-| Inbound | RECEIVER | [Company Name] | SAP_EDI_REC_Receiver_Partner_Type | LS |
-| Inbound | RECEIVER | [Company Name] | SAP_EDI_REC_Receiver_Partner_Function | MA |
-| Inbound | SENDER | | SAP_EDI_REC_Sender_System_ID | *Derived from TPP* |
-| Inbound | SENDER | | SAP_EDI_REC_Sender_Partner_Function | *Derived from TPP* |
-| Inbound | SENDER | | SAP_EDI_REC_Sender_Partner_Type | *Derived from TPP* |
-| Outbound | RECEIVER | |  SAP_EDI_REC_Receiver_Routing_Address | *Derived from TPP* |
-| Outbound | SENDER | [Company Name] | SAP_EDI_REC_Sender_Routing_Address | FromCI |
-
-- (e) Expand the Business Transaction: **02.) Delivery Notification – Outbound** and check if the following Activity Parameters are set:
-  
-| Activity | Role | Data Source | Private Key | Private Value |
-| --- | --- | --- | --- | --- |
-| Outbound | RECEIVER | | SAP_EDI_REC_Receiver_Routing_Address | *Derived from TPP* |
-| Outbound | SENDER | [Company Name] | SAP_EDI_REC_Sender_Routing_Address | FromCI |
-
-- (f) Finally, expand Business Transaction: **03.) Invoice - Outbound** and review these Activity Parameters. The following should be set:
-  
-| Activity | Role | Data Source | Private Key | Private Value |
-| --- | --- | --- | --- | --- |
-| Outbound | RECEIVER | | SAP_EDI_REC_Receiver_Routing_Address | *Derived from TPP* |
-| Outbound | SENDER | [Company Name] | SAP_EDI_REC_Sender_Routing_Address | FromCI |
+## Step 2 - Analyze the error
+You have to check now why there is an error. For this purpose, you should open the B2B Monitor in the SAP Cloud Integration to get further details for this error. Do the following steps for it:
+- (a) Open in the navigation panel the **Monitor --> B2B Scenarios**
+- (b) Select this entry in the overview list of **Interchanges**, which belongs to your test. 
+  ***Remark:*** You can use the filter at the top to refine the list and find your entry much more easily.
+- (c) Check the error in the tab **Error Information**
+- (d) This error tells you there is somehow an interchange syntax error.
+  ***Remark:*** You got just a kind of error because of the syntax validation in your **TPA --> Business Transaction Activity 01. a) Sales Order Request** is enabled. If you go to your TPA and click on the sender **Interchange** step in this business transaction activity, you can check this. A pop-up window will give you the details of the configuration.
+- (e) To get the details of the error, click on the tab **Interchange Payload**
+- (f) You'll see the details of the syntax error in this section. This error tells you that some segments are missing or others are too long. 
+  ***Remark***: This means that the Source MIG given by the prepackaged B2B Integration Content does not match this payload. It is now recommended that this MIG be updated accordingly and used as an Overlay MIG.
 
 ![IN260 Figure 03.02](assets/IN260_03.02.png)
 
-## Step 3 - Add Company Inbound Parameters in TPA Template
-You review and do not see any activity parameters due to the import of the TPA templates by another participant; these parameters have been overwritten because they did not set "Select Parameters" and "Select Activity Parameters" to Skip before the import (see Exercise 1, Step 8). If this is the case, then these (activity) parameters should be entered afterwards in the tab "B2B Scenarios" using the following steps:
-- (a) Stay in tab **B2B Scenarios** and click on the **Edit** button.
-- (b) If you are in edit mode, go to the first business transaction **01.) Sales Order Request/Response**
-- (c) In  **Activity Parameters** select **Add Parameters --> Extend from Company --> Inbound** and a new pop-up window will be opened
-- (e) In this pop-up window, you can now select the required **Company Parameters**, which are in this case:
-  - `SAP_EDI_REC_Receiver_System_ID`
-  - `SAP_EDI_REC_Receiver_Partner_Type`
-  - `SAP_EDI_REC_Receiver_Partner_Function`
-- (f) Click the **Save** button.
+## Step 3 - Save the sender interchange payload
+You need to take further steps, such as creating the source MIG and the UN/EDIFACT sender interchange payload for the business transaction activity 01. a) Create the Sales Order Request as a separate file. Therefore, follow the following steps. 
+- (a) Go to the API test, especially in the HTTP GET request: **01. a) Sales Order Request** and copy the payload shown in the tab **Body** into the clipboard.
+- (b) Open the Notepad++ tool and paste the payload into a new file.
+- (c) Open the menu **File**.
+- (d) Select **Save** to save the payload as `IN260-XX-EDIFACT-ORDERS.edi` in your downloads folder.
 
 ![IN260 Figure 03.03](assets/IN260_03.03.png)
 
-## Step 4 -  Add Trading Partner Inbound Parameters in TPA Template
-You must proceed with the following steps to add the trading partner-related parameters in the inbound direction. These trading partner-related parameters are in the template and will be automatically filled once a TPA is created from this TPA template via "Copy" or "Bind".
-- (a) Select in the menu **Add Parameters --> Create Trading Partner Parameters --> Inbound** and a new pop-up window will be displayed.
-- (b) Enter in **Parameter Key** the value `SAP_EDI_REC_Sender_System_ID`
-- (c) Click the **Save** button.
+## Step 4 - Create the trading partner's source MIG
+The next significant step is to create a source MIG to fit the given payload available in the API testing tool.
+- (a) open the **Design --> MIGs**in the navigation panel in SAP Integration Suite.
+- (b) In the Message Implementation Guidelines overview list, click the **Create** button.
+- (c) You will see a new pop-up window with a wizard for creating a new MIG. You should search the `UN/EDIFACT` type system in the first step.
+- (d) Select this type system **UN/EDIFACT**.
+- (e) The wizard automatically displays the second step, where you should search for the ´Purchase Order Message`.
+- (f) Select the listed **ORDERS** mesage type and select in the forth step the version **D.96A**.
+- (g) Select the entry **EnvelopeForMessageS3**in the fourth step.
+- (h) Select for uploading in the fifth step the given payload `IN260-XX-EDIFACT-ORDERS.edi`. 
+- (i) Ensure that the payload's content will be used as example values.
+- (j) Click on the button **Next**.
 
 ![IN260 Figure 03.04](assets/IN260_03.04.png)
 
-## Step 5 - Add Outbound Parameters in TPA Template
-You must do the same for the Business Transaction Activities in the outbound direction. This can be realized by following the steps:
-- (a) Stay in tab **B2B Scenarios**, go to **Edit** mode, and select in tab **Activity Parameters** in menu **Add Parameters --> Extend from Company --> Outbound** so that you will see a pop-up window **Company Parameters**.
-- (b) In this pop-up window, select the parameter `SAP_EDI_REC_Sender_Routing_Address`.
-- (c) Click the **Save** button.
-- (d) Select in the menu **Add Parameters --> Create Trading Partner Parameters --> Outbound** so that you'll see the pop-up window **Add Trading Partner Parameter**
-- (e) In this pop-up window, enter the value in **Parameter Key**: `SAP_EDI_REC_Receiver_Routing_Address`.
-- (f) Click the **Save** button.
-- (g) Repeat the steps (5.a) to (5.f) in the Business Transaction: **02.) Delivery Notification – Outbound**
-- (h) Repeat the steps (a) to (f) in the Business Transaction: **03.) Invoice - Outbound** 
-- (i) Finally, all activity parameters should be set, as shown in step 2. If this is the case, click the **Save** button after adding activity parameters to each business transaction.
+## Step 5 - Select the nodes for qualification
+The qualifier concept is an integral part of the MIGs. It helps you provide the correct business meaning of the used nodes and especially simplifies the mapping later on. The sixth step of the wizard allows you to select these segments that should get different qualified representations. 
+- (a) To see which should be qualified, you should open Notepad++ with the opened payload for which you must create a MIG now.
+- (b) In this payload, you might recognize that the **DTM** segment occurs several times with different qualifiers. Therefore, it makes sense to select the **DTM** segment.
+- (c) The **FTX** occurs just once, but it is also useful to select this segment for semantic precision.
+- (d) The **Segment Group 2 (SG2)**, which expresses the different kinds of parties, should also be selected.
+- (e) Please check the table below to select the remaining segments.
+- (f) If you finished the selection, click the **Next** button.
 
 ![IN260 Figure 03.05](assets/IN260_03.05.png)
 
-## Step 6 - Create a TPA via Copy of a TPA Template
-To create a new TPA (Trading Partner Agreement) in the Trading Partner Management via the copy from a TPA template function, do the following steps:
-- (a) Open the tab “Agreements”
-- (a) Click the **Create** button to open a new pop-up window
-- (c) Select the TPA template `[B2B Integration Factory] - Order to Cash B2B Scenario for SAP IDoc with UN/EDIFACT D.96A - Template`
-- (d) Click the **Next** button
-- (e) Enable the radio button **Copy from Template**
-- (f) Make sure to select all business transactions
-- (g) Select your Trading Partner **INT260-XX** from the drop-down list. The XX should represent your user ID.
-- (h) Click the **Open Draft** button
+| Node | Name |
+| --- | --- |
+| `DTM [2005 = “137”]` | Document/message date/time |
+| `FTX [4451 = “AAI”]` | General information |
+| `SG2 [3035 = “BY”]` | Buyer |
+| **In SG25** | In Line Item Segment Group | 
+| `     PIA [4347 = “1”]` | Additional product id - Additional identification |
+| `    IMD [7077 = “F”]` | Free-form |
+| `    QTY [6063 = “21”]` | Quantity - Ordered quantity |
+| `    SG28 [5125 = “AAA”]` | Calculation net price |
+| `CNT [6069 = “1”]` | Algebraic total of the quantity values in line items in a |
 
-***General Note:*** Selecting all transactions is not always necessary. This depends on the trading partner. Choose only the transactions that are relevant for your trading partner.
+
+## Step 6 - Finalize the Overview Information of the new MIG
+In the wizard step (6), you can enter all the information that belongs to the overview of the new MIG. Follow the following steps:
+- (a) Enter in **Name** the name of the MIG such as: `01.a) IN260-UserXX - UN/EDIFACT D.96A ORDERS – Source`
+- (b) Select the **Direction**: `In` for Inbound. 
+- (c) Select in the **Own Business Conext** the valus in the **Own Business Conext** category **Business Procss**: `Create Order`
+- (d)	**Product Classification**: `Food Beverage and Tobacco Products`
+- (e) **Industry Classification**: `Wholesale Distribution`
+- (f)	**Country/Region**: `Germany`
+- (e)	**Business Process Role**: `Buyer`
+- (h) Click on the **Create** button.
+
+***Remarks:***
+-	The “Partner Business Context” is not relevant.
+-	The context currently has just an informative purpose. But it will be part of the future proposal service, categorization, and searching.
 
 ![IN260 Figure 03.06](assets/IN260_03.06.png)
 
-## Step 7 - Finalize the Overview of the TPA
-A new Trading Partner Agreement (TPA) for your trading partner will be created. You'll see as default the **Overview** tab of your TPA, where you should update and finalize the overview accordingly:
-- (a) Change your agreement's name and description where you substitute the term `[B2B Integration Factory]` with `INT260-XX`. Make sure to replace XX with your UserID and Trading Partner Name. 
-- (b) Ìn the **Trading Partner Details**, set the **Type System** value to `GS1 EANCOM`
-- (c) Select in the same details the **Type System Version**: `D.96A S3`
-- (d) Click on **Identifier in Company Type System** on the value help to display a pop-up window.
-- (e) In this pop-up window, go to the tab **Identifier Groups**
-- (f) Select the identifier group with the **Group Name**: GE-XX (as you know, the XX is a placeholder for your user ID).
-- (g) In the **My Company Details** select in **Identifier in Trading Partner Type System** the value: `EAN-COMP01`.
-- (h) Click the **Save** button.
+## Step 7 - Automatic creation of the MIG
+The MIG will be initially created. After a while, you'll see a pop-up window that the MIG was successfully processed.
+- (a) Click the **Close** button to close the window.
+- (b) First, you should hide all the unselected nodes by going to the column header **Node** in the Structure table and clicking on the **right mouse button**.
+- (c) You'll see a menu. In here, you should select the menu item **Show Selected Nodes**
+- (d) Now, you'll just see the selected nodes, which are the ones in which the checkbox is marked.
+- (e) You can now refine/finalize the nodes. For example, you can change the names to be more concise or the properties of the data element  **2380**. For this purpose, you have to click on each node so that the details panel of this node will be displayed. 
+- (f) In the details panel, at tab **Details**, scroll down to the section **Simple Type Properties** and select the value' Date' in **Primitive Type**.
+- (g) May enter the value `8` for eight digits in **max. Length**. You can do the same in **min. Length**, because the date has a static length of 8 characters.
+- (h) The most crucial part is selecting the **Date Time Format**, because this will be recognized in the MAG (Mapping Guideline) later on. Select the value `CCYYMMDD` here, because this format is expressed by the qualifier value **102** in the subsequent node **2379** (Date/time/period format qualifier).  If you set the date/format at all the date/time nodes in the source/target MIGs, you don't have to create conversion functions in a MAG's mapping element if the source/target MIGs have different formats. This will be in a MAG automatically computed if the date/formats are known.
+
+***Remark***: The table in Step 8 shows the nodes where you have to make the changes.
 
 ![IN260 Figure 03.07](assets/IN260_03.07.png)
 
-## Step 8 - Review, review, and update and activate the TPA
-For finalization and activation of the TPA,  stay in your newly created TPA and 
-- (a) switch to the **B2B scenarios** tab.
-- (b) Check if all the activity parameters defined in step 2 are set and filled. Filling means that the trading partner-related activity partners should have values derived from the corresponding parameters described in the Trading Partner Profile. Repeat this review with the other two business transactions.
-  - 02.) Delivery Notification - Outbound
-  - 03.) Invoice - Outbound
-- (b) Check if the empty values in the agreement template are filled with your Trading Partner parameters.
-- (c) If everything is fine, you can activate this TPA by clicking on the **Activate** button.
-- (d) After a short while, you should see the **Activation Status**: **Active**
-- (e) And the **Activate** button should be substituted with **Deactivate**
-
+## Step 8 - Set further qualifier markers
+Unfortunately, the automatic qualifier setting procedure while creating a MIG via payload, as described in step 5, does not yet recognize all the necessary qualifier markers and qualifications. Therefore, some of the qualifier markers have to be manually set via the following steps:  
+- (a) Go to the data element (leaf) node that will be used to qualify a segment or segment group. In this case, the data element **6347** (Currency details qualifier) should qualify segment group 7, which might be used to express different kinds of currencies, including the usage of the other segments in this segment group. 
+- (b) In the details panel at **Details** tab go to the section **Properties** and click at **Qualifiers** the **[+]** (Add) button.
+- (c) You should now select the **SG7** in the pop-up window so that this segment group can also be qualified by this data element.
+- (d) Click on the **Create** button. 
+- (e) You'll see a further (grey) qualifier marker arrow from the data element **6347** to the segment group **SG7**.
+-   
 ![IN260 Figure 03.08](assets/IN260_03.08.png)
+
+## Step 9 - Set a qualification to a segment group
+Once you set the additional qualifier markers as explained in step 8, you can now set a qualification of this segment group by the following steps:
+- (a) Click on the segment group **SG7**, which should be qualified and click on the **Right Mouse Button** so that you can seea menu.
+(b) In this menu, select the item **Qualify Node...**, and a pop-up window will appear.
+- (c) Select the value **2** (Reference currency) in this pop-up window because this is the value set in the given payload. See: 
+  `CUX+2:EUR:9'`
+- (d) Click the **Create** button to see the additional qualifications for the MIG. We suggest changing the name of this segment group so that you will only see the necessary meaning of the whole segment group, such as **Reference currency**.
+
+***Remark***: Refine the further nodes according to the same principle as described in steps 7 to 9. The table below shows which nodes should be updated or have further information. Once you have finished this update, you should click the **Save** button of this MIG.
+
+![IN260 Figure 03.09](assets/IN260_03.09.png)
+
+**Table of relevant changes**
+
+| Node | Name | Qualifier | Prim. Type | Length | Format | 
+| --- | --- | --- | --- | --- | --- |
+| `DTM [2005 = “137”]` | Document/message date/time | `./C507/2005` |  |  |  | 
+| `            2380` | Date/time/period |  | `Date` | `8 .. 8` | `CCYYMMDD` | 
+| `DTM [2005 = “2”]` | Delivery date/time, requested | `./C507/2005` |  |  |  | 
+| `            2380` | Date/time/period |  | `DateTime` | `12 .. 12` | `CCYYMMDDhhmm` | 
+| `DTM [2005 = “10”]` | Shipment date/time, requested | `./C507/2005` |  |  |  | 
+| `            2380` | Date/time/period |  | `DateTime` | `12 .. 12` | `CCYYMMDDhhmm` | 
+| `FTX [4451 = “AAI”]` | General information | `./4451` |  |  |  | 
+| `SG2 [3035 = “BY”]` | Buyer | `./NAD/3035` |  |  |  | 
+| `    SG5 [3139 = “OC”]​` | Order contact | `./CTA/3139` |  |  |  | 
+| `            COM [3155 = “TE”]​` | Telephone | `./C076/3155` |  |  |  | 
+| `SG2 [3035 = “SU”]` | Supplier | `./NAD/3035` |  |  |  | 
+| `SG2 [3035 = “DP”]` | Delivery party | `./NAD/3035` |  |  |  | 
+| `SG7 [6347 = “2”]` | Reference currency | `./CUX/C504/6347` |  |  |  | 
+| `SG25    ` | Line Items |  |  |  |  | 
+| `    PIA [4347 = “1”]​` | Additional product id | `./4347` |  |  |  | 
+| `    IMD [7077 = “F”]​` | Free-form item description | `./7077` |  |  |  | 
+| `    QTY [6063 = “21”]​` | Ordered quantity | `./C186/6063` |  |  |  | 
+| `    SG28 [5125 = “AAA”]​` | Calculation net price | `./PRI/C509/5125` |  |  |  | 
+| `            CUX [6347 = “2”]​` | Reference currency | `./C504/6347` |  |  |  | 
+| `CNT [6069 = “1”]` | Algebraic total of the quantity values in line items in a | `./C270/6069` |  |  |  | 
+| `CNT [6069 = “2”]` | Number of line items in message | `./C270/6069` |  |  |  | 
+
+
+
+## Step 10 - Create a new Overlay MAG
+Once you are ready with the trading partner-specific source MIG, you can go ahead with the creation of the **Overlay MAG** based on the given MAG already provided by the pre-packaged B2B integration content. To create this **Overlay MAG**, you have to follow the following steps: 
+- (a) Go to the MAG overview list by selecting **Design --> MAGs** in the navigation panel.
+- (b) Click on the **Create** button and select the item **Overlay MAG** to display a pop-up window with a wizard for creating a Mapping Guideline.
+- (c) Search for the base MAG, which is `01.a) #IN260-BASE# - UN/EDIFACT D.96A ORDERS -to- SAP IDOC ORDERS.ORDERS05`
+- (d) Select this MAG from the filtered list, and the wizard will jump directly to the next step.
+- (e) In this second step, **Source MIG** select the tab **Compatible MIG**because you have to choose this MIG, which you already created in the previous steps.
+- (f) Search for this MIG, which `01.a) IN260-UserXX - UN/EDIFACT D.96A ORDERS – Source`
+- (g) Select this MIG that is now displayed in the list.
+- (h) Keep the Base Target MIG in the third step because it is the IDoc structure used across all trading partners.
+- (i) This means that you should take the same target MIG as the Base Target MIG, which is `
+01.a) [Company Name] - SAP IDOC ORDERS.ORDERS05 for Customer EDI - Target.
+- (j) Enter the name of the Overlay MAG in the 4th wizard step, which is: `01.a) IN260-UserXX - UN/EDIFACT D.96A ORDERS –to- SAP IDOC ORDERS.ORDERS05`.
+- (k) Click on the button **Create**.
+
+![IN260 Figure 03.10](assets/IN260_03.10.png)
+
+## Step 11 - New Overlay MAG, first clean up
+You will see the new Overlay MAG in the Mapping view. However, because of the inconsistencies between the base source MIG and the trading partner-specific MIG, you may see some errors. The reason is that the Base MIG and its corresponding Base MAG may consider more commonly used nodes than the MIG that is used for the specific trading partner. These should be deleted according to the following steps. 
+- (a) You may see several errors.
+- (b) Go to the **Mapping List** tab.
+- (c) Select **Only errors** to see the errors in the Mapping List.
+- (d) Delete all the erroneous mapping elements.
+
+![IN260 Figure 03.11](assets/IN260_03.11.png)
+
+## Step 12 - Check if the Overlay MAG is correct.
+You should now test if the **Overlay MAG** is not correct. You can do this best by simulating the mapping with the source payload. For this purpose, you have to do the following steps:
+- (a) Select the menu item **Simulate --> Simulate with MIG Example Data**.
+- (b) Upload the given payload `IN260-XX-EDIFACT-ORDERS.edi` in the new pop-up window.
+- (c) Click on the button **OK**.
+- (d) You should then see the values of the uploaded payload in the table, which shows the structure of the source MIG at the appropriate nodes.
+- (e) You should see the transformed values at the mapped nodes at the target MIG. 
+
+![IN260 Figure 03.12](assets/IN260_03.12.png)
+
+## Step 13 - Add further mapping elements via proposal service
+The assumption is now that the mapping is incomplete because it covers just the valid base mapping elements yet. Therefore, you should add further mapping elements in the Overlay MAG via the proposal service once the Overlay MAG is running sufficiently. The following steps are required for it: 
+- (a) Open the menu item **Proposal**, and the proposal service will be started. After about 2 minutes, it will give you a result in the **Mapping List**.
+- (b) You should now display just the **Nonconflicting proposals**, which means that you will see these mapping elements only, which will not overrule the base mapping elements.
+- (c) Select the best-fitting proposed mapping elements by clicking the button **Select Best Proposal**. 
+- (d) Then select in the pop-up window the correct mapping elements via clicking on the button **Use only valid Mappings**- 
+
+![IN260 Figure 03.13](assets/IN260_03.13.png)
+
+## Step 14 - See added mapping elements and clear proposal
+You will see the added mapping elements in the Overlay MAG, but before proceeding, you should clear the proposal and save the Overlay MAG.
+- (a) You'll see the additional overlay mapping elements in **Green**.
+- (b) In the tab **Proposal List**
+- (c) Click on button **Clear Proposal** so that all the proposed mapping elements will be deleted.
+- (d) If all is correct, click the button **Save**. 
+  
+***Remark:*** This **Save** is important so that the whole Overlay MAG will be updated accordingly.
+
+![IN260 Figure 03.14](assets/IN260_03.14.png)
+
+## Step 15 - Check, if the Overlay MAG is valid
+You should now proof the processing correctness of the Overlay MAG without reviewing the semantic details. This so review of semantic correctness will be done at a step. 
+- (a) Click on **Simulate** button and select **Simulate with simulate data**.
+- (b) Select your test file `Source - IN260-XX-EDIFACT-ORDERS.edi` and click on **OK** button.
+- (c) It could be the case that you'll get a processor error like shown in the pop-window "Error". It tells that the value `20250929`in the input data does not match with the given date/time `CCYYMMDDhhmm`format. 
+- (d) Please check in given source payload via note editor, where this value occurs. In this example case, this value `20250929` belongs to the **DTM** segment with the qualifier **137**, see: `DTM+137:20250929:102'`. 
+- (e) Go in source structure of your Overlay MAG, especially to the source node **DTM[2005 = 137] --> C507 --> 2380**, that you will see that this source node has two mapping elements.
+- (f) This mapping element covers for e.g. the transformation of the time based on the given date format `CCYMMDDhhmm`. This mapping element was inserted by the mapping proposal --> select best proposal. The reason is that the contributed majority covers also this mapping element.
+- (g) You can simply delete this in your context unnecessary mapping element by clicking on the specific mapping element line --> click on right mouse button --> an especially click on the menu item **Delete**.
+  
+![IN260 Figure 03.15](assets/IN260_03.15.png)
+
+## Step 16 - Change to the Overlay MAG in the TPA
+You should put the Overlay MAG into your TPA by following these steps: 
+- (a) Open your TPA and display the **B2B Scenarios** tab. 
+- (b) In the first business transaction activity in the **01.) Sales Order Request/Response** business transaction. Click here on the activity step **Mapping**.
+- (c) Click in the panel **Mapping** on the value help button at the **Mapping Guidelines (MAG).**.
+- (d) In the pop-up window, click the **Reset** button to select the MAGs.
+- (e) Select **Contains**.
+- (f) Insert the name of your Overlay MAG, such as `01.a) IN260-UserXX - UN/EDIFACT D.96A ORDERS –to- SAP IDOC ORDERS.ORDERS05`.
+- (g) Click on the button **Go**.
+- (h) Select your MAG in the filtered list of MAGs. 
+
+![IN260 Figure 03.16](assets/IN260_03.16.png)
+
+## Step 17 - Update the TPA
+You have to update the content of the TPA in the PD (Partner Directory) by following the steps. The PD (Partner Directory) stores all the configuration and content of the configured TPAs so that this will be dynamically invoked during runtime via the generic TPM-related integration flows. You can do an update via the following steps:
+- (a) First, you should save all the changes you made by clicking on the button **Save**.
+- (b) Click on the button **Update**.
+- (c) In the pop-up window, you should select the first business transaction because you usually don't make any changes in the other business transactions.
+- (d) Click on the button *Update**.
+
+![IN260 Figure 03.17](assets/IN260_03.17.png)
+
+## Step 18 - Select Business Transaction and do Update in PD 
+- (a)
+
+![IN260 Figure 03.18](assets/IN260_03.18.png)
+
+## Step 19 - Test the updated Business Transaction Activity
+- (a)
+
+![IN260 Figure 03.19](assets/IN260_03.19.png)
