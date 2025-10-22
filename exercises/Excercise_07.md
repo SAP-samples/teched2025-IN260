@@ -6,282 +6,108 @@ Explain that an Joule (AI) will support you on this case soon.
 
 Explain how to get Overlay MIG and initial Overlay MAG similar like in Excercise 04 - Step 4 to Step 12. Either can do this, if they have time, if not than they to copy the prepared Overlay MIG and MAG. No use of proposal service
 
-## Step 1 - 
-- (a)
-- (b)
-- (c)
-- (d)
-- (e)
-- (f)
-- (g)
-- (h)
-- (i)
-- (j)
+## Step 1 - Open your Partner Profile
+To start, open your Trading Partner Profile (TPP):
 
-![IN260 Figure 07.01](assets/IN260_07.01.png)
+- (a) Log in to your SAP Integration Suite tenant and open the Trading Partner Management application.
+- (b) Navigate to Partner Profiles.
+- (c) Select your Trading Partner (`IN260-UserXX`).
 
-## Step 2 - 
-- (a)
-- (b)
-- (c)
-- (d)
-- (e)
-- (f)
-- (g)
-- (h)
-- (i)
-- (j)
+![Bootcamp Figure 02.01](assets/INVOIC_01.png)
 
-![IN260 Figure 07.02](assets/IN260_07.02.png)
 
-## Step 3 - 
-- (a)
-- (b)
-- (c)
-- (d)
-- (e)
-- (f)
-- (g)
-- (h)
-- (i)
-- (j)
+## Step 2 - Add Parameters to the Trading Partner Profile
 
-![IN260 Figure 07.03](assets/IN260_07.03.png)
+Next, create parameters that will later be used in your agreement:
+- (a)	Click on “Paramters”. 
+- (b) Add a new parameter with the following details:
+    - Name: `UserYY_AllowanceChangeInformation`
+    - Value: `Discount:10`
+- (c) Save the parameter.
+- (d) Create a second parameter:
+    - Name: `UserYY_ValueAddedTaxPercent`
+    - Value: `19`
+- (e) Save your changes.
 
-## Step 4 - 
-- (a)
-- (b)
-- (c)
-- (d)
-- (e)
-- (f)
-- (g)
-- (h)
-- (i)
-- (j)
+![Bootcamp Figure 02.02](assets/INVOIC_02.png)
+![Bootcamp Figure 02.02](assets/INVOIC_03.png)
+![Bootcamp Figure 02.02](assets/INVOIC_04.png)
 
-![IN260 Figure 07.04](assets/IN260_07.04.png)
+## Step 3 - Copy an Existing Trading Partner Agreement
 
-## Step 5 - 
-- (a)
-- (b)
-- (c)
-- (d)
-- (e)
-- (f)
-- (g)
-- (h)
-- (i)
-- (j)
+Now, create a copy of an existing TPA:
+- (a) Navigate to Agreements. 
+- (b) Click on Copy. 
+- (c) Navigate to Overview and click on "Edit".
+- (d) Rename the TPA to `IN260-UserYY- Order to Cash B2B Scenario for SAP IDoc with UN/EDIFACT D.96A`.
 
-![IN260 Figure 07.05](assets/IN260_05.05.png)
+![Bootcamp Figure 02.02](assets/INVOIC_05.png)
+![Bootcamp Figure 02.02](assets/)
 
-## Step 6 - 
-- (a)
-- (b)
-- (c)
-- (d)
-- (e)
-- (f)
-- (g)
-- (h)
-- (i)
-- (j)
+## Step 4 - Assign Parameters to the Invoice Transaction
+Add the parameters you created to the outbound invoice transaction:
+- (a) In your TPA, navigate to "B2B Scenarios". 
+- (b) Open the Transaction `03.) Invoice - Outbound` 
+- (c) Click `Add Parameters` -> `Extend from TP`.
+- (d) Select your Parameters and click "save".
+- (e) Save the TPA (bottom right corner). 
+- (f) Click "Update" → "Update" to apply the changes.  
 
-![IN260 Figure 07.06](assets/IN260_07.06.png)
+![Bootcamp Figure 02.02](assets/INVOIC_07.png)
+![Bootcamp Figure 02.02](assets/INVOIC_08.png)
+![Bootcamp Figure 02.02](assets/INVOIC_09.png)
+![Bootcamp Figure 02.02](assets/INVOIC_10.png)
+![Bootcamp Figure 02.02](assets/INVOIC_11.png)
 
-## Step 7 - 
-- (a)
-- (b)
-- (c)
-- (d)
-- (e)
-- (f)
-- (g)
-- (h)
-- (i)
-- (j)
+## Step 5 - Copy the Mapping Guidline (MAG)
 
-![IN260 Figure 07.07](assets/IN260_07.07.png)
+To create a copy of the MAG used in your TPA:
+- (a) Navigate to "Design" → "MAGs".
+- (b) Select the MAG you want to copy, and click on "Cop"y" -> "Copy MAG only".
+- (c) Navigate to "Overview", click on "Edit" and change the Name to `03.) IN260-UserYY - ... INVOIC`
 
-## Step 8 - 
-- (a)
-- (b)
-- (c)
-- (d)
-- (e)
-- (f)
-- (g)
-- (h)
-- (i)
-- (j)
-  
-![IN260 Figure 07.08](assets/IN260_07.08.png)
+![Bootcamp Figure 02.02](assets/INVOIC_12.png)
+![Bootcamp Figure 02.02](assets/INVOIC_13.png)
 
-## Step 9 - 
-- (a)
-- (b)
-- (c)
-- (d)
-- (e)
-- (f)
-- (g)
-- (h)
-- (i)
-- (j)
 
-![IN260 Figure 07.09](assets/IN260_07.09.png)
+## Step 6 - Copy the Message Implementation Guideline (MIG)
 
-## Step 10 - 
-- (a)
-- (b)
-- (c)
-- (d)
-- (e)
-- (f)
-- (g)
-- (h)
-- (i)
-- (j)
+Next, copy the corresponding MIG:
+- (a)	Click on the Taget MIG Name.
+- (b)   Click on "Copy".
+- (c)	Navigate to "Overview" -> "Edit".
+- (c)	Rename the copied MIG to `03.) IN260-UserYY - ... Target`.
+- (d)   Save the MIG.
 
-![IN260 Figure 07.10](assets/IN260_07.10.png)
+![Bootcamp Figure 02.02](assets/INVOIC_14.png)
+![Bootcamp Figure 02.02](assets/INVOIC_15.png)
+![Bootcamp Figure 02.02](assets/INVOIC_16.png)
 
-## Step 11 - 
-- (a)
-- (b)
-- (c)
-- (d)
-- (e)
-- (f)
-- (g)
-- (h)
-- (i)
-- (j)
+## Step 7 - Update the Target MIG Reference in the MAG
 
-![IN260 Figure 07.11](assets/IN260_07.11.png)
+Now you will replace the old target MIG in your copied MAG:
+- (a)	Open your copied MAG and go to the "Overview" tab.
+- (b)	Click "Edit" next to the Target MIG field.
+- (c)   Search for your new MIG by entering UserYY
+- (d)   Selet it and click on "Change".
+- (e)	And now save your MAG. 
 
-## Step 12 - 
-- (a)
-- (b)
-- (c)
-- (d)
-- (e)
-- (f)
-- (g)
-- (h)
-- (i)
-- (j)
+![Bootcamp Figure 02.02](assets/INVOIC_17.png)
+![Bootcamp Figure 02.02](assets/INVOIC_18.png)
+![Bootcamp Figure 02.02](assets/INVOIC_19.png)
 
-![IN260 Figure 07.12](assets/IN260_07.12.png)
+## Step 8 - Update the MAG in the Trading Partner Agreement
 
-## Step 13 - 
-- (a)
-- (b)
-- (c)
-- (d)
-- (e)
-- (f)
-- (g)
-- (h)
-- (i)
-- (j)
+Finally, link your updated MAG in the Trading Partner Agreement:
+- (a)	Return to your Trading Partner Agreement.
+- (b)	Open the Invoice Transaction.
+- (c)	Click “Edit".
+- (d)   Under Mapping, open the Mapping Guideline.
+- (e)   Search for your MAG and select it. 
+- (f)   Click "Save", then Update the TPA once more to finalize the changes.
 
-![IN260 Figure 07.13](assets/IN260_07.13.png)
-
-## Step 14 - 
-- (a)
-- (b)
-- (c)
-- (d)
-- (e)
-- (f)
-- (g)
-- (h)
-- (i)
-- (j)
-
-![IN260 Figure 07.14](assets/IN260_07.14.png)
-
-## Step 15 - 
-- (a)
-- (b)
-- (c)
-- (d)
-- (e)
-- (f)
-- (g)
-- (h)
-- (i)
-- (j)
-
-![IN260 Figure 07.15](assets/IN260_07.15.png)
-
-## Step 16 - 
-- (a)
-- (b)
-- (c)
-- (d)
-- (e)
-- (f)
-- (g)
-- (h)
-- (i)
-- (j)
-
-![IN260 Figure 07.16](assets/IN260_07.16.png)
-
-## Step 17 - 
-- (a)
-- (b)
-- (c)
-- (d)
-- (e)
-- (f)
-- (g)
-- (h)
-- (i)
-- (j)
-
-![IN260 Figure 07.17](assets/IN260_07.17.png)
-
-## Step 18 - 
-- (a)
-- (b)
-- (c)
-- (d)
-- (e)
-- (f)
-- (g)
-- (h)
-- (i)
-- (j)
-
-![IN260 Figure 07.18](assets/IN260_07.18.png)
-
-## Step 19 - 
-- (a)
-- (b)
-- (c)
-- (d)
-- (e)
-- (f)
-- (g)
-- (h)
-- (i)
-- (j)
-
-![IN260 Figure 07.19](assets/IN260_07.19.png)
-
-## Step 20 - 
-- (a)
-- (b)
-- (c)
-- (d)
-- (e)
-- (f)
-- (g)
-- (h)
-- (i)
-- (j)
-
-![IN260 Figure 07.20](assets/IN260_07.20.png)
+![Bootcamp Figure 02.02](assets/INVOIC_20.png)
+![Bootcamp Figure 02.02](assets/INVOIC_21.png)
+![Bootcamp Figure 02.02](assets/INVOIC_22.png)
+![Bootcamp Figure 02.02](assets/INVOIC_23.png)
+![Bootcamp Figure 02.02](assets/INVOIC_24.png)

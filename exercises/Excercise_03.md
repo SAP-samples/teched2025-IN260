@@ -245,31 +245,41 @@ You should now proof the processing correctness of the Overlay MAG without revie
 ## Step 16 - Change to the Overlay MAG in the TPA
 You should put the Overlay MAG into your TPA by following these steps: 
 - (a) Open your TPA and display the **B2B Scenarios** tab. 
-- (b) In the first business transaction activity in the **01.) Sales Order Request/Response** business transaction. Click here on the activity step **Mapping**.
-- (c) Click in the panel **Mapping** on the value help button at the **Mapping Guidelines (MAG).**.
-- (d) In the pop-up window, click the **Reset** button to select the MAGs.
-- (e) Select **Contains**.
-- (f) Insert the name of your Overlay MAG, such as `01.a) IN260-UserXX - UN/EDIFACT D.96A ORDERS –to- SAP IDOC ORDERS.ORDERS05`.
-- (g) Click on the button **Go**.
-- (h) Select your MAG in the filtered list of MAGs. 
+- (b) Go into the edit mode by clicking on **Edit** button.
+- (c) In the first business transaction activity in the **01.) Sales Order Request/Response** business transaction. Click here on the activity step **Mapping**.
+- (d) Click in the panel **Mapping** on the value help button at the **Mapping Guidelines (MAG).**.
+- (e) In the pop-up window, click the **Reset** button to select the MAGs.
+- (f) Select **Contains**.
+- (g) Insert the name of your Overlay MAG, such as `01.a) IN260-UserXX`.
+- (h) Click on the button **Go**.
+- (i) Select your MAG in the filtered list of MAGs. 
+- (j) Click on the button **Choose**.
+- (k) Save the updated TPA by clicking on **Save** button.
 
 ![IN260 Figure 03.16](assets/IN260_03.16.png)
 
-## Step 17 - Update the TPA
+## Step 17 - Select Business Transaction Activirty for updating in PD
 You have to update the content of the TPA in the PD (Partner Directory) by following the steps. The PD (Partner Directory) stores all the configuration and content of the configured TPAs so that this will be dynamically invoked during runtime via the generic TPM-related integration flows. You can do an update via the following steps:
-- (a) First, you should save all the changes you made by clicking on the button **Save**.
-- (b) Click on the button **Update**.
-- (c) In the pop-up window, you should select the first business transaction because you usually don't make any changes in the other business transactions.
+- (a) Click on the button **Update**.
+- (b) Click on the **OK** button in the pop-up window ***Update Agreement*** with updating into.
+- (c) You'll see another pop-up-window ***Select Transactions and ...*** in where you should select the first business transaction `01.) Sales Order Request/Response` because you usually don't make any changes in the other business transactions.
 - (d) Click on the button *Update**.
 
 ![IN260 Figure 03.17](assets/IN260_03.17.png)
 
-## Step 18 - Select Business Transaction and do Update in PD 
-- (a)
+## Step 18 - Updating in the PD 
+Once you selected you Business Transaction Activity, you should now see the updating pocess
+- (b) By displaying the progress status.
+- (a) And after a short while that the updated TPA has the status **Active**.
 
 ![IN260 Figure 03.18](assets/IN260_03.18.png)
 
 ## Step 19 - Test the updated Business Transaction Activity
-- (a)
+You can finally thest the updated Business Transaction Activity via Bruno
+- (a) Select in Bruno the first test entry `01.a) Sales Order Request - Inbound`
+- (b) Click on the **Send** button
+- (c) And you'll see as in the "Response" a target interchange payload which covers the mapping result of the updated MAG.
+
+***Remark**: The next excersice describes now how you can review, finalize and refine the mapping and and gives you an idea how you can use payload validation for increasing the precission of the transformed content.
 
 ![IN260 Figure 03.19](assets/IN260_03.19.png)
