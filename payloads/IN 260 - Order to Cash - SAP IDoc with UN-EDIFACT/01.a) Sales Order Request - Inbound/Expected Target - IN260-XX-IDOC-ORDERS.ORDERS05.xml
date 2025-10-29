@@ -71,8 +71,7 @@
       </E1EDKA1>
       <E1EDKA1 SEGMENT="1">
          <PARVW>WE</PARVW>
-         <PARTN>WE-UserXX</PARTN>
-         <LIFNR>VN-XX</LIFNR>
+         <LIFNR>WE-XX</LIFNR>
          <NAME1>IN260-UserXX GmbH</NAME1>
          <STRAS>Get Material Road 12</STRAS>
          <ORT01>Walldorf</ORT01>
@@ -98,7 +97,7 @@
          <TDID>007</TDID>
          <TSSPRAS>E</TSSPRAS>
          <E1EDKT2 SEGMENT="1">
-            <TDLINE>HUGO for BestRun health food products</TDLINE>
+            <TDLINE>Sales order for BestRun health food products</TDLINE>
          </E1EDKT2>
       </E1EDKT1>
       <E1EDP01 SEGMENT="1">
@@ -170,7 +169,7 @@
          </E1EDPT1>
          <E1EDC01 SEGMENT="1">
             <SGTYP>001</SGTYP>
-            <POSEX>1</POSEX>
+            <POSEX>2</POSEX>
             <MATKL>RO</MATKL>
             <MENGE>100</MENGE>
          </E1EDC01>
@@ -207,7 +206,7 @@
          </E1EDPT1>
          <E1EDC01 SEGMENT="1">
             <SGTYP>001</SGTYP>
-            <POSEX>1</POSEX>
+            <POSEX>3</POSEX>
             <MATKL>BG</MATKL>
             <MENGE>150</MENGE>
          </E1EDC01>
@@ -244,7 +243,7 @@
          </E1EDPT1>
          <E1EDC01 SEGMENT="1">
             <SGTYP>001</SGTYP>
-            <POSEX>1</POSEX>
+            <POSEX>4</POSEX>
             <MATKL>BW</MATKL>
             <MENGE>20</MENGE>
          </E1EDC01>
@@ -281,7 +280,7 @@
          </E1EDPT1>
          <E1EDC01 SEGMENT="1">
             <SGTYP>001</SGTYP>
-            <POSEX>1</POSEX>
+            <POSEX>5</POSEX>
             <MATKL>PK</MATKL>
             <MENGE>25</MENGE>
          </E1EDC01>
@@ -318,7 +317,7 @@
          </E1EDPT1>
          <E1EDC01 SEGMENT="1">
             <SGTYP>001</SGTYP>
-            <POSEX>1</POSEX>
+            <POSEX>6</POSEX>
             <MATKL>PK</MATKL>
             <MENGE>30</MENGE>
          </E1EDC01>
@@ -355,7 +354,7 @@
          </E1EDPT1>
          <E1EDC01 SEGMENT="1">
             <SGTYP>001</SGTYP>
-            <POSEX>1</POSEX>
+            <POSEX>7</POSEX>
             <MATKL>CT</MATKL>
             <MENGE>40</MENGE>
          </E1EDC01>
@@ -392,7 +391,7 @@
          </E1EDPT1>
          <E1EDC01 SEGMENT="1">
             <SGTYP>001</SGTYP>
-            <POSEX>1</POSEX>
+            <POSEX>8</POSEX>
             <MATKL>EC</MATKL>
             <MENGE>60</MENGE>
          </E1EDC01>
@@ -429,7 +428,7 @@
          </E1EDPT1>
          <E1EDC01 SEGMENT="1">
             <SGTYP>001</SGTYP>
-            <POSEX>1</POSEX>
+            <POSEX>9</POSEX>
             <MATKL>BW</MATKL>
             <MENGE>25</MENGE>
          </E1EDC01>
@@ -466,10 +465,14 @@
          </E1EDPT1>
          <E1EDC01 SEGMENT="1">
             <SGTYP>001</SGTYP>
-            <POSEX>1</POSEX>
+            <POSEX>10</POSEX>
             <MATKL>CT</MATKL>
             <MENGE>30</MENGE>
          </E1EDC01>
       </E1EDP01>
+      <E1EDS01 SEGMENT="1">
+         <SUMID>001</SUMID>
+         <SUMME>10</SUMME>
+      </E1EDS01>
    </IDOC>
 </ORDERS05>

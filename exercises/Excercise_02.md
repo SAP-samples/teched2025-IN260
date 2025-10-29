@@ -106,7 +106,7 @@ A new Trading Partner Agreement (TPA) for your trading partner will be created. 
 
 ![IN260 Figure 02.07](assets/IN260_02.07.png)
 
-## Step 8 - Review, review, and update and activate the TPA
+## Step 8 - Review, update and activate the TPA
 For finalization and activation of the TPA,  stay in your newly created TPA and 
 - (a) switch to the **B2B scenarios** tab.
 - (b) Check if all the activity parameters defined in step 2 are set and filled. Filling means that the trading partner-related activity partners should have values derived from the corresponding parameters described in the Trading Partner Profile. Repeat this review with the other two business transactions.
@@ -118,3 +118,21 @@ For finalization and activation of the TPA,  stay in your newly created TPA and
 - (e) And the **Activate** button should be substituted with **Deactivate**
 
 ![IN260 Figure 02.08](assets/IN260_02.08.png)
+
+## Step 9 - Feasibility Check
+You can now use the Bruno Test API Tool to determine whether the activated TPA works. The following steps are required for this:
+- (a) Open the Bruno API Testing Tool, open the folder **IN 260 - Order to Cash - SAP IDoc with UN-EDIFACT** and open the GET request **01.a) Sales Order Request - Inbound**.
+- (b) Click on the **-->** button for processing the GET request.
+- (c) After a short while, you should see a XML based IDOC message as a result.
+- (d) Repeat the procedure with the GET request **01.b) Sales Order Response - Outbound**
+- (e) So that you can see an UN/EDIFACT interchange payload with a ORDRSP message as response.
+- (f) Repeat the procedure with the GET request **02.) Delivery Notification - Outbound**
+- (g) So that you can see an UN/EDIFACT interchange payload with a DESADV message as response.
+- (h) Repeat the procedure with the GET request **03.) Invoice - Outbound - Buyer**
+- (i) So that you can see an UN/EDIFACT interchange payload with a INVOIC message as response.
+
+***Remark:*** Don't worry about the content you've received. In any case, these are not yet correct. They are correspondingly finalized in the next excercises 03 to 07.
+
+![IN260 Figure 02.09](assets/IN260_02.09.png)
+
+***Remark:*** If you receive a result for all four GET requests, this task is completed and you can proceed with the next excercise 02.

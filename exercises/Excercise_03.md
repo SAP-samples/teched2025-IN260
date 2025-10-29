@@ -172,5 +172,5 @@ Once you set the additional qualifier markers as explained in step 8, you can no
 | `CNT [6069 = “1”]` | Algebraic total of the quantity values in line items in a | `./C270/6069` |  |  |  | 
 | `CNT [6069 = “2”]` | Number of line items in message | `./C270/6069` |  |  |  | 
 
-
+***Remark:*** If you now saved this Trading Partner MIG successfully, you're finished with this excercise and you can proceed with the next excercise 03.
 
