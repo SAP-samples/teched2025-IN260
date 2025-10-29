@@ -17,7 +17,7 @@ This exercise guides you through creating and finalizing an **Overlay Mapping Gu
 - Tools: **Bruno API Testing Tool**, **Visual Studio Code** 
 
 ## Step 1: Create Overlay MAG
-Once your trading-partner-specific source MIG is ready, create an **Overlay MAG** based on the pre-packaged base MAG:
+Once your trading-partner-specific source MIG is ready, create an **Overlay MAG** based on the pre-packaged base MAG that you find in your TPA:
 - (a) Open **Design → MAGs** to view the MAG list.
 - (b) Click **Create** and choose **Overlay MAG** to open the wizard.
 - (c) For the base MAG, search for:
@@ -35,7 +35,7 @@ Once your trading-partner-specific source MIG is ready, create an **Overlay MAG*
 ![IN260 Figure 04.01](assets/IN260_04.01.png)
 
 ## Step 2: Clean Up Errors
-The new Overlay MAG may show errors due to differences between the base source MIG and your trading-partner-specific MIG. Remove mappings that reference nodes not present in your MIG:
+Clean up time! The new Overlay MAG may show errors due to differences between the base source MIG and your trading-partner-specific MIG. Remove mappings that reference nodes not present in your MIG:
 - (a) Open the **Mapping List** tab.
 - (b) Filter by **Only errors** to see invalid mappings.
 - (c) **Delete** all erroneous mapping elements.
@@ -43,7 +43,7 @@ The new Overlay MAG may show errors due to differences between the base source M
 ![IN260 Figure 04.02](assets/IN260_04.02.png)
 
 ## Step 3: Validate the Overlay MAG
-Simulate the mapping with a sample source payload to verify basic correctness:
+Check your MAG, if this is valid. Therefore, simulate the mapping with a given sample source payload to verify basic correctness:
 - (a) Choose **Simulate → Simulate with MIG Example Data**.
 - (b) Upload `IN260-XX-EDIFACT-ORDERS.edi`.
 - (c) Click **OK**.
@@ -53,7 +53,7 @@ Simulate the mapping with a sample source payload to verify basic correctness:
 ![IN260 Figure 04.03](assets/IN260_04.03.png)
 
 ## Step 4: Add Mapping Elements via Proposal Service
-Use the proposal service to extend the mapping with non-conflicting elements:
+Enhance your mapping with smart, conflict-free suggestions from the proposal service. Use the proposal service to extend the mapping with non-conflicting elements:
 - (a) Open **Proposal** to start the service (allow ~2 minutes). Proposed mappings appear in the **Mapping List**.
 - (b) Display **Nonconflicting proposals** so base mappings remain untouched.
 - (c) Click **Select Best Proposal** to preselect high-quality suggestions.
@@ -62,7 +62,7 @@ Use the proposal service to extend the mapping with non-conflicting elements:
 ![IN260 Figure 04.04](assets/IN260_04.04.png)
 
 ## Step 5: Review and Save Overlay MAG
-Review the selected overlay mappings, then clear and save:
+Review the selected overlay mappings, then clear and save the accepted mappings to persist them in the MAG:
 - (a) Added overlay mappings appear in **green**.
 - (b) Open **Proposal List**.
 - (c) Click **Clear Proposal** to remove the transient list (the accepted mappings remain).
@@ -71,21 +71,30 @@ Review the selected overlay mappings, then clear and save:
 ![IN260 Figure 04.05](assets/IN260_04.05.png)
 
 ## Step 6: Check Overlay MAG Validity
-Do a processing check (not yet a semantic review):
+Perform a technical validation to catch and resolve processing errors. For this purpose, do a further  processing check (not yet a semantic review):
 - (a) Click **Simulate** → **Simulate with sample data**.
 - (b) Select `Source - IN260-XX-EDIFACT-ORDERS.edi` and click **OK**.
-- (c) If you get a processor error (e.g., value `20250929` does not match format `CCYYMMDDhhmm`), locate it in the source payload (segment `DTM+137:20250929:102'`).
+- (c) If you get a processor error (e.g., value `20250929` does not match format `CCYYMMDDhhmm`), 
+- (d) locate it in the source payload (segment `DTM+137:20250929:102'`).
 - (d) In the source structure go to **DTM[2005 = 137] → C507 → 2380**. You may see two mappings on this node.
-- (e) One mapping may attempt a time transformation for `CCYYMMDDhhmm` inserted by the proposal service. If not needed, **delete** this mapping: right-click the mapping line → **Delete**.
+- (e) The source child node 2380 in the qualified group `DTM[2380 = 137]` has to mapping element lines
+- (f) One mapping element to the target leaf node `UZEIT` may attempt a time transformation for `CCYYMMDDhhmm` inserted by the proposal service. 
+- (g) If not needed, **delete** this mapping: right-click the mapping line → **Delete**.
+
+![IN260 Figure 04.06](assets/IN260_04.06.png)
 
 ## Step 7: Display & Simulate Overlaid Mappings
-Focus on the mappings that came from the proposal service:
-- (a) Set filters to **All mappings** and **Overlaid Mappings**.
-- (b) Review the list; select an example mapping such as:
+Verify the accuracy of mappings added by the proposal service and focus on the overlay mapping element:
+- (a) Set filters to **All mappings** and 
+- (b) **Overlaid Mappings**.
+- (c) You'll see the list of the overlaid mappings, which were inserted by the proposal service.
+- (d) Review the list and select an example mapping such as:
   - Source: `/Interchange/ORDERS/DTM [2005 = 10]/C507/2380 [2379 = 203]` (Date/time/period — CCYYMMDDHHMM)
   - Target: `/ORDERS05/E1EDK03 [IDDAT = 010]/DATUM` (IDoc Date)
-- (c) Inspect its details and re-run **Simulate** to see source and transformed target values in context.
-- (d) **Save** your MAG if you have not already.
+- (e) You see the select mapping element in the mapping list also highlighted in the mapping view
+- (f) Inspect its details and re-run **Simulate** to 
+- (g) see source and transformed target values in context.
+-  **Save** your MAG if you have not already.
 
 ![IN260 Figure 04.07](assets/IN260_04.07.png)
 
@@ -95,8 +104,12 @@ Assign the Overlay MAG to the inbound Sales Order business transaction in your T
 - (b) Click **Edit**.
 - (c) In **01) Sales Order Request/Response**, select the **Mapping** activity.
 - (d) In the **Mapping** panel, open the value help for **Mapping Guidelines (MAG)**.
-- (e) Click **Reset**, set the filter to **Contains**, and enter e.g., `01.a) IN260-UserXX`.
-- (f) Click **Go**, select your Overlay MAG, then **Choose**.
+- (e) Click in the pop window on **Reset**
+- (f) Set the filter to **Contains**, and 
+- (g) Enter e.g., `01.a) IN260-UserXX`.
+- (h) Click **Go**, 
+- (i) Select your Overlay MAG, then 
+- (j) Click on button **Choose**.
 - (g) **Save** the TPA.
 
 ![IN260 Figure 04.08](assets/IN260_04.08.png)
@@ -106,12 +119,12 @@ Update the Partner Directory (PD) so runtime can pick up the configuration:
 - (a) Click **Update** in the TPA.
 - (b) In **Update Agreement**, click **OK**.
 - (c) In **Select Transactions…**, choose `01) Sales Order Request/Response` (changes are limited to this transaction).
-- (d) Click **Update**. If **Update** is disabled, use **Deactivate** → **Activate** as a workaround.
+- (d) Click **Update**. If **Update** is disabled, use the buttons **Deactivate** → **Activate** as a workaround.
 
 ![IN260 Figure 04.09](assets/IN260_04.09.png)
 
 ## Step 10: Update in the Partner Directory
-Monitor the update and confirm the TPA returns to **Active**:
+Ensure the Partner Directory update was successful and the TPA is active:
 - (a) Watch the progress status.
 - (b) Verify the status is **Active** after a short time.
 
@@ -120,22 +133,26 @@ Monitor the update and confirm the TPA returns to **Active**:
 ## Step 11: Test the Updated Business Transaction
 Trigger the inbound test via **Bruno** and save the result:
 - (a) In Bruno, open test entry `01.a) Sales Order Request - Inbound`.
-- (b) Click **Send** and review the **Response** (the transformed target interchange).
-- (c) Click **Download** to save the result payload.
-- (d) Save to your `Downloads` folder as `IDOC_ORDERS.ORDERS05_Result.xml`.
+- (b) Click **Send** and 
+- (c) Review the **Response** (the transformed target interchange).
+- (d) Click **Download** to save the result payload.
+- (e) Save to your `Downloads` folder as 
+- (f) File name `IDOC_ORDERS.ORDERS05_Result.xml`.
+- (g) Click on **Save** button.
 
 ![IN260 Figure 04.11](assets/IN260_04.11.png)
 
 ## Step 12: Compare with the Reference Result
 Use Visual Studio Code  to compare your result with the expected target:
-- (a) In VS Code, **File → Open File…** and open:
+- (a) In VS Code, **File → Open File…** and 
+- (b) Open the files so that you see these in **OPEN EDITORS**
   - `Downloads/IDOC_ORDERS.ORDERS05_Result.xml` (your result)
   - `Expected Target - IN260-XX-IDOC-ORDERS.ORDERS05.xml` (reference)
-- (b) In **OPEN EDITORS**, Ctrl/Strg-select both files → right-click → **Compare Selected**.
-- (c) A side-by-side diff opens (left: your result, right: expected). Keep this window open; it auto-refreshes if you overwrite the same filename in `Downloads`.
-- (d) Use the diff to decide which mappings to **ignore**, **delete**, or **add**:
-  - **Ignore**: Header segment `EDI_DC40` fields like `DOCNUM`, `CREDAT`, `CRETIM`, `SERIAL` (they change each run).
-  - **Delete** (header segment present in your result but not in the expected):
+- (c) Do a selection of both files via holding Ctrl/Strg key and do a right-click and select in the context menu **Compare Selected**.
+- (d) A side-by-side diff opens (left: your result, right: expected). Keep this window open; it auto-refreshes if you overwrite the same filename in `Downloads`.
+- Use the diff to decide which mappings to **ignore**, **delete**, or **add**:
+- (e) **Ignore**: Header segment `EDI_DC40` fields like `DOCNUM`, `CREDAT`, `CRETIM`, `SERIAL` (they change each run).
+- (f) **Delete** (header segment present in your result but not in the expected):
 
 ```xml
 <E1EDK14 SEGMENT="1">
@@ -143,8 +160,7 @@ Use Visual Studio Code  to compare your result with the expected target:
   <ORGID>ES11</ORGID>
 </E1EDK14>
 ```
-
-  - **Add** (header segments missing in your result but present in the expected):
+- (g) **Add** (header segments missing in your result but present in the expected):
 
 ```xml
 <E1EDK18 SEGMENT="1">
@@ -161,8 +177,7 @@ Use Visual Studio Code  to compare your result with the expected target:
   </E1EDKT2>
 </E1EDKT1>
 ```
-
-  - **Delete** (item-level segment present in your result but not expected):
+ - (h) **Delete** (item-level segment present in your result but not expected):
 
 ```xml
 <E1EDPA1 SEGMENT="1">
@@ -173,7 +188,7 @@ Use Visual Studio Code  to compare your result with the expected target:
 </E1EDPA1>
 ```
 
-  - **Add** (item-level text segment missing in your result but present in the expected):
+- (i) **Add** (item-level text segment missing in your result but present in the expected):
 
 ```xml
 <E1EDPT1 SEGMENT="1">
@@ -185,15 +200,18 @@ Use Visual Studio Code  to compare your result with the expected target:
 </E1EDPT1>
 ```
 
-  - **Add** (missing simple field at header totals segment): Add `MATKL` in segment `E1EDC01`.
+- (j) **Add** (missing simple field at header totals segment): Add `MATKL` in segment `E1EDC01`.
 
 ![IN260 Figure 04.12](assets/IN260_04.12.png)
 
 ## Step 13: Delete Unneeded Mapping Elements
 Apply the deletions identified in Step 12 directly in the MAG (ensure you are in **edit mode**):
 - (a) **From Step 12.f (Delete header)**: Search for `E1EDK14`.
-- (b) At target node `/ORDERS05/E1EDK14 [QUALF = 008]`, right-click the mapping line → **Delete**. *Note:* Deleting the group-level mapping is sufficient when children have no additional mappings (the group will no longer be created).
-- (c) **From Step 12.h (Delete item-level address)**: Search for `E1EDPA1` and remove the following mapping elements:
+- (b) At target node `/ORDERS05/E1EDK14 [QUALF = 008]`, right-click the mapping line
+- (c) Click on **Delete** in the context menu. 
+  *Note:* Deleting the group-level mapping is sufficient when children have no additional mappings (the group will no longer be created).
+- (d) **From Step 12.h (Delete item-level address)**: Search for `E1EDPA1` and 
+- (e) Remove the following mapping elements:
   - Source `/Interchange/ORDERS/SG2 [3035 = DP]/NAD/C080/3036` → Target `/ORDERS05/E1EDP01/E1EDPA1 [PARVW = WE]/E1EDPA1/NAME1`
   - Source `/Interchange/ORDERS/SG2 [3035 = DP]/NAD/C059/3042` → Target `/ORDERS05/E1EDP01/E1EDPA1 [PARVW = WE]/E1EDPA1/STRAS`
   - Source `/Interchange/ORDERS/SG2 [3035 = DP]/NAD/3164` → Target `/ORDERS05/E1EDP01/E1EDPA1 [PARVW = WE]/E1EDPA1/ORT01`
@@ -203,11 +221,11 @@ Apply the deletions identified in Step 12 directly in the MAG (ensure you are in
 ## Step 14: Add Missing Header/Text Mappings
 Add the simple mappings required by **Step 12.g** and re-run the simulation for quick feedback:
 - (a) Click **Repeat Simulate** to bring the source values back into the editor.
-- (b) Map the following source→target pairs (drag & drop), based on matching business meaning:
-  - `30` days → `/ORDERS05/E1EDK18 [QUALF = 001]/TAGE` from `/Interchange/ORDERS/SG8 [4279 = 22]/DTM [2005 = 263]/C507/2380` (source name: *Date/time/period*).
-  - `30.0` percent → `/ORDERS05/E1EDK18 [QUALF = 001]/PRZNT` from `/Interchange/ORDERS/SG8 [4279 = 22]/PCD [5245 = 12]/C501/5482` (source name: *Percentage*).
-  - `D` (period type) → `/ORDERS05/E1EDK18 [QUALF = 001]/ZTERM_TXT` from `/Interchange/ORDERS/SG8 [4279 = 22]/PAT/C112/2151` (source name: *Type of period, coded*).
-  - Header free text → `/ORDERS05/E1EDKT1 [TDID = 007]/E1EDKT2/TDLINE` from `/Interchange/ORDERS/FTX [4451 = AAI]/C108/4440` (source name: *Free text*).
+- Map the following source→target pairs (drag & drop), based on matching business meaning:
+  - (b) `30` days → `/ORDERS05/E1EDK18 [QUALF = 001]/TAGE` from `/Interchange/ORDERS/SG8 [4279 = 22]/DTM [2005 = 263]/C507/2380` (source name: *Date/time/period*).
+  - (c) `30.0` percent → `/ORDERS05/E1EDK18 [QUALF = 001]/PRZNT` from `/Interchange/ORDERS/SG8 [4279 = 22]/PCD [5245 = 12]/C501/5482` (source name: *Percentage*).
+  - (d) `D` (period type) → `/ORDERS05/E1EDK18 [QUALF = 001]/ZTERM_TXT` from `/Interchange/ORDERS/SG8 [4279 = 22]/PAT/C112/2151` (source name: *Type of period, coded*).
+  - (e) `Sales order for BestRun health food products` header free text → `/ORDERS05/E1EDKT1 [TDID = 007]/E1EDKT2/TDLINE` from `/Interchange/ORDERS/FTX [4451 = AAI]/C108/4440` (source name: *Free text*).
 
 **Notes**
 1. A group-to-group mapping is not required when both sides have maxOccurs = 1; creating a leaf mapping will instantiate the group automatically.
@@ -218,16 +236,19 @@ Add the simple mappings required by **Step 12.g** and re-run the simulation for 
 ## Step 15: Add a Concatenation Mapping Function
 The expected item text `TDLINE` concatenates two source nodes (**Step 12. i**). Create an n:1 mapping with a function:
 - (a) Click **Repeat** to refresh the simulation context.
-- (b) Locate the two values (e.g., search for `BestRun VitalCrisp` and `Cereal Bar`). They live in leaf nodes `7008[1]` and `7008[2]`.
-- (c) Drag **both** source nodes to target `TDLINE` to create an n:1 mapping. In the function editor, you will see variables like `$nodes_in/D_7008` and `$nodes_in/D_7008_2`.
-- (d) Define the function and validate:
+- (b) Locate the two values (e.g., search for `BestRun VitalCrisp` and `Cereal Bar`). 
+- (c) They live in leaf nodes `7008[1]` and `7008[2]`. You can search for them via the general source search box.
+- (d) Drag **both** source nodes to target `TDLINE` to create an n:1 mapping. 
+- (e) In the function editor, you will see variables like `$nodes_in/D_7008` and `$nodes_in/D_7008_2`.
+- (f) Define the function validate:
 
 ```xslt
 <xsl:sequence select="concat($nodes_in/D_7008, " - ", $nodes_in/D_7008_2)"/>
 ```
 
-- (e) Click **Validate** to ensure the function is **Valid**.
-- (f) Re-run **Simulate** and confirm the target value is `BestRun VitalCrisp - Cereal Bar`.
+- (g) Click **Validate** to ensure the function is (h) **Valid**.
+- (i) Re-run **Simulate** and confirm the 
+- (j) Target value is `BestRun VitalCrisp - Cereal Bar`.
 
 ![IN260 Figure 04.15](assets/IN260_04.15.png)
 
@@ -236,14 +257,15 @@ Add the missing simple mapping identified in **Step 12.j**:
 - (a) Search for source value `CT` corresponding to target element `MATKL`.
 - (b) Confirm the business meaning (e.g., source name *Type of packages…* vs. target *Package material*) and **drag & drop** the mapping to `E1EDC01/MATKL`.
 - (c) The default copy function `<xsl:sequence select="$nodes_in/*"/>` is sufficient; no change needed.
-- (d) **Save** the MAG and, if desired, click **Cancel** to leave edit mode.
+- **Save** the MAG and, if desired, click **Cancel** to leave edit mode.
 
 ![IN260 Figure 04.16](assets/IN260_04.16.png)
 
 ## Step 17: Refresh & Update MAG in the TPA
 Apply your MAG changes to the TPA and PD:
-- (a) click **Refresh MIGs/MAGs**in the TPA.
-- (b) Click **Update**; select `01) Sales Order Request/Response` in the dialog and click **Update**.
+- (a) Cick **Refresh MIGs/MAGs**in the appropriate BTA (Business Transaction Activiy) of your TPA.
+- (b) Click **Update**; 
+- (c) Select `01) Sales Order Request/Response` in the dialog and (d) click **Update**.
 
 ![IN260 Figure 04.17](assets/IN260_04.17.png)
 
