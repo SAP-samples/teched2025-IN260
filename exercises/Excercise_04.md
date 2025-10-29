@@ -14,7 +14,7 @@ This exercise guides you through creating and finalizing an **Overlay Mapping Gu
 - Test files available locally:
   - `IN260-XX-EDIFACT-ORDERS.edi` (source payload)
   - `Expected Target - IN260-XX-IDOC-ORDERS.ORDERS05.xml` (reference)
-- Tools: **Bruno API Testing Tool**, **Visual Studio Code** (or another diff tool).
+- Tools: **Bruno API Testing Tool**, **Visual Studio Code** 
 
 ## Step 1: Create Overlay MAG
 Once your trading-partner-specific source MIG is ready, create an **Overlay MAG** based on the pre-packaged base MAG:
