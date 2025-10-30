@@ -1,7 +1,7 @@
 # Exercise 1 - Create the necessary Trading Partner Profile
 In this exercise, you will learn how to set up a complete Trading Partner Profile for EDI processing within a B2B integration scenario. The steps guide you through:
 - Creating a unique Interchange Control Number (ICN) using number ranges.
-- Setting up a Trading Partner Profile, including company details and identifiers for EANCOM and IDOC payloads.
+- Setting up a Trading Partner Profile, including company details and identifiers for UN/EDIFACT and IDOC payloads.
 - Configuring Identifier Groups to manage multiple sender identifiers.
 - Defining Trading Partner System Details, including type systems and communication channels.
 - Creating Trading Partner Parameters to support dynamic data injection into mappings and headers.
@@ -41,14 +41,14 @@ Now, you should start to create your own trading partner profile so that you can
 
 ![IN260 Figure 01.03](assets/IN260_01.03.png)
 
-## Step  4 - Create a Single Identifier for EANCOM
-Set first of all single identifiers for the outgoing EANCOM interchanges. For this purpose
+## Step  4 - Create a Single Identifier for UN/EDIFACT
+Set first of all single identifiers for the outgoing UN/EDIFACT interchanges. For this purpose
 - (a) Stay on the Trading Partner Profile and choose the tab **Identifiers**
 - (b) Click on **Create** button, a pop-up will open.
 - (c) Enter the identification number `E-XX`, where XX has to be replaced by your 
   UserID. Ensure the identification number is no longer than 14 characters; otherwise, remove leading zeros.
 - (d) Enter the Alias: `TP_UNEDIFACT_ID`
-- (e) Select the Type System: `GS1 EANCOM`
+- (e) Select the Type System: `UN/EDIFACT`
 - (f) Select the Scheme: `Mutually defined` with the value `ZZZ`
 - (g) Click on the button **Save**.
 
@@ -65,13 +65,13 @@ Enter the further required identifier like step 4 by
 
 ![IN260 Figure 01.05](assets/IN260_01.05.png)
 
-## Step  6 - Create a Group Identifier for EANCOM
-You should now create an Identifier Group for incoming EANCOM interchanges, which might have different sender identifiers in the UNB segment. For this reason, you should carry out the following steps:
+## Step  6 - Create a Group Identifier for UN/EDIFACT
+You should now create an Identifier Group for incoming UN/EDIFACT interchanges, which might have different sender identifiers in the UNB segment. For this reason, you should carry out the following steps:
 - (a) Scroll down to **Identifier Groups**
 - (b) Click on the **Create** button, and a pop-up will open.
 - (c) Enter the identification number `GE-XX`, where G standard for the group and where XX has to be replaced by your UserID. Ensure the identification number is no longer than 14 characters; otherwise, remove leading zeros.
-- (d) Enter the Alias: `TP_EANCOM_G`
-- (e) Select the Type System: `GS1 EANCOM`
+- (d) Enter the Alias: `TP_UN/EDIFACT_G`
+- (e) Select the Type System: `UN/EDIFACT`
 - (f) Select the Scheme: `Mutually defined` with the value `ZZZ`
 - (g) Click on the button **Save**.
 
@@ -94,7 +94,7 @@ Add a second identifier in the same group
   - Identification: `E2-XX`, and
   - Sub-Organization Name: `Suborg. E2`
 - (d) Click on the **Save** button.
-- (e) Enable the Activation Status so that the identifiers of this group will be recognized at the sender side of incoming EANCOM interchanges.
+- (e) Enable the Activation Status so that the identifiers of this group will be recognized at the sender side of incoming UN/EDIFACT interchanges.
 
 ![IN260 Figure 01.08](assets/IN260_01.08.png)
 
@@ -115,7 +115,7 @@ To proceed, you’ll need to add the specifics of the trading partner system:
 Go to your newly created System and set the further configuration which belongs to the trading partners system. The following steps are required for it:
 - (a) Go to the details of the **System**
 - (b) You'll see the details of the tab **Type Systems**, where you should click on the **Create Type System** button. A pop-up will open.
-- (c) In the pop-up **Assign Type System Version(s)** choose `GS1 EANCOM` and
+- (c) In the pop-up **Assign Type System Version(s)** choose `UN/EDIFACT` and
 - (d) Select version `D.96A S3` using the drop-down boxes.
 - (e) Click on **Add**. You will see the newly created type systems.
 
