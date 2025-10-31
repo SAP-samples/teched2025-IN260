@@ -179,4 +179,5 @@ Once you set the additional qualifier markers as explained in step 8, you can no
 Continue with: [Excercise 4](Exercise_04.md)
 
 Please give us also feedback to this session **IN260** by scanning the QR-Code:
+
  ![QR Code](../pictures/survey_QR.png)
