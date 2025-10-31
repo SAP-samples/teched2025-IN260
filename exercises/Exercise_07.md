@@ -88,3 +88,5 @@ Finally, link the updated MAG to the invoice transaction in your Trading Partner
 - (e)   Save the transaction and perform a final Update of the TPA to ensure all changes are applied.
 
 ![IN260 Figure 07.07](assets/IN260_07.06.png)
+Please give us also feedback to this session **IN260** by scanning the QR-Code:
+ ![QR Code](pictures/survey_QR.png)

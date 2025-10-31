@@ -41,5 +41,6 @@ Provide the exercise content here directly in README.md using [markdown](https:/
 - **Optional:**[Exercise 6: Finalize the Business Transaction Activity](exercises/Exercise_06.md)
 - **Optional:**[Exercise 7: Finalize the Business Transaction Activity](exercises/Exercise_07.md)
 
- 
+ Please give us also feedback to this session **IN260** by scanning the QR-Code:
+ ![QR Code](pictures/survey_QR.png)
 

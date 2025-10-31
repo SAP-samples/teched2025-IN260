@@ -140,3 +140,5 @@ You can now use the Bruno Test API Tool to determine whether the activated TPA w
 ----
 
 Continue with:[Excercise 3](Exercise_03.md)
+Please give us also feedback to this session **IN260** by scanning the QR-Code:
+ ![QR Code](pictures/survey_QR.png)
