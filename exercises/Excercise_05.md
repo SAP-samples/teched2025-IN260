@@ -74,7 +74,7 @@ Due to time constraints, you can now create a copy of an already prepared Tradin
 - (c) Click on the choice of **Actions**
 - (d) Select **Copy**
 - (e) In the new window of the copied Trading Partner MIG, click on tab **Overview**.
-- (f) Enter your name of the MIG, which is `01.b) #IN260-OVERLAY# - UN/EDIFACT D.96A ORDRSP - Target`
+- (f) Enter your name of the MIG, which is `01.b) IN260-UserXX - UN/EDIFACT D.96A ORDRSP - Target`
 - (g) Click on the **Save** button.
 
 ![IN260 Figure 05.03](assets/IN260_05.03.png)
@@ -144,11 +144,11 @@ Suppose you need the same customization across several nodes. In that case, it i
 - (c) You see the line below called **Selected Codelist**, where you should cancel the originally assigned codelist.
 - (d) Click on **+ (Add)** button for adding another codelist.
 - (e) Click in the pop-up window on **From Custom Type System**
-- (f) Select `custom codelists` and (g) search for your code lists starting with `cl_userxx`.
+- (f) Select `Custom Codelists` and (g) search for your code lists starting with `CL_UserXX`.
 - (h) Expand the fist codelist **CL_UserXX_6411_MEA_Units** and click on **Version 1.0** so this codelist will get assigned.
 - (i)to (k): Repeat the steps (07.b) to (07.h)  with the code list `CL_UserXX_6411_QTY_Units` in leaf node **6411 - Measure unit qualifier** within the
-  - (i) Qty segment with qualifier **113** (quantity to be delivered).
-  - (j) Qty segment with qualifier **21** (ordered quantity).
+  - (i) QTY segment with qualifier **113** (quantity to be delivered).
+  - (j) QTY segment with qualifier **21** (ordered quantity).
   - (k) Segment group 30 with qualifier **AAA** (calculation net).
 
 ![IN260 Figure 05.07](assets/IN260_05.07.png)
@@ -165,8 +165,8 @@ According to the same principle, you can also refer to general MIG code lists vi
 
 ![IN260 Figure 05.08](assets/IN260_05.08.png)
 
-## Step 09 - Build Overlay MAG
-You're now ready with all the customizations and assignments in the Trading Partner MIG. It is now necessary to create the code value mappings accordingly. Therefore, you should make the trading partner MAG for the second BTA (Business Transaction Activity) **01.b) Sales Order Response** according to the following steps:
+## Step 09 - Build Overlay MAG (Mapping Guideline)
+You're now ready with all the customizations and assignments in the Trading Partner MIG. It is now necessary to create the code value mappings accordingly. Therefore, you should create the Overlay MAG for the second BTA (Business Transaction Activity) **01.b) Sales Order Response - Outbound** according to the following steps:
 - (a) Open **Design → MAGs** to view the MAG list and click **Create** and choose **Overlay MAG** to open the wizard.
 - (b) For the base MAG, search for:
   `01.b) #IN260-BASE# - SAP IDOC ORDRSP.ORDERS05 -to- UN/EDIFACT D.96A ORDRSP` and select this base MAG to move to the next step.

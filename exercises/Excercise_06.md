@@ -1,6 +1,4 @@
 # Exercise 06: Finalize the Business Transaction Activity **02.) Delivery Notification - Outbound**
-
-
 In this exercise, you will configure and enhance the Business Transaction Activity 02.) Delivery Notification - Outbound
 using the SAP Integration Suite. The objective is to define partner-specific parameters, duplicate and adjust the Trading Partner Agreement (TPA), and customize the Mapping Guideline (MAG) and Message Implementation Guideline (MIG) to support extended invoice processing.
 What you will do:
@@ -12,8 +10,26 @@ Duplicate and rename the MAG and MIG used in the transaction.
 Update the MAG to reference the new MIG.
 Link the updated MAG to the TPA to complete the configuration.
 
-## Step 1 - Copy the Mapping Guidline (MAG)
+## Step 03 - Copy Trading Partner MIG
+Due to time constraints, you can now create a copy of an already prepared Trading Partner MIG, which you need for the creation of the delivery notification mapping. For this purpose, do the following steps:
+- (a) Go in the navigation pane to **Design --> MIGs** and search for the prepared **Trading Partner MIG**: `02.) #IN260-OVERLAY# - UN/EDIFACT D.96A DESADV - Target`
+    ***Caution:*** !!! Please never delete or modify this prepared Trading Partner MIG.
+- (b) Click on the **Actions → Copy** menu item.
+- (c) In the new window of the copied Trading Partner MIG, enable edit mode and click on tab **Overview**.
+- (d) Enter your name of the MIG, which is `01.b) IN260-UserXX - UN/EDIFACT D.96A DESADV - Target` and (e) click on the **Save** button.
 
+![IN260 Figure 06.01](assets/IN260_06.01.png)
+ 
+## Step 01 - Create the Overlay Mapping Guidline (MAG)
+For the creation of the  is now necessary to create an Overlay MAG so that the specific delivery notification related parts such as pre-transformation and indexing for sorting can be incorporated. the code value mappings accordingly. Therefore, you should make the Overlay MAG for the second BTA (Business Transaction Activity) **02.) Delivery Notification - Outbound** according to the following steps:
+- (a) Open **Design → MAGs** to view the MAG list and click **Create → Overlay MAG** to open the wizard.
+- (b) For the base MAG, search for: `02.) #IN260-BASE# - SAP IDOC DESADV.DELVRY07 -to- UN/EDIFACT D.96A DESADV` and select this base MAG to move to the next step.
+- (c) Keep the **Base Source MIG** unchanged (idoc structure for all partners).
+- (d) In **Target MIG**, switch to **Compatible MIG** and search as well as (e) select the MIG you adjusted previously: `02.) #IN260-OVERLAY# - UN/EDIFACT D.96A DESADV - Target`.
+- (f) In step 4, name the Overlay MAG:
+  `01.b) IN260-UserXX - SAP IDOC ORDRSP.ORDERS05 -to- UN/EDIFACT D.96A ORDRSP`
+- (g) Click **Create**.
+- 
 Create a copy of the Mapping Guideline (MAG) used in the invoice transaction:
 - (a) Open the **MAGs** overview by navigating to **Design → MAGs** in the left-hand panel.
 - (b) Identify the Overlay MAG titled **02.) #Bootcamp-STANDARD# - SAP IDOC DESADV.DELVRY07 -to- UN/EDIFACT D.96A DESADV**. Initiate the copy process and choose the option to copy only the MAG structure.
