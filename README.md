@@ -32,14 +32,14 @@ Bruno
 
 Provide the exercise content here directly in README.md using [markdown](https://guides.github.com/features/mastering-markdown/) and linking to the specific exercise pages, below is an example.
 
-- **Mandatory:**[Getting Started](GettingStarted.md)
-- **Mandatory:**[Exercise 1: Create the necessary Trading Partner Profile](exercises/Exercise_01.md)
-- **Mandatory:**[Exercise 2: Creating a Trading Partner Agreement (TPA) from a Template](exercises/Exercise_02.md)
-- **Mandatory:**[Exercise 3: Create Trading Partner MIG for Business Transaction Activity](exercises/Exercise_03.md)
-- **Optional:**[Exercise 4: Finalize the Business Transaction Activity](exercises/Exercise_04.md)
-- **Optional:**[Exercise 5: Finalize the Business Transaction Activity](exercises/Exercise_05.md)
-- **Optional:**[Exercise 6: Finalize the Business Transaction Activity](exercises/Exercise_06.md)
-- **Optional:**[Exercise 7: Finalize the Business Transaction Activity](exercises/Exercise_07.md)
+- **Mandatory:** [Getting Started](GettingStarted.md)
+- **Mandatory:** [Exercise 1: Create the necessary Trading Partner Profile](exercises/Exercise_01.md)
+- **Mandatory:** [Exercise 2: Creating a Trading Partner Agreement (TPA) from a Template](exercises/Exercise_02.md)
+- **Optional:** [Exercise 3: Create Trading Partner MIG for Business Transaction Activity](exercises/Exercise_03.md)
+- **Optional:** [Exercise 4: Finalize the Business Transaction Activity](exercises/Exercise_04.md)
+- **Optional:** [Exercise 5: Finalize the Business Transaction Activity](exercises/Exercise_05.md)
+- **Optional:** [Exercise 6: Finalize the Business Transaction Activity](exercises/Exercise_06.md)
+- **Optional:** [Exercise 7: Finalize the Business Transaction Activity](exercises/Exercise_07.md)
 
  Please give us also feedback to this session **IN260** by scanning the QR-Code:
  ![QR Code](pictures/survey_QR.png)
