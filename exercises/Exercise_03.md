@@ -47,9 +47,9 @@ You have to check now why there is an error. For this purpose, you should open t
 ## Step 3 - Save the sender interchange payload
 You need to take further steps, such as creating the source MIG and the UN/EDIFACT sender interchange payload for the business transaction activity 01. a) Create the Sales Order Request as a separate file. Therefore, follow the following steps. 
 - (a) Go to the API test, especially in the HTTP GET request: **01. a) Sales Order Request** and copy the payload shown in the tab **Body** into the clipboard.
-- (b) Open the Notepad++ tool and paste the payload into a new file.
+- (b) Open the Visual Studio Code and goto **File --> New Text File** and paste the payload into a new file.
 - (c) Open the menu **File**.
-- (d) Select **Save** to save the payload as `IN260-XX-EDIFACT-ORDERS.edi` in your downloads folder.
+- (d) Select **Save As** to save the payload as `IN260-XX-EDIFACT-ORDERS.edi` in your downloads folder.
 
 ![IN260 Figure 03.03](assets/IN260_03.03.png)
 
