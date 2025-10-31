@@ -168,3 +168,7 @@ To copy the iflow:
 - (c) Click **Deploy**. 
 
 ![IN260 Figure 06.12](assets/IN260_06.12.png)
+
+----
+
+Continue with:[Excercise 7](Exercise_07.md)

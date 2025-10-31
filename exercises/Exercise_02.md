@@ -139,4 +139,4 @@ You can now use the Bruno Test API Tool to determine whether the activated TPA w
 
 ----
 
-Continue with:[Excercise 3](exercises/Exercise_03.md)
+Continue with:[Excercise 3](Exercise_03.md)

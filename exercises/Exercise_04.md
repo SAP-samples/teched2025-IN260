@@ -278,3 +278,7 @@ Rerun the end-to-end test (Steps 11–12). The diff should show **no differences
 ![IN260 Figure 04.18](assets/IN260_04.18.png)
 
 **You have completed Exercise 4** continue with Exercises 5–7 if time allows.
+
+----
+
+Continue with:[Excercise 5](Exercise_05.md)
