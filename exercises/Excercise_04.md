@@ -89,8 +89,8 @@ Verify the accuracy of mappings added by the proposal service and focus on the o
 - (b) **Overlaid Mappings**.
 - (c) You'll see the list of the overlaid mappings, which were inserted by the proposal service.
 - (d) Review the list and select an example mapping such as:
-  - Source: `/Interchange/ORDERS/DTM [2005 = 10]/C507/2380 [2379 = 203]` (Date/time/period — CCYYMMDDHHMM)
-  - Target: `/ORDERS05/E1EDK03 [IDDAT = 010]/DATUM` (IDoc Date)
+  - *Source:* `/Interchange/ORDERS/DTM [2005 = 10]/C507/2380 [2379 = 203]` (Date/time/period - CCYYMMDDHHMM) to
+  - *Target:* `/ORDERS05/E1EDK03 [IDDAT = 010]/DATUM` (IDoc Date)
 - (e) You see the select mapping element in the mapping list also highlighted in the mapping view
 - (f) Inspect its details and re-run **Simulate** to 
 - (g) see source and transformed target values in context.
