@@ -33,10 +33,10 @@ Bruno
 Provide the exercise content here directly in README.md using [markdown](https://guides.github.com/features/mastering-markdown/) and linking to the specific exercise pages, below is an example.
 
 - **Mandatory:**[Getting Started](GettingStarted.md)
-- **Mandatory:**[Exercise 1: Get Pre-Packaged B2B Integration Content and import it](exercises/Excercise_01.md)
-- **Mandatory:**[Exercise 2: Create the necessary Trading Partner Profile](exercises/Excercise_02.md)
-- **Mandatory:**[Exercise 3: Creating a Trading Partner Agreement (TPA) from a Template](exercises/Excercise_03.md)
-- **Optional:**[Exercise 4: Finalize the Business Transaction Activity](exercises/Excercise_04.md)
+- **Mandatory:**[Exercise 1: Get Pre-Packaged B2B Integration Content and import it](exercises/Exercise_01.md)
+- **Mandatory:**[Exercise 2: Create the necessary Trading Partner Profile](exercises/Exercise_02.md)
+- **Mandatory:**[Exercise 3: Creating a Trading Partner Agreement (TPA) from a Template](exercises/Exercise_03.md)
+- **Optional:**[Exercise 4: Finalize the Business Transaction Activity](exercises/Exercise_04.md)
 - **Optional:**[Exercise 5: Finalize the Business Transaction Activity](exercises/Excercise_05.md)
 - **Optional:**[Exercise 6: Finalize the Business Transaction Activity](exercises/Excercise_06.md)
 - **Optional:**[Exercise 7: Finalize the Business Transaction Activity](exercises/Excercise_07.md)
