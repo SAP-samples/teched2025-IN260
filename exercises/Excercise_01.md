@@ -165,7 +165,7 @@ Enter the further required parameters by
 | Parameter Key | Value | Purpose |
 | --- | --- | --- |
 | `DESADV_ContractPartyReferenceNumber` | `REF-IN260-XX` | Injection into the MAG |
-| `DESADV_KindOfNumberOfTotalPackages` | `CBP` | Injection into a XSLT script at a post-prossing flow |
+| `DESADV_KindOfNumberOfTotalPackages` | `CBP` | Injection into a XSLT script at a post-processing flow |
 | `SAP_EDI_REC_Sender_System_ID` | `CPIFALLBAC` | Injection into the SAP IDOC EDI_DC40 header segment in incoming transactions |
 | `SAP_EDI_REC_Sender_Partner_Function` | `AG` | Injection into the SAP IDOC EDI_DC40 header segment in incoming transactions |
 | `SAP_EDI_REC_Sender_Partner_Type`| `KU`| Injection into the SAP IDOC EDI_DC40 header segment in incoming transactions |
