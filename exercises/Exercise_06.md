@@ -1,4 +1,4 @@
-# Exercise 06: Finalize the Business Transaction Activity **02.) Delivery Notification - Outbound**
+# Exercise 6: Finalize the Business Transaction Activity **02.) Delivery Notification - Outbound**
 In this exercise, you will configure and enhance the Business Transaction Activity 02.) Delivery Notification - Outbound
 using the SAP Integration Suite. The objective is to define partner-specific parameters, duplicate and adjust the Trading Partner Agreement (TPA), and customize the Mapping Guideline (MAG) and Message Implementation Guideline (MIG) to support extended invoice processing.
 What you will do:
