@@ -1,9 +1,0 @@
-{
-  "version": "1",
-  "name": "IN 260 - Order to Cash - SAP IDoc with UN-EDIFACT",
-  "type": "collection",
-  "ignore": [
-    "node_modules",
-    ".git"
-  ]
-}
