@@ -44,22 +44,23 @@ body:xml {
               <SNDPRN>Company_IDOC_ID</SNDPRN>
               <RCVPOR>EDIXMLEQ1</RCVPOR>
               <RCVPFC>AG</RCVPFC>
-              <RCVPRN>I-XX</RCVPRN>
+              <RCVPRN>I-UserXX</RCVPRN>
               <CREDAT>20251006</CREDAT>
               <CRETIM>211205</CRETIM>
               <REFINT>A0001</REFINT>
               <REFMES>00620</REFMES>
           </EDI_DC40>
           <E1EDK01 SEGMENT="1">
-              <CURCY>EUR</CURCY>
-              <BELNR>10040</BELNR>
-              <DATUM>20251001</DATUM>
+              <CURCY>EUR</CURCY>         
+              <KUNDEUINR>DE987654321</KUNDEUINR> 
+              <EIGENUINR>DE123456789</EIGENUINR>
+              <BELNR>3349323</BELNR>
           </E1EDK01>
           <E1EDKA1 SEGMENT="1">
               <PARVW>AG</PARVW>
               <LIFNR>IN260-UserXX</LIFNR>
               <NAME1>IN260-UserXX GmbH</NAME1>
-              <NAME2>Gunther Stuhec</NAME2>
+              <NAME2>Your Name</NAME2>
               <STRAS>Main Street 1</STRAS>
               <ORT01>Walldorf</ORT01>
               <PSTLZ>69190</PSTLZ>
@@ -67,17 +68,35 @@ body:xml {
               <TELF1>0621-123456</TELF1>
           </E1EDKA1>
           <E1EDKA1 SEGMENT="1">
+              <PARVW>RE</PARVW>
+              <PARTN>IN260-UserXX-RE</PARTN>
+              <NAME1>IN260-UserXX GmbH</NAME1>
+              <NAME2>Account Department</NAME2>
+              <STRAS>Rosenstrasse 1</STRAS>
+              <ORT01>Heidelberg</ORT01>
+              <PSTLZ>69117</PSTLZ>
+              <LAND1>DE</LAND1>
+          </E1EDKA1>        
+          <E1EDKA1 SEGMENT="1">
               <PARVW>LF</PARVW>
-              <NAME1>Berlin</NAME1>
-              <STRAS>10115</STRAS>
-              <ORT01>DE</ORT01>
+              <PARTN>BR-PN-ID</PARTN>
+              <NAME1>BestRun GmbH</NAME1>
+              <NAME2>Gunther Stuhec</NAME2>
+              <STRAS>Healthy Way 5</STRAS>
+              <ORT01>Berlin</ORT01>
+              <PSTLZ>10115</PSTLZ>
+              <LAND1>DE</LAND1>
+              <TELF1>030-12345678</TELF1>
           </E1EDKA1>
           <E1EDKA1 SEGMENT="1">
               <PARVW>WE</PARVW>
-              <NAME1>Logistikstraße 12</NAME1>
-              <STRAS>Berlin</STRAS>
-              <ORT01>10115</ORT01>
-              <REGIO>DE</REGIO>
+              <PARTN>WE-UserXX</PARTN>
+              <LIFNR>VN-XX</LIFNR>
+              <NAME1>IN260-UserXX GmbH</NAME1>
+              <STRAS>Get Material Road 12</STRAS>
+              <ORT01>Walldorf</ORT01>
+              <PSTLZ>69190</PSTLZ>
+              <LAND1>DE</LAND1>
           </E1EDKA1>
           <E1EDK02 SEGMENT="1">
               <QUALF>009</QUALF>
@@ -97,16 +116,25 @@ body:xml {
           </E1EDK03>
           <E1EDK03 SEGMENT="1">
               <IDDAT>022</IDDAT>
-              <DATUM>20251001</DATUM>
+              <DATUM>20251104</DATUM>
           </E1EDK03>
           <E1EDK03 SEGMENT="1">
               <IDDAT>010</IDDAT>
-              <DATUM>20251015</DATUM>
-          </E1EDK03>
+              <DATUM>20251108</DATUM>
+              <DATUM>1230</DATUM>
+          </E1EDK03>       
+          <E1EDK28 SEGMENT="1">
+              <BCOUN>DE</BCOUN>
+              <BRNUM>BESTDEBBXXX</BRNUM>
+              <BNAME>BestCredit Bank Berlin</BNAME>
+              <BALOC>Berlin</BALOC>
+              <ACNAM>BestRun GmbH</ACNAM>
+              <BIBAN>DE44500105175407324931</BIBAN>
+          </E1EDK28>    
           <E1EDP01 SEGMENT="1">
               <POSEX>1</POSEX>
               <MENGE>144</MENGE>
-              <MENEE>H87</MENEE>
+              <MENEE>PCE</MENEE>
               <VPREI>0.89</VPREI>
               <CURCY>EUR</CURCY>
               <E1EDP19 SEGMENT="1">
@@ -123,17 +151,17 @@ body:xml {
                   <IDTNR>4000001000012</IDTNR>
               </E1EDP19>
               <E1EDPT1 SEGMENT="1">
-                  <TDID>ZAP1</TDID>
+                  <TDID>004</TDID>
                   <TSSPRAS>E</TSSPRAS>
                   <E1EDPT2 SEGMENT="1">
-                      <TDLINE>BestRun VitalCrisp - Cereal Bar</TDLINE>
+                      <TDLINE>Crunchy cereal bar packed with fiber and natural energy boost</TDLINE>
                   </E1EDPT2>
               </E1EDPT1>
           </E1EDP01>
           <E1EDP01 SEGMENT="1">
               <POSEX>2</POSEX>
               <MENGE>144</MENGE>
-              <MENEE>H87</MENEE>
+              <MENEE>PCE</MENEE>
               <VPREI>2.49</VPREI>
               <CURCY>EUR</CURCY>
               <E1EDP19 SEGMENT="1">
@@ -150,17 +178,17 @@ body:xml {
                   <IDTNR>4000001000029</IDTNR>
               </E1EDP19>
               <E1EDPT1 SEGMENT="1">
-                  <TDID>ZAP1</TDID>
+                  <TDID>004</TDID>
                   <TSSPRAS>E</TSSPRAS>
                   <E1EDPT2 SEGMENT="1">
-                      <TDLINE>BestRun KornKraft - Whole-Grain Bread</TDLINE>
+                      <TDLINE>Whole-grain bread for hearty taste and balanced daily nutrition</TDLINE>
                   </E1EDPT2>
               </E1EDPT1>
           </E1EDP01>
           <E1EDP01 SEGMENT="1">
               <POSEX>3</POSEX>
               <MENGE>144</MENGE>
-              <MENEE>H87</MENEE>
+              <MENEE>PCE</MENEE>
               <VPREI>3.29</VPREI>
               <CURCY>EUR</CURCY>
               <E1EDP19 SEGMENT="1">
@@ -177,17 +205,17 @@ body:xml {
                   <IDTNR>4000001000036</IDTNR>
               </E1EDP19>
               <E1EDPT1 SEGMENT="1">
-                  <TDID>ZAP1</TDID>
+                  <TDID>004</TDID>
                   <TSSPRAS>E</TSSPRAS>
                   <E1EDPT2 SEGMENT="1">
-                      <TDLINE>BestRun MorgenGold - Organic Porridge</TDLINE>
+                      <TDLINE>Organic porridge blend for a wholesome and energizing breakfast</TDLINE>
                   </E1EDPT2>
               </E1EDPT1>
           </E1EDP01>
           <E1EDP01 SEGMENT="1">
               <POSEX>4</POSEX>
               <MENGE>144</MENGE>
-              <MENEE>H87</MENEE>
+              <MENEE>PCE</MENEE>
               <VPREI>4.99</VPREI>
               <CURCY>EUR</CURCY>
               <E1EDP19 SEGMENT="1">
@@ -204,17 +232,17 @@ body:xml {
                   <IDTNR>4000001000043</IDTNR>
               </E1EDP19>
               <E1EDPT1 SEGMENT="1">
-                  <TDID>ZAP1</TDID>
+                  <TDID>004</TDID>
                   <TSSPRAS>E</TSSPRAS>
                   <E1EDPT2 SEGMENT="1">
-                      <TDLINE>BestRun FitFrucht - Smoothie Mix</TDLINE>
+                      <TDLINE>Smoothie mix with fruity flavors and essential vitamins inside</TDLINE>
                   </E1EDPT2>
               </E1EDPT1>
           </E1EDP01>
           <E1EDP01 SEGMENT="1">
               <POSEX>5</POSEX>
               <MENGE>144</MENGE>
-              <MENEE>H87</MENEE>
+              <MENEE>PCE</MENEE>
               <VPREI>3.79</VPREI>
               <CURCY>EUR</CURCY>
               <E1EDP19 SEGMENT="1">
@@ -231,17 +259,17 @@ body:xml {
                   <IDTNR>4000001000050</IDTNR>
               </E1EDP19>
               <E1EDPT1 SEGMENT="1">
-                  <TDID>ZAP1</TDID>
+                  <TDID>004</TDID>
                   <TSSPRAS>E</TSSPRAS>
                   <E1EDPT2 SEGMENT="1">
-                      <TDLINE>BestRun ProteinPower - Lentil Salad Bowl</TDLINE>
+                      <TDLINE>Lentil salad bowl rich in plant-based protein for active lifestyle</TDLINE>
                   </E1EDPT2>
               </E1EDPT1>
           </E1EDP01>
           <E1EDP01 SEGMENT="1">
               <POSEX>6</POSEX>
               <MENGE>144</MENGE>
-              <MENEE>H87</MENEE>
+              <MENEE>PCE</MENEE>
               <VPREI>2.99</VPREI>
               <CURCY>EUR</CURCY>
               <E1EDP19 SEGMENT="1">
@@ -258,17 +286,17 @@ body:xml {
                   <IDTNR>4000001000067</IDTNR>
               </E1EDP19>
               <E1EDPT1 SEGMENT="1">
-                  <TDID>ZAP1</TDID>
+                  <TDID>004</TDID>
                   <TSSPRAS>E</TSSPRAS>
                   <E1EDPT2 SEGMENT="1">
-                      <TDLINE>BestRun ChocoCharge - Energy Bytes</TDLINE>
+                      <TDLINE>Energy bites with cocoa for quick power and satisfying sweetness</TDLINE>
                   </E1EDPT2>
               </E1EDPT1>
           </E1EDP01>
           <E1EDP01 SEGMENT="1">
               <POSEX>7</POSEX>
               <MENGE>144</MENGE>
-              <MENEE>H87</MENEE>
+              <MENEE>PCE</MENEE>
               <VPREI>4.49</VPREI>
               <CURCY>EUR</CURCY>
               <E1EDP19 SEGMENT="1">
@@ -285,17 +313,17 @@ body:xml {
                   <IDTNR>4000001000074</IDTNR>
               </E1EDP19>
               <E1EDPT1 SEGMENT="1">
-                  <TDID>ZAP1</TDID>
+                  <TDID>004</TDID>
                   <TSSPRAS>E</TSSPRAS>
                   <E1EDPT2 SEGMENT="1">
-                      <TDLINE>BestRun GreenFuel - Quinoa Bowl</TDLINE>
+                      <TDLINE>Quinoa bowl with greens for a light yet nutrient-rich meal option</TDLINE>
                   </E1EDPT2>
               </E1EDPT1>
           </E1EDP01>
           <E1EDP01 SEGMENT="1">
               <POSEX>8</POSEX>
               <MENGE>144</MENGE>
-              <MENEE>H87</MENEE>
+              <MENEE>PCE</MENEE>
               <VPREI>3.59</VPREI>
               <CURCY>EUR</CURCY>
               <E1EDP19 SEGMENT="1">
@@ -312,17 +340,17 @@ body:xml {
                   <IDTNR>4000001000081</IDTNR>
               </E1EDP19>
               <E1EDPT1 SEGMENT="1">
-                  <TDID>ZAP1</TDID>
+                  <TDID>004</TDID>
                   <TSSPRAS>E</TSSPRAS>
                   <E1EDPT2 SEGMENT="1">
-                      <TDLINE>BestRun BerryBoost - Granola Mix</TDLINE>
+                      <TDLINE>Granola mix with berries for crunch and antioxidant goodness</TDLINE>
                   </E1EDPT2>
               </E1EDPT1>
           </E1EDP01>
           <E1EDP01 SEGMENT="1">
               <POSEX>9</POSEX>
               <MENGE>144</MENGE>
-              <MENEE>H87</MENEE>
+              <MENEE>PCE</MENEE>
               <VPREI>1.49</VPREI>
               <CURCY>EUR</CURCY>
               <E1EDP19 SEGMENT="1">
@@ -339,17 +367,17 @@ body:xml {
                   <IDTNR>4000001000098</IDTNR>
               </E1EDP19>
               <E1EDPT1 SEGMENT="1">
-                  <TDID>ZAP1</TDID>
+                  <TDID>004</TDID>
                   <TSSPRAS>E</TSSPRAS>
                   <E1EDPT2 SEGMENT="1">
-                      <TDLINE>BestRun AquaPure - Electrolyte Water</TDLINE>
+                      <TDLINE>Electrolyte water for hydration and mineral balance throughout day</TDLINE>
                   </E1EDPT2>
               </E1EDPT1>
           </E1EDP01>
           <E1EDP01 SEGMENT="1">
               <POSEX>10</POSEX>
               <MENGE>144</MENGE>
-              <MENEE>H87</MENEE>
+              <MENEE>PCE</MENEE>
               <VPREI>2.19</VPREI>
               <CURCY>EUR</CURCY>
               <E1EDP19 SEGMENT="1">
@@ -366,13 +394,14 @@ body:xml {
                   <IDTNR>4000001000104</IDTNR>
               </E1EDP19>
               <E1EDPT1 SEGMENT="1">
-                  <TDID>ZAP1</TDID>
+                  <TDID>004</TDID>
                   <TSSPRAS>E</TSSPRAS>
                   <E1EDPT2 SEGMENT="1">
-                      <TDLINE>BestRun NutriSnack - Veggie Chips</TDLINE>
+                      <TDLINE>Veggie chips baked for a wholesome, light and tasty snack choice</TDLINE>                    
                   </E1EDPT2>
               </E1EDPT1>
           </E1EDP01>
       </IDOC>
   </INVOIC02>
+  
 }

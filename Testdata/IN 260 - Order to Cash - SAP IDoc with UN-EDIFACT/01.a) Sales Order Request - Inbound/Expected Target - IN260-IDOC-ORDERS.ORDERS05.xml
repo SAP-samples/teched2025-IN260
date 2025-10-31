@@ -16,7 +16,7 @@
          <SNDPOR>CPIFALLBAC</SNDPOR>
          <SNDPRT>KU</SNDPRT>
          <SNDPFC>AG</SNDPFC>
-         <SNDPRN>I-XX</SNDPRN>
+         <SNDPRN>I-UserXX</SNDPRN>
          <RCVPRT>LS</RCVPRT>
          <RCVPFC>MA</RCVPFC>
          <RCVPRN>Company_IDOC_ID</RCVPRN>

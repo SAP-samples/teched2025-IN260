@@ -19,7 +19,7 @@
          <SNDPRN>Company_IDOC_ID</SNDPRN>
          <RCVPOR>EDIXMLEQ1</RCVPOR>
          <RCVPFC>AG</RCVPFC>
-         <RCVPRN>I-XX</RCVPRN>
+         <RCVPRN>I-UserXX</RCVPRN>
          <CREDAT>20251006</CREDAT>
          <CRETIM>211205</CRETIM>
          <REFINT>A0001</REFINT>
