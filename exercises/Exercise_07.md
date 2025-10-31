@@ -89,4 +89,4 @@ Finally, link the updated MAG to the invoice transaction in your Trading Partner
 
 ![IN260 Figure 07.07](assets/IN260_07.06.png)
 Please give us also feedback to this session **IN260** by scanning the QR-Code:
- ![QR Code](pictures/survey_QR.png)
+ ![QR Code](../pictures/survey_QR.png)
