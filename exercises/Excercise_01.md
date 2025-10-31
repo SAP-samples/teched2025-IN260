@@ -181,3 +181,7 @@ The defined number range from step 2 should now be assigned to the trading partn
 - (e) Save it by clicking on **Save** button.
 
 ![IN260 Figure 01.15](assets/IN260_01.15.png)
+
+
+----
+Continue with:(Excercise 2)[exercises/Excercise_02.md]
