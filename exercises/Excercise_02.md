@@ -96,7 +96,7 @@ To create a new TPA (Trading Partner Agreement) in the Trading Partner Managemen
 ## Step 7 - Finalize the Overview of the TPA
 A new Trading Partner Agreement (TPA) for your trading partner will be created. You'll see as default the **Overview** tab of your TPA, where you should update and finalize the overview accordingly:
 
-- (a) Change your agreement's name and description where you substitute the term `[IN260]` with `INT260-XX`. Make sure to replace XX with your UserID and Trading Partner Name. 
+- (a) Change your agreement's name and description where you substitute the term `[IN260]` with `INT260-XX`. Make sure to replace XX with your UserID and Trading Partner Name.
 - (b) Ìn the **Trading Partner Details**, set the **Type System** value to `UN/EDIFACT`
 - (c) Select in the same details the **Type System Version**: `D.96A S3`
 - (d) Click on **Identifier in Company Type System** on the value help to display a pop-up window.
