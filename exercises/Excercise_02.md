@@ -1,4 +1,4 @@
-# Exercise 2: Creating a Trading Partner Agreement (TPA) from a Template
+ # Exercise 2: Creating a Trading Partner Agreement (TPA) from a Template
 
 This exercise will teach you to create a Trading Partner Agreement (TPA) using a predefined template within the Trading Partner Management system. You will be guided through verifying and updating activity parameters, adding company and trading partner-specific parameters, and finalizing the agreement setup. By this exercise's end, you can confidently configure and activate a TPA tailored to your trading partner's requirements.
 
