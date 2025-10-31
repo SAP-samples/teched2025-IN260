@@ -136,3 +136,7 @@ You can now use the Bruno Test API Tool to determine whether the activated TPA w
 ![IN260 Figure 02.09](assets/IN260_02.09.png)
 
 ***Remark:*** If you receive a result for all four GET requests, this task is completed and you can proceed with the next excercise 02.
+
+----
+
+Continue with:[Excercise 3](exercises/Exercise_03.md)
