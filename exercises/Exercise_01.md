@@ -1,4 +1,4 @@
-# Exercise 1 - Create the necessary Trading Partner Profile
+# Exercise 1: Create the necessary Trading Partner Profile
 In this exercise, you will learn how to set up a complete Trading Partner Profile for EDI processing within a B2B integration scenario. The steps guide you through:
 - Creating a unique Interchange Control Number (ICN) using number ranges.
 - Setting up a Trading Partner Profile, including company details and identifiers for UN/EDIFACT and IDOC payloads.
