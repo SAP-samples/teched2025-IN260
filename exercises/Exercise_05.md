@@ -377,6 +377,7 @@ Do a test run and compare the results with the expected payloads. If you don't s
 
 ----
 
-Continue with:[Excercise 6](Exercise_06.md)
+Continue with: [Excercise 6](Exercise_06.md)
+
 Please give us also feedback to this session **IN260** by scanning the QR-Code:
  ![QR Code](../pictures/survey_QR.png)

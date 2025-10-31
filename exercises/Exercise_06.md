@@ -171,6 +171,7 @@ To copy the iflow:
 
 ----
 
-Continue with:[Excercise 7](Exercise_07.md)
+Continue with: [Excercise 7](Exercise_07.md)
+
 Please give us also feedback to this session **IN260** by scanning the QR-Code:
  ![QR Code](../pictures/survey_QR.png)
