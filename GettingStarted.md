@@ -1,6 +1,6 @@
 # Getting Started
 Before you can really start with the exercises there are some things which need to be done:
-1. [download](Testdata/Testdata.zip) the file with the Testdata
+1. [download](files/Testdata.zip) the file with the Testdata
 2. extract the zip file (maybe to the Desktop)
 3. execute the _modify-content.bat_ and use your participant number as you're getting asked for a number
 4. open Visual Studio Code
