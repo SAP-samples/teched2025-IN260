@@ -32,26 +32,15 @@ Bruno
 
 Provide the exercise content here directly in README.md using [markdown](https://guides.github.com/features/mastering-markdown/) and linking to the specific exercise pages, below is an example.
 
-- [Getting Started](GettingStarted.md)
-- [Exercise 1 - Get Pre-Packaged B2B Integration Content and import it](exercises/Excercise_01.md)
-- [Exercise 2 - Create the necessary Trading Partner Profile](exercises/Excercise_02.md)
-- [Exercise 3 - Creating a Trading Partner Agreement (TPA) from a Template](exercises/Excercise_03.md)
+- **Mandatory:** [Getting Started](GettingStarted.md)
+- **Mandatory:** [Exercise 1: Create the necessary Trading Partner Profile](exercises/Exercise_01.md)
+- **Mandatory:** [Exercise 2: Creating a Trading Partner Agreement (TPA) from a Template](exercises/Exercise_02.md)
+- **Optional:** [Exercise 3: Create Trading Partner MIG for Sales Order Request](exercises/Exercise_03.md)
+- **Optional:** [Exercise 4: Finalize the Business Transaction Activity Sales Order Request](exercises/Exercise_04.md)
+- **Optional:** [Exercise 5: Finalize the Business Transaction Activity Order Response](exercises/Exercise_05.md)
+- **Optional:** [Exercise 6: Finalize the Business Transaction Activity Delivery Notification](exercises/Exercise_06.md)
+- **Optional:** [Exercise 7: Finalize the Business Transaction Activity Invoice](exercises/Exercise_07.md)
 
- 
+ Please give us also feedback to this session **IN260** by scanning the QR-Code:
+ ![QR Code](pictures/survey_QR.png)
 
-**IMPORTANT**
-
-Your repo must contain the .reuse and LICENSES folder and the License section below. DO NOT REMOVE the section or folders/files. Also, remove all unused template assets(images, folders, etc) from the exercises folder. 
-
-## Contributing
-Please read the [CONTRIBUTING.md](./CONTRIBUTING.md) to understand the contribution guidelines.
-
-## Code of Conduct
-Please read the [SAP Open Source Code of Conduct](https://github.com/SAP-samples/.github/blob/main/CODE_OF_CONDUCT.md).
-
-## How to obtain support
-
-Support for the content in this repository is available during the actual time of the online session for which this content has been designed. Otherwise, you may request support via the [Issues](../../issues) tab.
-
-## License
-Copyright (c) 2024 SAP SE or an SAP affiliate company. All rights reserved. This project is licensed under the Apache Software License, version 2.0 except as noted otherwise in the [LICENSE](LICENSES/Apache-2.0.txt) file.

@@ -1,4 +1,4 @@
-# Exercise 05: Finalize the Business Transaction Activity
+# Exercise 5: Finalize the Business Transaction Activity Order Response
 This exercise guides you through the finalization of a Business Transaction Activity (BTA) for a Sales Order Response scenario. The goal is to ensure that all relevant code lists are properly created, customized, assigned, and mapped within the specifically created Overlay MAG **01.b) IN260-UserXX - SAP IDOC ORDRSP.ORDERS05 -to- UN/EDIFACT D.96A ORDRSP**. By completing this exercise, you will gain hands-on experience in managing code lists and mappings in a B2B integration context using MIGs (Message Implementation Guidelines) and MAGs (Mapping Guidelines).
 
 ### What You Will Do
@@ -375,3 +375,10 @@ Do a test run and compare the results with the expected payloads. If you don't s
 
 ![IN260 Figure 05.21](assets/IN260_05.21.png)
 
+----
+
+Continue with: [Excercise 6](Exercise_06.md)
+
+Please give us also feedback to this session **IN260** by scanning the QR-Code:
+
+ ![QR Code](../pictures/survey_QR.png)

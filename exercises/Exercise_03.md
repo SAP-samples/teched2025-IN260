@@ -174,3 +174,10 @@ Once you set the additional qualifier markers as explained in step 8, you can no
 
 ***Remark:*** If you now saved this Trading Partner MIG successfully, you're finished with this excercise and you can proceed with the next excercise 03.
 
+----
+
+Continue with: [Exercise 4](Exercise_04.md)
+
+Please give us also feedback to this session **IN260** by scanning the QR-Code:
+
+ ![QR Code](../pictures/survey_QR.png)

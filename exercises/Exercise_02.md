@@ -95,7 +95,11 @@ To create a new TPA (Trading Partner Agreement) in the Trading Partner Managemen
 
 ## Step 7 - Finalize the Overview of the TPA
 A new Trading Partner Agreement (TPA) for your trading partner will be created. You'll see as default the **Overview** tab of your TPA, where you should update and finalize the overview accordingly:
+<<<<<<< HEAD:exercises/Excercise_02.md
 - (a) Change your agreement's name and description where you substitute the term `[IN260]` with `INT260-XX`. Make sure to replace XX with your UserID and Trading Partner Name. 
+=======
+- (a) Change your agreement's name and description where you substitute the term `[IN-260]` with `INT260-XX`. Make sure to replace XX with your UserID and Trading Partner Name. 
+>>>>>>> 18a8dc66280549dd627d819d3b7d39d4cfa81caa:exercises/Exercise_02.md
 - (b) Ìn the **Trading Partner Details**, set the **Type System** value to `UN/EDIFACT`
 - (c) Select in the same details the **Type System Version**: `D.96A S3`
 - (d) Click on **Identifier in Company Type System** on the value help to display a pop-up window.
@@ -136,3 +140,11 @@ You can now use the Bruno Test API Tool to determine whether the activated TPA w
 ![IN260 Figure 02.09](assets/IN260_02.09.png)
 
 ***Remark:*** If you receive a result for all four GET requests, this task is completed and you can proceed with the next excercise 02.
+
+----
+
+Continue with: [Exercise 3](Exercise_03.md)
+
+Please give us also feedback to this session **IN260** by scanning the QR-Code:
+
+ ![QR Code](../pictures/survey_QR.png)

@@ -278,3 +278,11 @@ Rerun the end-to-end test (Steps 11–12). The diff should show **no differences
 ![IN260 Figure 04.18](assets/IN260_04.18.png)
 
 **You have completed Exercise 4** continue with Exercises 5–7 if time allows.
+
+----
+
+Continue with: [Exercise 5](Exercise_05.md)
+
+Please give us also feedback to this session **IN260** by scanning the QR-Code:
+
+ ![QR Code](../pictures/survey_QR.png)
