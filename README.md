@@ -37,9 +37,9 @@ Provide the exercise content here directly in README.md using [markdown](https:/
 - **Mandatory:**[Exercise 2: Create the necessary Trading Partner Profile](exercises/Exercise_02.md)
 - **Mandatory:**[Exercise 3: Creating a Trading Partner Agreement (TPA) from a Template](exercises/Exercise_03.md)
 - **Optional:**[Exercise 4: Finalize the Business Transaction Activity](exercises/Exercise_04.md)
-- **Optional:**[Exercise 5: Finalize the Business Transaction Activity](exercises/Excercise_05.md)
-- **Optional:**[Exercise 6: Finalize the Business Transaction Activity](exercises/Excercise_06.md)
-- **Optional:**[Exercise 7: Finalize the Business Transaction Activity](exercises/Excercise_07.md)
+- **Optional:**[Exercise 5: Finalize the Business Transaction Activity](exercises/Exercise_05.md)
+- **Optional:**[Exercise 6: Finalize the Business Transaction Activity](exercises/Exercise_06.md)
+- **Optional:**[Exercise 7: Finalize the Business Transaction Activity](exercises/Exercise_07.md)
 
  
 
