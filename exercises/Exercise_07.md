@@ -1,4 +1,4 @@
-# Exercise 7: Finalize the Business Transaction Activity **03.) Invoice – Outbound**
+# Exercise 7: Finalize the Business Transaction Activity Invoice **03.) Invoice – Outbound**
 In this exercise, you will configure and enhance the Business Transaction Activity 03.) Invoice – Outbound using the SAP Integration Suite. The objective is to define partner-specific parameters, duplicate and adjust the Trading Partner Agreement (TPA), and customize the Mapping Guideline (MAG) and Message Implementation Guideline (MIG) to support extended invoice processing.
 What you will do:
 
