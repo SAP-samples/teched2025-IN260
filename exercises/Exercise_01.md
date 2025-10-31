@@ -184,4 +184,4 @@ The defined number range from step 2 should now be assigned to the trading partn
 
 
 ----
-Continue with:(Excercise 2)[exercises/Excercise_02.md]
+Continue with:(Excercise 2)[exercises/Exercise_02.md]

@@ -8,6 +8,6 @@ Before you can really start with the exercises there are some things which need 
 6. open the (Tenant)[https://url.sap/2712tu] (hint: press ctrl to open the tenant in a second tab)
 7. For the login please use "UserXX" with XX the number you find on your desk. The trainers will let you know the password.
 
-You've now prepared everything and can start with [Exercise 1](exercises/Excercise_01.md).
+You've now prepared everything and can start with [Exercise 1](exercises/Exercise_01.md).
 
 
