@@ -14,7 +14,7 @@ In this exercise, you will complete and test the Business Transaction Activity *
 - Your TPA is created and activated (from previous exercises).
 - You know your sender ID(s) from Exercise 2, Step 8.
 - Access to SAP Integration Suite (Cloud Integration), including Design and Monitor.
-- Notepad++ (or a text editor) installed.
+- Visual Studio Code.
 
 Follow each step carefully to complete the configuration and ensure the business transaction is correctly processed.
 
