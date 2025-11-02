@@ -59,18 +59,18 @@ The next significant step is to create a source MIG to fit the given payload ava
 - (b) In the Message Implementation Guidelines overview list, click the **Create** button.
 - (c) You will see a new pop-up window with a wizard for creating a new MIG. You should search the `UN/EDIFACT` type system in the first step.
 - (d) Select this type system **UN/EDIFACT**.
-- (e) The wizard automatically displays the second step, where you should search for the ´Purchase Order Message`.
+- (e) The wizard automatically displays the second step, where you should search for the **Purchase Order Message**.
 - (f) Select the listed **ORDERS** mesage type and select in the forth step the version **D.96A**.
-- (g) Select the entry **EnvelopeForMessageS3**in the fourth step.
-- (h) Select for uploading in the fifth step the given payload `IN260-XX-EDIFACT-ORDERS.edi`. 
-- (i) Ensure that the payload's content will be used as example values.
-- (j) Click on the button **Next**.
+- (g) Select the entry **EnvelopeForMessagesS3**in the fourth step.
+- (h) Select the payload for uploading you saved before (in the fifth step)  `IN260-XX-EDIFACT-ORDERS.edi`. 
+- (i) Select the option "Use file content as example values".
+- (j) Click the **Next** button.
 
 ![IN260 Figure 03.04](assets/IN260_03.04.png)
 
 ## Step 5 - Select the nodes for qualification
 The qualifier concept is an integral part of the MIGs. It helps you provide the correct business meaning of the used nodes and especially simplifies the mapping later on. The sixth step of the wizard allows you to select these segments that should get different qualified representations. 
-- (a) To see which should be qualified, you should open Notepad++ with the opened payload for which you must create a MIG now.
+- (a) To see which should be qualified, you should open in Visual Studio Code the payload for which you must create a MIG now.
 - (b) In this payload, you might recognize that the **DTM** segment occurs several times with different qualifiers. Therefore, it makes sense to select the **DTM** segment.
 - (c) The **FTX** occurs just once, but it is also useful to select this segment for semantic precision.
 - (d) The **Segment Group 2 (SG2)**, which expresses the different kinds of parties, should also be selected.
