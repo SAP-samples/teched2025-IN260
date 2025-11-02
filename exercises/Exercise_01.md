@@ -187,6 +187,6 @@ The defined number range from step 2 should now be assigned to the trading partn
 
 Continue with: [Exercise 2](Exercise_02.md)
 
-Please give us also feedback to this session **IN260** by scanning the QR-Code:
+Please give us feedback to this session **IN260** by scanning the QR-Code:
 
  ![QR Code](../pictures/survey_QR.png)
