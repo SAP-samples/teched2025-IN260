@@ -18,34 +18,8 @@ In this exercise, you will complete and test the Business Transaction Activity *
 
 Follow each step carefully to complete the configuration and ensure the business transaction is correctly processed.
 
-## Step 1 - Test 01. a) Sales Order Request - Inbound
-After activation of the TPA, go to the test tool and proceed with the test of the first Business Transaction Activity
-- (a) Select the Get Request: **01. a) Sales Order Request - Inbound**
-- (b) Open the tab **Body** (if this is not open yet)
-- (c) Change the sender ID to one of these, which you entered in Exercise 2 - Step 8
-- (d) Substitute the `XX` in **UserXX** with your user ID.
-- (e) Click on the **Save** button.
-- (f) Run this test.
-- (g) After a short while, you'll get an error message.
-
-![IN260 Figure 03.01](assets/IN260_03.01.png)
-
-## Step 2 - Analyze the error
-You have to check now why there is an error. For this purpose, you should open the B2B Monitor in the SAP Cloud Integration to get further details for this error. Do the following steps for it:
-- (a) Open in the navigation panel the **Monitor --> B2B Scenarios**
-- (b) Select this entry in the overview list of **Interchanges**, which belongs to your test. 
-  ***Remark:*** You can use the filter at the top to refine the list and find your entry much more easily.
-- (c) Check the error in the tab **Error Information**
-- (d) This error tells you there is somehow an interchange syntax error.
-  ***Remark:*** You got just a kind of error because of the syntax validation in your **TPA --> Business Transaction Activity 01. a) Sales Order Request** is enabled. If you go to your TPA and click on the sender **Interchange** step in this business transaction activity, you can check this. A pop-up window will give you the details of the configuration.
-- (e) To get the details of the error, click on the tab **Interchange Payload**
-- (f) You'll see the details of the syntax error in this section. This error tells you that some segments are missing or others are too long. 
-  ***Remark***: This means that the Source MIG given by the prepackaged B2B Integration Content does not match this payload. It is now recommended that this MIG be updated accordingly and used as an Overlay MIG.
-
-![IN260 Figure 03.02](assets/IN260_03.02.png)
-
-## Step 3 - Save the sender interchange payload
-You need to take further steps, such as creating the source MIG and the UN/EDIFACT sender interchange payload for the business transaction activity 01. a) Create the Sales Order Request as a separate file. Therefore, follow the following steps. 
+## Step 1 - Save the sender interchange payload
+You need to take further steps, such as creating the source MIG and the UN/EDIFACT sender interchange payload for the business transaction activity 01. Create the Sales Order Request as a separate file. Therefore, follow the following steps. 
 - (a) Go to the API test, especially in the HTTP GET request: **01. a) Sales Order Request** and copy the payload shown in the tab **Body** into the clipboard.
 - (b) Open the Visual Studio Code and goto **File --> New Text File** and paste the payload into a new file.
 - (c) Open the menu **File**.
