@@ -18,16 +18,7 @@ In this exercise, you will complete and test the Business Transaction Activity *
 
 Follow each step carefully to complete the configuration and ensure the business transaction is correctly processed.
 
-## Step 1 - Save the sender interchange payload
-You need to take further steps, such as creating the source MIG and the UN/EDIFACT sender interchange payload for the business transaction activity 01. Create the Sales Order Request as a separate file. Therefore, follow the following steps. 
-- (a) Go to the API test, especially in the HTTP GET request: **01. a) Sales Order Request** and copy the payload shown in the tab **Body** into the clipboard.
-- (b) Open the Visual Studio Code and goto **File --> New Text File** and paste the payload into a new file.
-- (c) Open the menu **File**.
-- (d) Select **Save As** to save the payload as `IN260-XX-EDIFACT-ORDERS.edi` in your downloads folder.
-
-![IN260 Figure 03.03](assets/IN260_03.03.png)
-
-## Step 4 - Create the trading partner's source MIG
+## Step 01 - Create the trading partner's source MIG
 The next significant step is to create a source MIG to fit the given payload available in the API testing tool.
 - (a) open the **Design --> MIGs**in the navigation panel in SAP Integration Suite.
 - (b) In the Message Implementation Guidelines overview list, click the **Create** button.
@@ -35,38 +26,37 @@ The next significant step is to create a source MIG to fit the given payload ava
 - (d) Select this type system **UN/EDIFACT**.
 - (e) The wizard automatically displays the second step, where you should search for the **Purchase Order Message**.
 - (f) Select the listed **ORDERS** mesage type and select in the forth step the version **D.96A**.
-- (g) Select the entry **EnvelopeForMessagesS3**in the fourth step.
-- (h) Select the payload for uploading you saved before (in the fifth step)  `IN260-XX-EDIFACT-ORDERS.edi`. 
+- (g) Select the entry **EnvelopeForMessagesS3** in the fourth step.
+- (h) Select the payload for uploading from the given folder of the testdata: `.\Testdata\IN 260 - Order to Cash - SAP IDoc with UN-EDIFACT\01.a) Sales Order Request - Inbound` and select the file  `IN260-XX-EDIFACT-ORDERS.edi`. 
 - (i) Select the option "Use file content as example values".
 - (j) Click the **Next** button.
 
 ![IN260 Figure 03.04](assets/IN260_03.04.png)
 
-## Step 5 - Select the nodes for qualification
+## Step 02 - Select the nodes for qualification
 The qualifier concept is an integral part of the MIGs. It helps you provide the correct business meaning of the used nodes and especially simplifies the mapping later on. The sixth step of the wizard allows you to select these segments that should get different qualified representations. 
 - (a) To see which should be qualified, you should open in Visual Studio Code the payload for which you must create a MIG now.
-- (b) In this payload, you might recognize that the **DTM** segment occurs several times with different qualifiers. Therefore, it makes sense to select the **DTM** segment.
-- (c) The **FTX** occurs just once, but it is also useful to select this segment for semantic precision.
-- (d) The **Segment Group 2 (SG2)**, which expresses the different kinds of parties, should also be selected.
-- (e) Please check the table below to select the remaining segments.
+- (b) In this payload, you might recognize that the following nodes need a qualification, which should be selected in **Node Selection**:
+  
+  | Node | Name |
+  | --- | --- |
+  | `DTM` | Date/time/period |
+  | `FTX` | Free text |
+  | `SG2` | Segment Group 2: NAD-LOC-FII-SG3-SG4-SG5 |
+  | **In SG25** | In Line Item Segment Group | 
+  | `    PIA` | Additional product id |
+  | `CNT` | Control total |
+
+  ***Remark:*** 
+  - Segments and Groups with disabled check boxes can't be selected.
+  - The **MOA – Monetary amount** in the Segment Group 25 should not be selected, because in this will get a compound qualifier. 
 - (f) If you finished the selection, click the **Next** button.
 
 ![IN260 Figure 03.05](assets/IN260_03.05.png)
 
-| Node | Name |
-| --- | --- |
-| `DTM [2005 = “137”]` | Document/message date/time |
-| `FTX [4451 = “AAI”]` | General information |
-| `SG2 [3035 = “BY”]` | Buyer |
-| **In SG25** | In Line Item Segment Group | 
-| `     PIA [4347 = “1”]` | Additional product id - Additional identification |
-| `    IMD [7077 = “F”]` | Free-form |
-| `    QTY [6063 = “21”]` | Quantity - Ordered quantity |
-| `    SG28 [5125 = “AAA”]` | Calculation net price |
-| `CNT [6069 = “1”]` | Algebraic total of the quantity values in line items in a |
 
 
-## Step 6 - Finalize the Overview Information of the new MIG
+## Step 03 - Finalize the Overview Information of the new MIG
 In the wizard step (6), you can enter all the information that belongs to the overview of the new MIG. Follow the following steps:
 - (a) Enter in **Name** the name of the MIG such as: `01.a) IN260-UserXX - UN/EDIFACT D.96A ORDERS – Source`
 - (b) Select the **Direction**: `In` for Inbound. 
@@ -83,7 +73,7 @@ In the wizard step (6), you can enter all the information that belongs to the ov
 
 ![IN260 Figure 03.06](assets/IN260_03.06.png)
 
-## Step 7 - Automatic creation of the MIG
+## Step 04 - Initial refinement of the MIG
 The MIG will be initially created. After a while, you'll see a pop-up window that the MIG was successfully processed.
 - (a) Click the **Close** button to close the window.
 - (b) First, you should hide all the unselected nodes by going to the column header **Node** in the Structure table and clicking on the **right mouse button**.
