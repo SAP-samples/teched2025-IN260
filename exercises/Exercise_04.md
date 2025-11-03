@@ -150,7 +150,7 @@ Use Visual Studio Code  to compare your result with the expected target:
   - `Expected Target - IN260-XX-IDOC-ORDERS.ORDERS05.xml` (reference)
 - (c) Do a selection of both files via holding Ctrl/Strg key and do a right-click and select in the context menu **Compare Selected**.
 - (d) A side-by-side diff opens (left: your result, right: expected). Keep this window open; it auto-refreshes if you overwrite the same filename in `Downloads`.
-- Use the diff to decide which mappings to **ignore**, **delete**, or **add**:
+- Use the diff to decide which mapping elemetns in **your MAG** to **ignore**, **delete**, or **add**:
 - (e) **Ignore**: Header segment `EDI_DC40` fields like `DOCNUM`, `CREDAT`, `CRETIM`, `SERIAL` (they change each run).
 - (f) **Delete** (header segment present in your result but not in the expected):
 
