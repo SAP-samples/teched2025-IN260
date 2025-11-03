@@ -283,6 +283,6 @@ Rerun the end-to-end test (Steps 11–12). The diff should show **no differences
 
 Continue with: [Exercise 5](Exercise_05.md)
 
-Please give us also feedback to this session **IN260** by scanning the QR-Code:
+Please give us feedback to this session **IN260** by scanning the QR-Code:
 
  ![QR Code](../pictures/survey_QR.png)

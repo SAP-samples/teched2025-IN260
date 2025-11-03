@@ -1,20 +1,19 @@
 # Getting Started
-Before you can really start with the exercises there are some things which need to be done:
-1. [download](Testdata.zip) the file with the Testdata
-2. extract the zip file (maybe to the Desktop)
-3. execute the _modify-content.bat_ and use your participant number as you're getting asked for a number
-4. open Visual Studio Code
-5. click on _open Folder_ in Visual Studio Code the folder of the Testdata you have created. That is needed in exercise 3.
-6. bruno testen und beschreiben
-7. open the [Tenant](https://url.sap/2712tu) (hint: press ctrl to open the tenant in a second tab)
-8. For the login please use "UserXX" with XX the number you find on your desk. The trainers will let you know the password.
-9. Create a new Integration Package and give it the name _IN260-UserXX_ (replace XX with your user number) and save the package
-10. navigate to the Package _Teched 2025 - IN260 - Communication Flows_ and switch to the Artifacts Tab.
-11. with the _..._ in the _Actions_ Column _copy_ the iflow, change the name by replacing the word _copy_ by _UserXX_ where you replace XX with your user number. Change also the the package that the iflow will be copied to the package you've created in step 10.
-12. Navigate to the copied iFlow and configure it by setting the UserId to your number (like XX). Then deploy the iflow.
-13. import now the necessary data into Bruno. For that start Bruno on the laptop
-14. in Bruno click on _Open Collection_ navigate to the Testdata Folder, then to Bruno Collection. Select the folder _in-260---order-to-cash---sap-idoc-with-un-edifact_ and open it. 
-
-You've now prepared everything and can start with [Exercise 1](exercises/Exercise_01.md).
+Before you start the exercises, complete the following steps:
+1. Download the test data file: [Testdata.zip](files/Testdata.zip).
+2. Extract the ZIP file (for example, to your desktop).
+3. Run modify-content.bat and enter your participant number when prompted.
+4. Open Visual Studio Code.
+5. In Visual Studio Code, click *Open Folder* and select the test data folder you extracted. This is required for *Exercise 3*.
+6. open Bruno
+7. Start Bruno on your laptop to import the necessary data.
+8. In Bruno, click *Open Collection*, navigate to the test data folder, then to “Bruno Collection.” Select the folder “in-260---order-to-cash---sap-idoc-with-un-edifact” and open it.
+9.  Open the *Tenant*: https://url.sap/2712tu (hint: hold *Ctrl* while clicking the link to open it in a new tab).
+10.  For login, use “UserXX,” where XX is the number on your desk. The trainers will provide the password.
+11.  Create a new *Integration Package* named “IN260-UserXX” (replace XX with your user number) and save the package.
+12. Navigate to the package “Teched 2025 - IN260 - Communication Flows” and open the *Artifacts* tab.
+13. In the *Actions* column, use the “…” menu to *Copy* the *iFlow*. Rename it by replacing “copy” with “UserXX” (replace XX with your user number). Set the destination *Package* to the one you created in step 9.
+14. Navigate to the copied *iFlow* and configure it by setting the *User ID* to your number (XX). Then *Deploy* the *iFlow*.
 
 
+You have now prepared everything and can start with [Exercise 1](exercises/Exercise_01.md).

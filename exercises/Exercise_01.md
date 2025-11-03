@@ -65,7 +65,7 @@ Enter the further required identifier like step 4 by
 
 ![IN260 Figure 01.05](assets/IN260_01.05.png)
 
-## Step  6 - Create a Group Identifier for UN/EDIFACT
+## Step  6 - Create an Identifier Group for UN/EDIFACT
 You should now create an Identifier Group for incoming UN/EDIFACT interchanges, which might have different sender identifiers in the UNB segment. For this reason, you should carry out the following steps:
 - (a) Scroll down to **Identifier Groups**
 - (b) Click on the **Create** button, and a pop-up will open.
@@ -77,7 +77,7 @@ You should now create an Identifier Group for incoming UN/EDIFACT interchanges, 
 
 ![IN260 Figure 01.06](assets/IN260_01.06.png)
 
-## Step  7 - Add an Identifier do Group Identifier
+## Step  7 - Add an Identifier to the Identifier Group
 You should now see an entry of a new identifier group in where you can add the identifiers itself by
 - (a) Click on the **Add** button.
 - (b) In the new pop-up, enter in Identification: `E1-XX`, and
@@ -86,9 +86,9 @@ You should now see an entry of a new identifier group in where you can add the i
 
 ![IN260 Figure 01.07](assets/IN260_01.07.png)
 
-## Step  8 - Add a second Identifier do Group Identifier
+## Step  8 - Add a second Identifier to the Identifier Group 
 Add a second identifier in the same group
-- (a) Open the details view of the group identifier
+- (a) Open the details view of the identifier group 
 - (b) Click on the **Add** button.
 - (c) Enter the values:
   - Identification: `E2-XX`, and
@@ -187,6 +187,6 @@ The defined number range from step 2 should now be assigned to the trading partn
 
 Continue with: [Exercise 2](Exercise_02.md)
 
-Please give us also feedback to this session **IN260** by scanning the QR-Code:
+Please give us feedback to this session **IN260** by scanning the QR-Code:
 
  ![QR Code](../pictures/survey_QR.png)
