@@ -73,12 +73,12 @@ Review the selected overlay mappings, then clear the proposals and save the acce
 
 ## Step 6: Check Overlay MAG Validity
 Perform a technical validation to catch and resolve processing errors. For this purpose, do a further  processing check (not yet a semantic review):
-- (a) Click **Simulate** → **Simulate with sample data**.
+- (a) Click **Simulate** → **Simulate with Payload data**.
 - (b) Select `Source - IN260-XX-EDIFACT-ORDERS.edi` and click **OK**.
 - (c) If you get a processor error (e.g., value `20250929` does not match format `CCYYMMDDhhmm`), 
 - (d) locate it in the source payload (segment `DTM+137:20250929:102'`).
 - (d) In the source structure go to **DTM[2005 = 137] → C507 → 2380**. You may see two mappings on this node.
-- (e) The source child node 2380 in the qualified group `DTM[2380 = 137]` has to mapping element lines
+- (e) The source child node 2380 in the qualified group `DTM[2380 = 137]` has two mapping element lines
 - (f) One mapping element to the target leaf node `UZEIT` may attempt a time transformation for `CCYYMMDDhhmm` inserted by the proposal service. 
 - (g) If not needed, **delete** this mapping: right-click the mapping line → **Delete**.
 
@@ -244,7 +244,7 @@ The expected item text `TDLINE` concatenates two source nodes (**Step 12. i**). 
 - (f) Define the function validate:
 
 ```xslt
-<xsl:sequence select="concat($nodes_in/D_7008, " - ", $nodes_in/D_7008_2)"/>
+<xsl:sequence select="concat($nodes_in/D_7008, ' - ', $nodes_in/D_7008_2)"/>
 ```
 
 - (g) Click **Validate** to ensure the function is (h) **Valid**.
