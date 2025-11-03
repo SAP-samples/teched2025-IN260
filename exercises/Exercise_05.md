@@ -49,7 +49,7 @@ The same kind of codelists can be shaped for different purposes. This is especia
 - (a) Before you start with creation, you can see your already created codelists, if you expand them (`CL_UserXX_6411_MEA_Units`) and click on the version `1.0`.
 - (b) Click for creation of the second unit code list on the **Add** button and follow the steps (01.d) to (01.k) with the following parameters and code values:
   - **ID**: `CL_UserXX_6411_QTY_Units`.
-  - **Name**: `Measure Unit Code List`.
+  - **Name**: `MeasureUnitCodeList`.
   - Enable **Copy code values from Codelist**..
   - **Type System**: `UN/CEFACT`.
   - **Codelist**: `6411`.
