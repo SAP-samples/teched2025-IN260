@@ -9,8 +9,8 @@ This exercise guides you through creating and finalizing an **Overlay Mapping Gu
 - Test the end-to-end flow and compare the output with a reference payload; then refine the mapping until it matches.
 
 ### Prerequisites
-- You completed the earlier exercises (at least exercise 1+2) and **created the trading-partner-specific source MIG** or you copy the solution MIG _
-01.a) #IN260-SOLUTION# - UN/EDIFACT D.96A ORDERS - Source_.
+- You completed the earlier exercises (at least exercise 1+2) and **created the trading-partner-specific source MIG** or you copy the solution MIG **
+01.a) #IN260-SOLUTION# - UN/EDIFACT D.96A ORDERS - Source** and rename it to **01.a) IN260-UserXX - UN/EDIFACT D.96A ORDERS – Source**.
 - Access to the **MAG editor** and **TPA** in your environment.
 - Test files available locally:
   - `IN260-XX-EDIFACT-ORDERS.edi` (source payload)
