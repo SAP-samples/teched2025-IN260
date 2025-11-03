@@ -46,7 +46,7 @@ Clean up time! The new Overlay MAG may show errors due to differences between th
 ## Step 3: Validate the Overlay MAG
 Check your MAG, if this is valid. Therefore, simulate the mapping with a given sample source payload to verify basic correctness:
 - (a) Choose **Simulate → Simulate with MIG Example Data**.
-- (b) Upload `IN260-XX-EDIFACT-ORDERS.edi`.
+- (b) Upload `Source - IN260-EDIFACT-ORDERS.edi`.
 - (c) Click **OK**.
 - (d) Confirm that the **source values** appear at the correct nodes in the source MIG tree.
 - (e) Confirm that **target values** are produced at the mapped nodes in the target MIG.
@@ -63,7 +63,7 @@ Enhance your mapping with smart, conflict-free suggestions from the proposal ser
 ![IN260 Figure 04.04](assets/IN260_04.04.png)
 
 ## Step 5: Review and Save Overlay MAG
-Review the selected overlay mappings, then clear and save the accepted mappings to persist them in the MAG:
+Review the selected overlay mappings, then clear the proposals and save the accepted mappings to persist them in the MAG:
 - (a) Added overlay mappings appear in **green**.
 - (b) Open **Proposal List**.
 - (c) Click **Clear Proposal** to remove the transient list (the accepted mappings remain).
