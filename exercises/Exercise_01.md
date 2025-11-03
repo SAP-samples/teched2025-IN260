@@ -77,7 +77,7 @@ You should now create an Identifier Group for incoming UN/EDIFACT interchanges, 
 
 ![IN260 Figure 01.06](assets/IN260_01.06.png)
 
-## Step  7 - Add an Identifier do Group Identifier
+## Step  7 - Add an Identifier to the Group Identifier
 You should now see an entry of a new identifier group in where you can add the identifiers itself by
 - (a) Click on the **Add** button.
 - (b) In the new pop-up, enter in Identification: `E1-XX`, and
