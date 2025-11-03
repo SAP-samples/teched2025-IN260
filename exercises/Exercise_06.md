@@ -65,91 +65,125 @@ Initially, just the Delivery Header parts are mapped to a UN/EDIFACT segment gro
 - (f) Repeat it for getting another duplicated group in where you should enter the name `Units`.
 - (g) Once you clicked on the button **Apply**, you should see these duplicated groups at the target structure side.
 
-![IN260 Figure 06.07](assets/IN260_06.07.png)
+![IN260 Figure 06.05](assets/IN260_06.05.png)
 
 ## Step 06 - Add Constants and Mapping Elements
 Once you're ready with the duplicates, you can now add the following constants and mapping elements in the Overlay MAG according the following steps:
-- (a) **Group Mapping Elements** and **Pass-Through Mapping Element** ``
-- (b) **Constants** ``
-- (c) **Leaf Mapping Elements with Functions** ``
-- (d) **Leaf Mapping Elements with Code Value Mappings** ``
-- (e) **:** ``
-- (f) **:** ``
-- (g) **:** ``
-- (h) **:** ``
-- (i) **:** ``
-- (j) **:** ``
+- (a) **Group Mapping Elements** and **Pass-Through Mapping Elements**: Drag and drop the line from source node to the required target node (see below).
+  ***Remark:** Group Mapping Elements are just required, if the source and the corresponding target group node have a max. occurence higher than 1.
+- (b) **Constants**: Click on action button at the target leaf node (see below), (c) select the action button **[...]** and (d) select **Set Constant**.
+- (e) **Mapping Elements with Mapping Functions:** Drag and drop the line from source node to the required target node, and (f) enter in tab **Functions** the given mapping function as shown below.
+- (g) **Leaf Mapping Elements with Code Value Mappings:** Drag and drop the line from source node to the required target node, (g) select **Add --> All remain source values**, and (i) select all the corresponding target code values as shown in the list below. 
+
+![IN260 Figure 06.06](assets/IN260_06.06.png)
+
+| Type | Source Node | Source Node Name | To or Function or Code Value Mapping | Target Node | Target Node Name |
+| --- | --- | --- | --- | --- | --- |
+| **Group** | `/DELVRY07/E1EDL20/E1EDL37` | Handling units header | --> |  `/Interchange/DESADV/SG10 [1]` | Pallets |
+| **Constant** | `2` |  | --> |  `/Interchange/DESADV/SG10 [1]/CPS/7164` | Hierarchical id. number |
+| **Function** | `/DELVRY07/E1EDL20/E1EDL37/E1EDL37/EXIDV` | External Handling Unit Identification | `<xsl:sequence select="concat('01;', $nodes_in/EXIDV)"/>` |  `/Interchange/DESADV/SG10 [1]/CPS/7166` | Hierarchical parent id. |
+| **Constant** | `2` |  | --> |  `/Interchange/DESADV/SG10 [1]/CPS/7075` | Packaging level, coded |
+| **Code Value Mapping** | `/DELVRY07/E1EDL20/E1EDL37/E1EDL37/VHILM` | Packaging Materials | See **Code Value Mapping VHILM to 7065** below |  `/Interchange/DESADV/SG10 [1]/SG11/PAC/C202/7065` | Type of packages identification |
+| **Group** | `/DELVRY07/E1EDL20/E1EDL37/E1EDL44 [VELIN = 3]` | Handling unit | --> |  `/Interchange/DESADV/SG10 [2]` | Units |
+| **Constant** | `3` |  | --> |  `/Interchange/DESADV/SG10 [2]/CPS/7164` | Hierarchical id. number |
+| **Function** | `/DELVRY07/E1EDL20/E1EDL37/E1EDL37/EXIDV + /DELVRY07/E1EDL20/E1EDL37/E1EDL44 [VELIN = 3]/E1EDL44/EXIDV` | External Handling Unit Identification | `<xsl:sequence select="concat('01;', $nodes_in/EXIDV[1], ';', $nodes_in/POSNR[1])"/>` |  `/Interchange/DESADV/SG10 [2]/CPS/7166` | Hierarchical parent id. |
+| **Constant** | `3` | | --> |  `/Interchange/DESADV/SG10 [2]/CPS/7075` | Packaging level, coded |
+| **Pass-Through** | `/DELVRY07/E1EDL20/E1EDL37/E1EDL44 [VELIN = 3]/E1EDL44/VEMNG` | Base Quantity Packed in the Handling Unit Item | --> |  `/Interchange/DESADV/SG10 [2]/SG11/PAC/7224` | Number of packages |
+| **Function** | `/DELVRY07/E1EDL20/E1EDL37/E1EDL44 [VELIN = 3]/E1EDL44/POSNR` | Item number of the SD document | `<xsl:sequence select="count($nodes_in/POSNR)"/>` |  `/Interchange/DESADV/SG10 [1]/SG11/PAC/7224` | Number of packages |
+| **Code Value Mapping** | `/DELVRY07/E1EDL20/E1EDL37/E1EDL44 [VELIN = 3]/E1EDL44/VEMEH` | Base Unit of Measure of the Quantity to be Packed (VEMNG) | See **Code Value Mapping VEMEH to 7065** below |  `/Interchange/DESADV/SG10 [2]/SG11/PAC/C202/7065` | Type of packages identification |
+| **Group** | `/DELVRY07/E1EDL20/E1EDL37/E1EDL44 [VELIN = 3]/E1EDL24Copy` | Copy of Delivery Items | --> |  `/Interchange/DESADV/SG10 [2]/SG15` | Line Items |
+| **Pass-Through** | `/DELVRY07/E1EDL20/E1EDL37/E1EDL44 [VELIN = 3]/E1EDL24Copy/E1EDL24/POSNR` | Item number of the SD document | --> |  `/Interchange/DESADV/SG10 [2]/SG15/LIN/1082` | Line item number |
+| **Pass-Through** | `/DELVRY07/E1EDL20/E1EDL37/E1EDL44 [VELIN = 3]/E1EDL24Copy/E1EDL24/MATNR` | Material Number (18 Characters) | --> |  `/Interchange/DESADV/SG10 [2]/SG15/LIN/C212/7140` | Item number |
+| **Constant** | `EF` |  | --> |  `/Interchange/DESADV/SG10 [2]/SG15/LIN/C212/7143` | Item number type, coded |
+| **Constant** | `F` |  | --> |  `/Interchange/DESADV/SG10 [2]/SG15/IMD [7077 = F]/7077` | Item description type, coded |
+| **Pass-Through** | `/DELVRY07/E1EDL20/E1EDL37/E1EDL44 [VELIN = 3]/E1EDL24Copy/E1EDL24/ARKTX` | Short Text for Sales Order Item | --> |  `/Interchange/DESADV/SG10 [2]/SG15/IMD [7077 = F]/C273/7008` | Item description |
+| **Constant** | `131` |  | --> |  `/Interchange/DESADV/SG10 [2]/SG15/QTY [6063 = 131]/C186/6063` | Quantity qualifier |
+| **Function** | `/DELVRY07/E1EDL20/E1EDL37/E1EDL44 [VELIN = 3]/E1EDL44/VELIN + /DELVRY07/E1EDL20/E1EDL37/E1EDL44 [VELIN = 3]/E1EDL24Copy/E1EDL24/LFIMG` | Type of Handling-unit Item Content + Actual quantity delivered (in sales units)  | `<xsl:sequence select="xs:integer($nodes_in/LFIMG div count($nodes_in/VELIN))"/>` |  `/Interchange/DESADV/SG10 [2]/SG15/QTY [6063 = 131]/C186/6060` | Quantity |
+| **Code Value Mapping** | `/DELVRY07/E1EDL20/E1EDL37/E1EDL44 [VELIN = 3]/E1EDL24Copy/E1EDL24/GEWEI` | Weight Unit | See **Code Value Mapping GEWEI to 6411** below  |  `/Interchange/DESADV/SG10 [2]/SG15/QTY [6063 = 131]/C186/6411` | Measure unit qualifier |
 
 
-Constants
-| Constant Value | Target Node | Target Node Name |
-| --- | --- | --- |
-| `1` | `/Interchange/DESADV/SG10 [1]/CPS/7164` | Hierarchical id. number |
-| `2` | `/Interchange/DESADV/SG10 [1]/CPS/7075` | Packaging level, coded |
-| `3` | `/Interchange/DESADV/SG10 [2]/CPS/7164` | Hierarchical id. number |
-| `3` | `/Interchange/DESADV/SG10 [2]/CPS/7075` | Packaging level, coded |
-| `EF` | `/Interchange/DESADV/SG10 [2]/SG15/LIN/C212/7143` | Item number type, coded |
-| `F` | `/Interchange/DESADV/SG10 [2]/SG15/IMD [7077 = F]/7077` | Item description type, coded |
-| `131` | `/Interchange/DESADV/SG10 [2]/SG15/QTY [6063 = 131]/C186/6063` | Quantity qualifier |
+**Code Value Mapping VHILM to 7065** 
 
-## Step 07 - Add Pass-Through Mapping Elements
-Pass-Through Mapping Elements
-| Source Node | Source Node Name | to | Target Node | Target Node Name |
-| --- | --- | --- | --- | --- |
-| `/DELVRY07/E1EDL20/E1EDL37` | Handling units header | --> |  `/Interchange/DESADV/SG10 [1]` | Pallets |
-| `/DELVRY07/E1EDL20/E1EDL37/E1EDL44 [VELIN = 3]` | Handling unit | --> |  `/Interchange/DESADV/SG10 [2]` | Units |
-| `/DELVRY07/E1EDL20/E1EDL37/E1EDL44 [VELIN = 3]/E1EDL44/VEMNG` | Base Quantity Packed in the Handling Unit Item | --> |  `/Interchange/DESADV/SG10 [2]/SG11/PAC/7224` | Number of packages |
-| `/DELVRY07/E1EDL20/E1EDL37/E1EDL44 [VELIN = 3]/E1EDL44/VEMEH` | Base Unit of Measure of the Quantity to be Packed (VEMNG) | --> |  `/Interchange/DESADV/SG10 [2]/SG11/PAC/C202/7065` | Type of packages identification |
-| `/DELVRY07/E1EDL20/E1EDL37/E1EDL44 [VELIN = 3]/E1EDL24Copy` | Copy of Delivery Items | --> |  `/Interchange/DESADV/SG10 [2]/SG15` | Line Items |
-| `/DELVRY07/E1EDL20/E1EDL37/E1EDL44 [VELIN = 3]/E1EDL24Copy/E1EDL24/POSNR` | Item number of the SD document | --> |  `/Interchange/DESADV/SG10 [2]/SG15/LIN/1082` | Line item number |
-| `/DELVRY07/E1EDL20/E1EDL37/E1EDL44 [VELIN = 3]/E1EDL24Copy/E1EDL24/MATNR` | Material Number (18 Characters) | --> |  `/Interchange/DESADV/SG10 [2]/SG15/LIN/C212/7140` | Item number |
-| `/DELVRY07/E1EDL20/E1EDL37/E1EDL44 [VELIN = 3]/E1EDL24Copy/E1EDL24/ARKTX` | Short Text for Sales Order Item | --> |  `/Interchange/DESADV/SG10 [2]/SG15/IMD [7077 = F]/C273/7008` | Item description |
+- **Default Value**: (pass-through source value)
 
-## Step 9 - Map the Line Items
+| Source Code Value | Target Code Value |
+| --- | --- |
+| `PL -- Pallet` | `231 -- Purchase order response` |
 
-- (a) Map **E1EDL24** to **SG15**.
-- (b) Map **POSNR** to **1082**. 
-- (c) Map **MATNR** to **7140** and add the constant **EF** to **7143**.
-- (d) Add constant **F** to **7077** and map **ARKTX** to **7008**.
-- (e) Add constant **131** to **6063**, constant **PCE** to **6411**, then map the **VELIN** and **LFIMG** to **6060** using: 
-    - `<xsl:sequence select="xs:integer($nodes_in/LFIMG div count($nodes_in/VELIN))"/>`
 
+Default Value:
+(pass-through source value)
+
+PX -- Pallet
+
+
+**Code Value Mapping VEMEH to 7065**
+
+- **Default Value**: (pass-through source value)
+
+| Source Code Value | Target Code Value |
+| --- | --- |
+|  |   |
+
+**Code Value Mapping GEWEI to 6411**
+
+- **Default Value:** (pass-through source value)
+
+| Source Code Value | Target Code Value |
+| --- | --- |
+| `PCE -- Piece` | `PCE -- Piece (EAN Code) `|
+| `GRM -- Gram` | `GRM -- gram `|
+| `LIT -- Litre` | `LTR -- litre `|
+| `MLI -- Millilitre` | `MLT -- millilitre `|
+| `KIL -- Kilogram` | `KGM -- kilogram `|
+
+## Step 07 - Change in the TPA to the Overlay MAG
+Change the MAG in the Business Transaction Activity **02.) Delivery Notification - Outbound** with your created Overlay MAG and apply these changes PD via the following steps:
+- (a) Go to your TPA and change it into edit mode.
+- (b) Select in the business transaction activity **02.) Delivery Notification - Outbound** the step **Mapping**
+- (c) Change the given MAG with your MAG: `01.b) IN260-UserXX -  - SAP IDOC DESADV.DELVRY07 -to- UN/EDIFACT D.96A DESADV` and (d) click on **Save**.
+- (e) Click **Update**;
+- (f) Select `02.) Delivery Notification - Outbound` in the dialog and (g) click **Update**.
+
+***Remark:*** If you like, you can do a simulate in the MAG before you go ahead with the next stepp.
+
+![IN260 Figure 06.07](assets/IN260_06.07.png)
+
+## Step 08 - Run Comparison Test
+Do a test run and compare the results with the expected payloads. There will be mismatches, because the target payload is not sorted to the expected structure.
+The comparison test can be realized by the following steps:
+- (a) In Bruno select the test case **02.) Delivery Notification - Outbound**, and do (b) a test run so that you'll see the result at the response side.
+- (c) Click on **Download** button and save the payload in the **Downloads** folder.
+- (d) Do a comparison with the given expected target file `Expected Target - IN260-XX-EDIFACT-ORDRSP.edi` that is stored in the folder `01.b) Sales Order Response - Outbound`, and
+- (e) You'll see in a separate window the comparison result with the mismatches.
+
+![IN260 Figure 06.08](assets/IN260_06.08.png)
+
+## Step 09 - Copy the Post-Processing iFlow
+In order to get a correct order at the target payload side, you need the post-processing flow with the specific target sorting script, which is already prepared in the given Integration Package: **TechEd 2025 - IN260 - Post Processing Flows**. In order to get it, you should to the following steps: 
+- (a) Go in the navigation pane into **Design → Integration and APIs** and open the integration package **TechEd 2025 - IN260 - Post Processing Flows**.
+- (b) In the **Actions** menu at the integration flow  **Post-Processing - TEMPLATE - 02 - Delivery Notification - Outbound UN-EDIFACT**, select the **Copy** feature. to
+- (c) Enter in the pop-window the **Name:** `Post-Processing - UserXX - 02 - Delivery Notification - Outbound UN-EDIFACT`, and (d) click on  button **Copy**.
+- (e) You'll see the copied integration flow in where you should (f) select action item **Configure**, 
+- (g) Change in the pop-up window the **UserID** the value **XX** in the name to your ID and (h) click on button **Deploy**. 
+  
 ![IN260 Figure 06.09](assets/IN260_06.09.png)
 
-## Step 10 - Add the Customized Post-Processing
-To add the Customized Post-Processing follow these steps: 
-- (a) Go to your MAG into the **02.) Delivery Notification – Outbound transaction**.
-- (b) In the interchange section on the target side, select **Customized Post-Processing**. 
-- (c) Add the Process Direct adress: 
-    - `/tpm/post-processing/userXX/02-delivery-notification-outbound/un-edifact`
+## Step 10 - Add the Customized Post-Processing in the TPA
+You have to add the Customized Post-Processing to the BTA **02.) Delivery Notification – Outbound** by the following steps: 
+- (a) Go to your TPA and change it into edit mode and elect in the business transaction activity **02.) Delivery Notification - Outbound** the step **Target Interchange**
+- (b) Click on the target **Interchange** step at receiver side.
+- (c) In the details panel, enable the **Customized Post-Processing**.
+- (d) Add in thefield **Process Direct Adress** the address: 
+  `tpm/post-processing/UserXX/02-delivery-notification-outbound/un-edifact` 
+- (e) Click **Save**. 
+- (d) Do an update as described in step 07.
 
 ![IN260 Figure 06.10](assets/IN260_06.10.png)
 
+## Step 11 - Run Final Test
+Do the same test run like described in step 08 and compare the results with the expected payloads. If you don't see any mismatches, then all the creations and changes you made in your Overlay MAG seem to be correct, as well as the post-processing is running sufficiently.
 
-## Step 11 - Copy the Post-Processing iFlow
+**Remark:** This is the end of the exercise. If you still have some time, you can go ahead with the other open Exercises.
 
-To copy the iflow: 
-- (a) Go into **Design → Integration and APIs**. 
-- (b) Open the package **BOOTCAMP - Pre and Post-Processing Flows - Custom**.
-- (c) In the **Artifacts** tab, copy the iFlow**Post-Processing - UserXX - 02 ...**.
-- (d) Change **UserXX** in the name to your ID. 
-- (e) Click **Copy**.
 ![IN260 Figure 06.11](assets/IN260_06.11.png)
-
-
-## Step 12 - Configure the iFlow
-
-- (a) Click **Configure** on your new iFlow. 
-- (b) Add the same Process Direct Adress as in the TPA. 
-    - `tpm/post-processing/userXX/02-delivery-notification-outbound/un-edifact` 
-- (c) Click **Deploy**. 
-
-![IN260 Figure 06.12](assets/IN260_06.12.png)
-
-----
-
-/tpm/post-processing/UserXX/02-delivery-notification-outbound/un-edifact
-
-Continue with: [Exercise 7](Exercise_07.md)
-
-02.) IN260-UserXX - SAP IDOC DESADV.DELVRY07 -to- UN/EDIFACT D.96A DESADV
