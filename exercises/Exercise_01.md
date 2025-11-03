@@ -65,7 +65,7 @@ Enter the further required identifier like step 4 by
 
 ![IN260 Figure 01.05](assets/IN260_01.05.png)
 
-## Step  6 - Create a Identifier Group for UN/EDIFACT
+## Step  6 - Create an Identifier Group for UN/EDIFACT
 You should now create an Identifier Group for incoming UN/EDIFACT interchanges, which might have different sender identifiers in the UNB segment. For this reason, you should carry out the following steps:
 - (a) Scroll down to **Identifier Groups**
 - (b) Click on the **Create** button, and a pop-up will open.
