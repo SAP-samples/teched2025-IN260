@@ -51,7 +51,7 @@ The same kind of codelists can be shaped for different purposes. This is especia
   - **ID**: `CL_UserXX_6411_QTY_Units`.
   - **Name**: `MeasureUnitCodeList`.
   - Enable **Copy code values from Codelist**..
-  - **Type System**: `UN/CEFACT`.
+  - **Type System**: `GS1 EANCOM`.
   - **Codelist**: `6411`.
   - **Version**: `1997_S3_Edition_2001`.
   - Code Values, see table below.
