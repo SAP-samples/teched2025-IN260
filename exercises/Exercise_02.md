@@ -121,14 +121,15 @@ To finalize and activate the TPA:
 ## Step 9 - Feasibility Check
 Use the Bruno API Testing Tool to verify the activated TPA:
 - (a) Open the Bruno API Testing Tool, navigate to the folder **IN260 - Order to Cash - SAP IDoc with UN/EDIFACT**, and open the GET request **01.a) Sales Order Request - Inbound**.
-- (b) Click the **→** button to run the GET request.
-- (c) After a short while, you should see an XML-based IDoc message as the result.
-- (d) Repeat the procedure with the GET request **01.b) Sales Order Response - Outbound**,
-- (e) so that you see a UN/EDIFACT interchange payload with an ORDRSP message as the response.
-- (f) Repeat the procedure with the GET request **02.) Delivery Notification - Outbound**,
-- (g) so that you see a UN/EDIFACT interchange payload with a DESADV message as the response.
-- (h) Repeat the procedure with the GET request **03.) Invoice - Outbound - Buyer**,
-- (i) so that you see a UN/EDIFACT interchange payload with an INVOIC message as the response.
+- (b) select the correct environment by pressing the button on the right top (_No environments_) and select _Tenant 2 - Teched 2025_
+- (c) Click the **→** button to run the GET request.
+- (d) After a short while, you should see an XML-based IDoc message as the result.
+- (e) Repeat the procedure with the GET request **01.b) Sales Order Response - Outbound**,
+- (f) so that you see a UN/EDIFACT interchange payload with an ORDRSP message as the response.
+- (g) Repeat the procedure with the GET request **02.) Delivery Notification - Outbound**,
+- (h) so that you see a UN/EDIFACT interchange payload with a DESADV message as the response.
+- (i) Repeat the procedure with the GET request **03.) Invoice - Outbound - Buyer**,
+- (j) so that you see a UN/EDIFACT interchange payload with an INVOIC message as the response.
 
 Remark: Don’t worry about the content you receive. It is not yet finalized. The content will be corrected in Exercises 03 to 07.
 
