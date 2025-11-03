@@ -205,8 +205,9 @@ Use Visual Studio Code  to compare your result with the expected target:
 
 ![IN260 Figure 04.12](assets/IN260_04.12.png)
 
-## Step 13: Delete Unneeded Mapping Elements
-Apply the deletions identified in Step 12 directly in the MAG (ensure you are in **edit mode**):
+## Step 13:  Delete Unnecessary Mapping Elements
+Apply the deletions identified in Step 12 directly in the MAG (ensure you are in **edit mode**)
+Check if these mappings exist at all- as they come from the proposal service this might change over time.
 - (a) **From Step 12.f (Delete header)**: Search for `E1EDK14`.
 - (b) At target node `/ORDERS05/E1EDK14 [QUALF = 008]`, right-click the mapping line
 - (c) Click on **Delete** in the context menu. 
