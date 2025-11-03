@@ -27,9 +27,9 @@ Before creating the B2B integration content for sales order response processing,
 - (c) Select **Custom Codelists**, which are the collection of all the reusable customized codelists in your tenant.
 - (d) Click on the **Add** button for creating a new custom codelist.
 - (e) In the new pop-up window, enter in **ID**: `CL_UserXX_6411_MEA_Units`.
-- (f) Give a name, which code is: `Measure Unit Code List`.
+- (f) Give a name, which code is: `MeasureUnitCodeList`.
 - (g) This codelist represents a specific type of measure units, but it is mainly a subset of the UN/CEFACT Recommendation 20 codelist, therefore enable **Copy code values from Codelist**..
-- (h) Select the **Type System**: `GS1 EANCOM`.
+- (h) Select the **Type System**: `UN/CEFACT`.
 - (i) Select the **Codelist**: `Rec_20`.
 - (j) Select the latest **version**, which is `2016`.
 - (k) Search for the code values listed in the table below and (l) select them.
