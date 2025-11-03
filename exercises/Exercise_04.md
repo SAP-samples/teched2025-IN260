@@ -9,7 +9,8 @@ This exercise guides you through creating and finalizing an **Overlay Mapping Gu
 - Test the end-to-end flow and compare the output with a reference payload; then refine the mapping until it matches.
 
 ### Prerequisites
-- You completed the earlier exercises and **created the trading-partner-specific source MIG**.
+- You completed the earlier exercises (at least exercise 1+2) and **created the trading-partner-specific source MIG** or you copy the solution MIG **
+01.a) #IN260-SOLUTION# - UN/EDIFACT D.96A ORDERS - Source** and rename it to **01.a) IN260-UserXX - UN/EDIFACT D.96A ORDERS – Source**.
 - Access to the **MAG editor** and **TPA** in your environment.
 - Test files available locally:
   - `IN260-XX-EDIFACT-ORDERS.edi` (source payload)
@@ -45,7 +46,7 @@ Clean up time! The new Overlay MAG may show errors due to differences between th
 ## Step 3: Validate the Overlay MAG
 Check your MAG, if this is valid. Therefore, simulate the mapping with a given sample source payload to verify basic correctness:
 - (a) Choose **Simulate → Simulate with MIG Example Data**.
-- (b) Upload `IN260-XX-EDIFACT-ORDERS.edi`.
+- (b) Upload `Source - IN260-EDIFACT-ORDERS.edi`.
 - (c) Click **OK**.
 - (d) Confirm that the **source values** appear at the correct nodes in the source MIG tree.
 - (e) Confirm that **target values** are produced at the mapped nodes in the target MIG.
@@ -62,7 +63,7 @@ Enhance your mapping with smart, conflict-free suggestions from the proposal ser
 ![IN260 Figure 04.04](assets/IN260_04.04.png)
 
 ## Step 5: Review and Save Overlay MAG
-Review the selected overlay mappings, then clear and save the accepted mappings to persist them in the MAG:
+Review the selected overlay mappings, then clear the proposals and save the accepted mappings to persist them in the MAG:
 - (a) Added overlay mappings appear in **green**.
 - (b) Open **Proposal List**.
 - (c) Click **Clear Proposal** to remove the transient list (the accepted mappings remain).
@@ -72,12 +73,12 @@ Review the selected overlay mappings, then clear and save the accepted mappings 
 
 ## Step 6: Check Overlay MAG Validity
 Perform a technical validation to catch and resolve processing errors. For this purpose, do a further  processing check (not yet a semantic review):
-- (a) Click **Simulate** → **Simulate with sample data**.
+- (a) Click **Simulate** → **Simulate with Payload data**.
 - (b) Select `Source - IN260-XX-EDIFACT-ORDERS.edi` and click **OK**.
 - (c) If you get a processor error (e.g., value `20250929` does not match format `CCYYMMDDhhmm`), 
 - (d) locate it in the source payload (segment `DTM+137:20250929:102'`).
 - (d) In the source structure go to **DTM[2005 = 137] → C507 → 2380**. You may see two mappings on this node.
-- (e) The source child node 2380 in the qualified group `DTM[2380 = 137]` has to mapping element lines
+- (e) The source child node 2380 in the qualified group `DTM[2380 = 137]` has two mapping element lines
 - (f) One mapping element to the target leaf node `UZEIT` may attempt a time transformation for `CCYYMMDDhhmm` inserted by the proposal service. 
 - (g) If not needed, **delete** this mapping: right-click the mapping line → **Delete**.
 
@@ -204,8 +205,9 @@ Use Visual Studio Code  to compare your result with the expected target:
 
 ![IN260 Figure 04.12](assets/IN260_04.12.png)
 
-## Step 13: Delete Unneeded Mapping Elements
-Apply the deletions identified in Step 12 directly in the MAG (ensure you are in **edit mode**):
+## Step 13:  Delete Unnecessary Mapping Elements
+Apply the deletions identified in Step 12 directly in the MAG (ensure you are in **edit mode**)
+Check if these mappings exist at all- as they come from the proposal service this might change over time.
 - (a) **From Step 12.f (Delete header)**: Search for `E1EDK14`.
 - (b) At target node `/ORDERS05/E1EDK14 [QUALF = 008]`, right-click the mapping line
 - (c) Click on **Delete** in the context menu. 
@@ -243,7 +245,7 @@ The expected item text `TDLINE` concatenates two source nodes (**Step 12. i**). 
 - (f) Define the function validate:
 
 ```xslt
-<xsl:sequence select="concat($nodes_in/D_7008, " - ", $nodes_in/D_7008_2)"/>
+<xsl:sequence select="concat($nodes_in/D_7008, ' - ', $nodes_in/D_7008_2)"/>
 ```
 
 - (g) Click **Validate** to ensure the function is (h) **Valid**.
