@@ -178,7 +178,7 @@ You're now ready with all the customizations and assignments in the Trading Part
 
 ![IN260 Figure 05.09](assets/IN260_05.09.png)
 
-## Step 10 - Create Pass-through Mapping
+## Step 10 - Create Pass-through Mapping Element
 Both the source and target code lists should be mapped. A pass-through is enough. The following steps are required for it:
 
 - (a) Drag and drop a mapping element from
