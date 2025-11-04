@@ -69,7 +69,7 @@ Create an Identifier Group for incoming UN/EDIFACT interchanges, which might hav
 - (a) Scroll down to **Identifier Groups**.
 - (b) Click **Create**; a pop-up will open.
 - (c) Enter the identification number `GE-UserXX`, where G stands for group and XX is your User ID. Ensure the identification number is no longer than 14 characters; if necessary, remove leading zeros.
-- (d) Enter the Alias: `TP_UN/EDIFACT_G`.
+- (d) Enter the Alias: `TP_UNEDIFACT_G`.
 - (e) Select the Type System: `UN/EDIFACT`.
 - (f) Select the Scheme: `Mutually defined` with the value `ZZZ`.
 - (g) Click **Save**.
