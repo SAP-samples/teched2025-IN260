@@ -27,9 +27,9 @@ Before creating the B2B integration content for sales order response processing,
 - (c) Select **Custom Codelists**, which are the collection of all the reusable customized codelists in your tenant.
 - (d) Click on the **Add** button for creating a new custom codelist.
 - (e) In the new pop-up window, enter in **ID**: `CL_UserXX_6411_MEA_Units`.
-- (f) Give a name, which code is: `Measure Unit Code List`.
+- (f) Give a name, which code is: `MeasureUnitCodeList`.
 - (g) This codelist represents a specific type of measure units, but it is mainly a subset of the UN/CEFACT Recommendation 20 codelist, therefore enable **Copy code values from Codelist**..
-- (h) Select the **Type System**: `GS1 EANCOM`.
+- (h) Select the **Type System**: `UN/CEFACT`.
 - (i) Select the **Codelist**: `Rec_20`.
 - (j) Select the latest **version**, which is `2016`.
 - (k) Search for the code values listed in the table below and (l) select them.
@@ -49,9 +49,9 @@ The same kind of codelists can be shaped for different purposes. This is especia
 - (a) Before you start with creation, you can see your already created codelists, if you expand them (`CL_UserXX_6411_MEA_Units`) and click on the version `1.0`.
 - (b) Click for creation of the second unit code list on the **Add** button and follow the steps (01.d) to (01.k) with the following parameters and code values:
   - **ID**: `CL_UserXX_6411_QTY_Units`.
-  - **Name**: `Measure Unit Code List`.
+  - **Name**: `MeasureUnitCodeList`.
   - Enable **Copy code values from Codelist**..
-  - **Type System**: `UN/CEFACT`.
+  - **Type System**: `GS1 EANCOM`.
   - **Codelist**: `6411`.
   - **Version**: `1997_S3_Edition_2001`.
   - Code Values, see table below.
@@ -184,6 +184,7 @@ Both the source and target code lists should be mapped. A pass-through is enough
 - (a) Drag and drop a mapping element from
   - *Source:* `/ORDERS05/E1EDK01/CURCY` (Currency) to
   - *Target:* `Interchange/ORDRSP/SG8 [6347 = 2]/CUX/C504/6345` (Currency, coded)
+  *Remark: in case there is a constant assigned please delete this by clicking on the # symbol beside the 6345 element and delete.
 - (b) You will then see a tab **Code Value Mapping**, click on it.
 - (c) In the details of the **Code Value Mapping**, you see the **Default Value**, which is already set to **(pass-through source value)**.
  
@@ -193,7 +194,7 @@ Both the source and target code lists should be mapped. A pass-through is enough
 Base MAG mapping elements can be modified to cover a code value mapping. The following steps can realize this:
 - (a) Select mapping element
   - *Source:* `/ORDERS05/E1EDK01/BSART `(Document Type) to
-  - *Target:* `Interchange/ORDRSP/BGM/C002/1001` (Document/message name, coded)
+  - *Target:* `Interchange/ORDRSP/BGM/C002/1225` (Document/message name, coded)
 - (b) Click in the **Function** details view on the button **Create Editable Copy**.
 - (c) You'll see now an editable **Function** in which you should click on the button **Switch to Code Value Mapping**.
 - (d) Details view should be changed to **Code Value Mapping** in where you should select the **Default Value:** `230 -- purchase order change request`
@@ -235,6 +236,8 @@ You can set multiple mappings from the same source node by following these steps
 | `RSP -- Response` | `11 -- Response` |
 
 ![IN260 Figure 05.12](assets/IN260_05.12.png)
+
+## Step 13 - Step 17 is optional! You may follow with Step 18 directly! ##
 
 ## Step 13 - Map Repeating Line Items
 It makes no difference; code values can also be the same by following the same steps with repeatable groups, such as from ***E1EDP01 (Line Items)*** to ***SG26 (individual ordered items)***.
