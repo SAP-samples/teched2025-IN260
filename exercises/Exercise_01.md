@@ -163,7 +163,7 @@ Add the following parameters:
 
 | Parameter Key | Value | Purpose |
 | --- | --- | --- |
-| `DESADV_ContractPartyReferenceNumber` | `REF-IN260-XX` | Injection into the MAG |
+| `DESADV_ContractPartyReferenceNumber` | `REF-IN260-UserXX` | Injection into the MAG |
 | `DESADV_KindOfNumberOfTotalPackages` | `CBP` | Injection into an XSLT script in a post-processing flow |
 | `SAP_EDI_REC_Sender_System_ID` | `CPIFALLBAC` | Injection into the SAP IDoc EDI_DC40 header segment in incoming transactions |
 | `SAP_EDI_REC_Sender_Partner_Function` | `AG` | Injection into the SAP IDoc EDI_DC40 header segment in incoming transactions |
