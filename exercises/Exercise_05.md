@@ -194,7 +194,7 @@ Both the source and target code lists should be mapped. A pass-through is enough
 Base MAG mapping elements can be modified to cover a code value mapping. The following steps can realize this:
 - (a) Select mapping element
   - *Source:* `/ORDERS05/E1EDK01/BSART `(Document Type) to
-  - *Target:* `Interchange/ORDRSP/BGM/C002/1001` (Document/message name, coded)
+  - *Target:* `Interchange/ORDRSP/BGM/C002/1225` (Document/message name, coded)
 - (b) Click in the **Function** details view on the button **Create Editable Copy**.
 - (c) You'll see now an editable **Function** in which you should click on the button **Switch to Code Value Mapping**.
 - (d) Details view should be changed to **Code Value Mapping** in where you should select the **Default Value:** `230 -- purchase order change request`
