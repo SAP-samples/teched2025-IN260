@@ -52,7 +52,7 @@ Create a new TPA by copying from the template:
 - (d) Click **Next**.
 - (e) Enable **Copy from Template**.
 - (f) Select all business transactions.
-- (g) From the drop-down, select your Trading Partner **IN260-XX** (replace XX with your User ID).
+- (g) From the drop-down, select your Trading Partner **IN260-UserXX** (replace XX with your User ID).
 - (h) Click **Open Draft**.
 
 General note: Selecting all transactions is not always necessary. Choose only the transactions that are relevant for your trading partner.
@@ -66,7 +66,7 @@ A new TPA for your trading partner will be created. In the default **Overview** 
 - (c) Set **Type System Version** to `D.96A S3`.
 - (d) Click the value help for **Identifier in Company Type System** to open a pop-up.
 - (e) In the pop-up, open the **Identifier Groups** tab.
-- (f) Select the identifier group with **Group Name**: `GE-XX` (replace XX with your User ID).
+- (f) Select the identifier group with **Group Name**: `GE-UserXX` (replace XX with your User ID).
 - (g) In **My Company Details**, set **Identifier in Trading Partner Type System** to `COMP_E_D`.
 - (h) Click **Save**.
 
