@@ -45,7 +45,7 @@ Now, create your trading partner profile so that you can build your specific Tra
 First, set single identifiers for outgoing UN/EDIFACT interchanges:
 - (a) Stay on the Trading Partner Profile and open the **Identifiers** tab.
 - (b) Click **Create**; a pop-up will open.
-- (c) Enter the identification number `E-XX`, where XX is your User ID. Ensure the identification number is no longer than 14 characters; if necessary, remove leading zeros.
+- (c) Enter the identification number `E-UserXX`, where XX is your User ID. Ensure the identification number is no longer than 14 characters; if necessary, remove leading zeros.
 - (d) Enter the Alias: `TP_UNEDIFACT_ID`.
 - (e) Select the Type System: `UN/EDIFACT`.
 - (f) Select the Scheme: `Mutually defined` with the value `ZZZ`.
@@ -56,7 +56,7 @@ First, set single identifiers for outgoing UN/EDIFACT interchanges:
 ## Step 5 - Create a Single Identifier for SAP IDoc
 Create another required identifier as in Step 4:
 - (a) Click **Create** and enter:
-  - Identification: `I-XX`, where XX is your User ID. Ensure the identification number is no longer than 10 characters; if necessary, remove leading zeros.
+  - Identification: `I-UserXX`, where XX is your User ID. Ensure the identification number is no longer than 10 characters; if necessary, remove leading zeros.
   - Alias: `TP_IDOC_ID`
   - Type System: `SAP S/4HANA On Premise IDoc`
   - Scheme: `N/A`
@@ -68,7 +68,7 @@ Create another required identifier as in Step 4:
 Create an Identifier Group for incoming UN/EDIFACT interchanges, which might have different sender identifiers in the UNB segment:
 - (a) Scroll down to **Identifier Groups**.
 - (b) Click **Create**; a pop-up will open.
-- (c) Enter the identification number `GE-XX`, where G stands for group and XX is your User ID. Ensure the identification number is no longer than 14 characters; if necessary, remove leading zeros.
+- (c) Enter the identification number `GE-UserXX`, where G stands for group and XX is your User ID. Ensure the identification number is no longer than 14 characters; if necessary, remove leading zeros.
 - (d) Enter the Alias: `TP_UN/EDIFACT_G`.
 - (e) Select the Type System: `UN/EDIFACT`.
 - (f) Select the Scheme: `Mutually defined` with the value `ZZZ`.
@@ -79,7 +79,7 @@ Create an Identifier Group for incoming UN/EDIFACT interchanges, which might hav
 ## Step 7 - Add an Identifier to the Identifier Group
 You should now see the new identifier group entry. Add identifiers to it as follows:
 - (a) Click **Add**.
-- (b) In the pop-up, enter Identification: `E1-XX`.
+- (b) In the pop-up, enter Identification: `E1-UserXX`.
 - (c) Enter Sub-Organization Name: `Suborg. E1`.
 - (d) Click **Save**.
 
@@ -90,7 +90,7 @@ Add a second identifier to the same group:
 - (a) Open the details view of the identifier group.
 - (b) Click **Add**.
 - (c) Enter:
-  - Identification: `E2-XX`
+  - Identification: `E2-UserXX`
   - Sub-Organization Name: `Suborg. E2`
 - (d) Click **Save**.
 - (e) Enable Activation Status so the group's identifiers are recognized as sender identifiers for incoming UN/EDIFACT interchanges.
