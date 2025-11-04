@@ -19,7 +19,7 @@ A unique interchange control number should be included when sending documents fo
 ## Step 2 - Create a Number Range object
 In the new window, create your number range for the Interchange Control Number (ICN) by following these steps:
 - (a) Click **Add**; a pop-up will open.
-- (b) Enter the name `ICN_EDIFACT_IN260_XX` (replace XX with your User ID).
+- (b) Enter the name `ICN_EDIFACT_IN260_UserXX` (replace XX with your User ID).
 - (c) Set the minimum value to `0`.
 - (d) Set the maximum value to `99999999999999`.
 - (e) Enter the field length `14`.
