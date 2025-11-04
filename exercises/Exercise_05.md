@@ -184,6 +184,7 @@ Both the source and target code lists should be mapped. A pass-through is enough
 - (a) Drag and drop a mapping element from
   - *Source:* `/ORDERS05/E1EDK01/CURCY` (Currency) to
   - *Target:* `Interchange/ORDRSP/SG8 [6347 = 2]/CUX/C504/6345` (Currency, coded)
+  *Reamrk: in case there is a constant assigned please delete this by clicking on the # symbol beside the 6345 element and delete.
 - (b) You will then see a tab **Code Value Mapping**, click on it.
 - (c) In the details of the **Code Value Mapping**, you see the **Default Value**, which is already set to **(pass-through source value)**.
  
