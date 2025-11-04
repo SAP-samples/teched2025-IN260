@@ -237,6 +237,8 @@ You can set multiple mappings from the same source node by following these steps
 
 ![IN260 Figure 05.12](assets/IN260_05.12.png)
 
+## Step 13 - Step 17 is optional! You may follow with Step 18 directly! ##
+
 ## Step 13 - Map Repeating Line Items
 It makes no difference; code values can also be the same by following the same steps with repeatable groups, such as from ***E1EDP01 (Line Items)*** to ***SG26 (individual ordered items)***.
 - (a) Select mapping element
