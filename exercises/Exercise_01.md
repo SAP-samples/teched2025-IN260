@@ -175,7 +175,7 @@ Add the following parameters:
 Assign the number range from Step 2 to the trading partner. This number is used to insert a trading partner–specific interchange control number into the UNB interchange header (data element 0020: Interchange Control Reference). Proceed as follows:
 - (a) Switch to the **Number Ranges** tab.
 - (b) Click **Add**.
-- (c) Select the Number Range `ICN_EDIFACT_IN260_XX`.
+- (c) Select the Number Range `ICN_EDIFACT_IN260_UserXX`.
 - (d) Enter the Alias: `ICN_EDIFACT`.
 - (e) Click **Save**.
 
