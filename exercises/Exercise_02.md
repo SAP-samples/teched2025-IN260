@@ -61,7 +61,7 @@ General note: Selecting all transactions is not always necessary. Choose only th
 
 ## Step 4 - Finalize the TPA Overview
 A new TPA for your trading partner will be created. In the default **Overview** tab, finalize the details:
-- (a) Update the agreement name and description, replacing `[IN260]` with `IN260-XX` (replace XX with your User ID).
+- (a) Update the agreement name and description, replacing `[IN260]` with `IN260-UserXX` (replace XX with your User ID).
 - (b) In **Trading Partner Details**, set **Type System** to `UN/EDIFACT`.
 - (c) Set **Type System Version** to `D.96A S3`.
 - (d) Click the value help for **Identifier in Company Type System** to open a pop-up.
