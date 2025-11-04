@@ -9,7 +9,7 @@ First, verify that all required activity parameters are correctly set in the upl
 
 ![IN260 Figure 02.01](assets/IN260_02.01.png)
 
-## Step 2 - Check, review, and update the TPA Template
+## Step 2 - Check and review the TPA Template
 Review the required activity parameters for each business transaction. If any are missing, add them as described in Step 3. Check the following activity parameters:
 - (a) Go to the **B2B Scenarios** tab.
 - (b) Expand Business Transaction: **01.) Sales Order Request/Response**.
