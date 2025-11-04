@@ -1,46 +1,95 @@
-# IN260 - Master integrations: Integration Advisor and Trading Partner Management
+# IN260 - Master Integrations: Integration Advisor and Trading Partner Management
 
 ## Description
 
-This repository contains the material for the SAP TechEd 2025 session called Session ID - Session Title. 
-
-## Overview
-
-This session introduces attendees to...
+Welcome to the hands-on session **IN260** at SAP TechEd 2025. In this session, you will learn how to master B2B integrations using **SAP Integration Advisor** and **Trading Partner Management (TPM)**. You will build a complete **Trading Partner Agreement (TPA)** for a real-world **Order-to-Cash B2B scenario** involving the ordering of healthy food products from a German manufacturer.
 
 ## Scenario
 
-| # | Product Name | Suppliers Article No | Item No | EAN | Net Weight | Net Package Price | Amount in Package | Quantity of Packages | Total |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 1 | BestRun VitalCrisp Cereal Bar | BR-VCB-001 | 100001 | 4000001000012 | 40g | €0.89 | 12 bars | 12 cartons| 144 |
-| 2 | BestRun KornKraft Whole-Grain Bread | BR-KKWB-002 | 100002 | 4000001000029 | 500g | €2.49 | 1 roll | 100 rolls | 100 |
-| 3 | BestRun MorgenGold Organic Porridge | BR-MGOP-003 | 100003 | 4000001000036 | 400g | €3.29 | 1 bag | 150 paper bags | 150 |
-| 4 | BestRun FitFrucht Smoothie Mix | BR-FFSM-004 | 100004 | 4000001000043 | 200ml | €4.99 | 6 bottles | 20 boxes for liquids | 120 |
-| 5 | BestRun ProteinPower Lentil Salad Bowl | BR-PPLS-005 | 100005 | 4000001000050 | 300g | €3.79 | 10 cup | 25 packages | 250 |
-| 6 | BestRun ChocoCharge Energy Bites | BR-CCEB-006 | 100006 | 4000001000067 | 200g | €2.99 | 10 bars | 30 packages | 300 |
-| 7 | BestRun GreenFuel Quinoa Bowl | BR-GFQB-007 | 100007 | 4000001000074 | 350g | €4.49 | 6 cans | 40 cartons | 240 |
-| 8 | BestRun BerryBoost Granola Mix | BR-BBGM-008 | 100008 | 4000001000081 | 500g | €3.59 | 1 plastic bags | 60 plastic bags | 60 |
-| 9 | BestRun AquaPure Electrolyte Water | BR-APEW-009 | 100009 | 4000001000098 | 750ml | €1.49 | 12 bottles | 25 boxes for liquids | 300 |
-| 10 | BestRun NutriSnack Veggie Chips | BR-NSVC-010 | 100010 | 4000001000104 | 100g | €2.19 | 15 paper bags | 30 cartons | 450 | 
+The business scenario simulates a B2B integration between a buyer and a supplier of health food products. The integration covers the full **Order-to-Cash** process, including:
+
+1. **Sales Order**
+   - 01.a) Sales Order Request – Inbound
+   - 01.b) Sales Order Response – Outbound
+2. **Delivery Notification – Outbound**
+3. **Invoice – Outbound**
+
+The product catalog includes items such as cereal bars, organic porridge, smoothies, and electrolyte water, each with specific packaging and pricing details.
+
+## Learning Objectives
+
+Throughout the exercises, you will:
+
+- Configure a Trading Partner Profile with identifiers, systems, and parameters.
+- Create and customize a Trading Partner Agreement (TPA) using templates.
+- Design and refine Message Implementation Guidelines (MIGs) and Mapping Guidelines (MAGs).
+- Simulate and validate B2B message flows using the SAP Integration Suite.
+- Apply advanced mapping techniques including qualifiers, code lists, and post-processing.
+
+## Exercises Overview
+
+Each exercise builds on the previous one, guiding you through the complete lifecycle of a B2B integration setup.
+
+### Mandatory Exercises
+
+- **[Getting Started](GettingStarted.md)**  
+  Initial setup and environment preparation.
+
+- **[Exercise 1: Create the necessary Trading Partner Profile](exercises/Exercise_01.md)**  
+  Learn how to configure a Trading Partner Profile, including identifiers, systems, communication channels, and parameters.
+
+- **[Exercise 2: Creating a Trading Partner Agreement (TPA) from a Template](exercises/Exercise_02.md)**  
+  Use a predefined template to create a TPA, configure activity parameters, and validate the agreement using test payloads.
+
+- **[Create Trading Partner MIG for Sales Order Request](exercises/Exercise_03.md)**  
+  Build a source MIG from a sample payload, apply qualifiers, and refine the structure for mapping.
+
+- **[Finalize the Business Transaction Activity Sales Order Request](exercises/Exercise_04.md)**  
+  Create an Overlay MAG, resolve mapping issues, simulate the flow, and validate the output against expected results.
+
+### 🔸 Optional Deep-Dive Exercises
+
+- **[Finalize the Business Transaction Activity Order Response](exercises/Exercise_05.md)**  
+  Work with code lists and code value mappings to complete the outbound Sales Order Response.
+
+- **[Finalize the Business Transaction Activity Delivery Notification](exercises/Exercise_06.md)**  
+  Enhance the Delivery Notification with pre- and post-processing logic, including sorting and packaging structure.
+
+- **[Finalize the Business Transaction Activity Invoice](exercises/Exercise_07.md)**  
+  Add trading partner-specific parameters and implement complex mapping logic for invoice processing.
+
+## Product Catalog
+
+| # | Product Name | Article No | EAN | Net Weight | Price | Package | Quantity | Total |
+|---|--------------|------------|-----|------------|-------|---------|----------|-------|
+| 1 | BestRun VitalCrisp Cereal Bar | BR-VCB-001 | 4000001000012 | 40g | €0.89 | 12 bars | 12 cartons | 144 |
+| 2 | BestRun KornKraft Whole-Grain Bread | BR-KKWB-002 | 4000001000029 | 500g | €2.49 | 1 roll | 100 rolls | 100 |
+| 3 | BestRun MorgenGold Organic Porridge | BR-MGOP-003 | 4000001000036 | 400g | €3.29 | 1 bag | 150 bags | 150 |
+| ... | *(see full list in session)* | | | | | | | |
 
 ## Requirements
 
-The requirements to follow the exercises in this repository are the updload of the content into 
-Bruno
+To complete the exercises, you will need:
 
-## Exercises
+- Access to SAP Integration Suite (including TPM and Integration Advisor)
+- The **Bruno API Testing Tool** with the provided environment
+- Uploaded content from this repository into **Bruno**
+- Use **Visual Studio Code** for analysing and comparing of the test results.
 
-Provide the exercise content here directly in README.md using [markdown](https://guides.github.com/features/mastering-markdown/) and linking to the specific exercise pages, below is an example.
+## Key Takeaways
+By the end of this session, participants will be able to:
+- Understand the end-to-end process of setting up a Trading Partner Agreement (TPA) for a real-world B2B scenario.
+- Use SAP Integration Advisor to create and refine Message Implementation Guidelines (MIGs) and Mapping Guidelines (MAGs).
+- Configure Trading Partner Profiles and manage communication parameters effectively.
+- Simulate and validate B2B message flows for Sales Orders, Delivery Notifications, and Invoices.
+- Apply advanced mapping techniques such as qualifiers, code lists, and post-processing logic.
+- Gain hands-on experience with SAP Integration Suite capabilities for TPM and B2B integration.
 
-- **Mandatory:** [Getting Started](GettingStarted.md)
-- **Mandatory:** [Exercise 1: Create the necessary Trading Partner Profile](exercises/Exercise_01.md)
-- **Mandatory:** [Exercise 2: Creating a Trading Partner Agreement (TPA) from a Template](exercises/Exercise_02.md)
-- **Optional:** [Exercise 3: Create Trading Partner MIG for Sales Order Request](exercises/Exercise_03.md)
-- **Optional:** [Exercise 4: Finalize the Business Transaction Activity Sales Order Request](exercises/Exercise_04.md)
-- **Optional:** [Exercise 5: Finalize the Business Transaction Activity Order Response](exercises/Exercise_05.md)
-- **Optional:** [Exercise 6: Finalize the Business Transaction Activity Delivery Notification](exercises/Exercise_06.md)
-- **Optional:** [Exercise 7: Finalize the Business Transaction Activity Invoice](exercises/Exercise_07.md)
+This session is designed to empower integration developers and architects to confidently manage B2B integrations using SAP’s latest tools and methodologies.
 
- Please give us feedback to this session **IN260** by scanning the QR-Code:
+## Feedback
+
+Please provide your feedback for session **IN260** by scanning the QR code below:
+
  ![QR Code](pictures/survey_QR.png)
 
