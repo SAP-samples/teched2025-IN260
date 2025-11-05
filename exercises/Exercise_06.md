@@ -34,7 +34,7 @@ It is now necessary to create an Overlay MAG so that the specific delivery notif
 
 ## Step 03 - Create new Pretransformation Rules
 In order to do a correct sorting according the finally requested sorted stucture that is required by the trading partner in its UN/EDIFACT DESADV interchange payload, you should have to copy the details of the order line items underneath the correltated packages that are used for the delivery. For this purpose, you have to create a Pretransformation within your Overlay-MAG according the following steps: 
-- (a) Go in the opened Overlay MAG in edit mode to the **Overlay** tab and 
+- (a) Go in the opened Overlay MAG in edit mode to the **Overview** tab and 
 - (b) Click on the add **+** button at **Pretransformation**.
 - (c) You'll see in tab **Mapping** a new view, the so called **Pretransformation** in where you should 
 - (d) Enter a meaningful sorting rule name such as `Copy line item details (E1EDL24) to correlated handling units (E1EDL37)` and 
