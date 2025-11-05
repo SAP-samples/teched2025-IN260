@@ -16,12 +16,12 @@ Due to time constraints, you can now create a copy of an already prepared Tradin
     ***Caution:*** !!! Please never delete or modify this prepared Trading Partner MIG.
 - (b) Click on the **Actions → Copy** menu item.
 - (c) In the new window of the copied Trading Partner MIG, enable edit mode and click on tab **Overview**.
-- (d) Enter your name of the MIG, which is `01.b) IN260-UserXX - UN/EDIFACT D.96A DESADV - Target` and (e) click on the **Save** button.
+- (d) Enter your name of the MIG, which is `02.) IN260-UserXX - UN/EDIFACT D.96A DESADV - Target` and (e) click on the **Save** button.
 
 ![IN260 Figure 06.01](assets/IN260_06.01.png)
  
 ## Step 02 - Create the Overlay Mapping Guideline (MAG)
-For the creation of the  is now necessary to create an Overlay MAG so that the specific delivery notification related parts such as pre-transformation and indexing for sorting can be incorporated. the code value mappings accordingly. Therefore, you should make the Overlay MAG for the second BTA (Business Transaction Activity) **02.) Delivery Notification - Outbound** according to the following steps:
+It is now necessary to create an Overlay MAG so that the specific delivery notification can be mapped from SAP IDoc DESADV to the trading partner specific UN/EDIFACT DESADV. In order to get the sorted representation a number of related parts such as pre-transformation and indexing for sorting should be incorporated. Therefore, you should make the Overlay MAG for the second BTA (Business Transaction Activity) **02.) Delivery Notification - Outbound** according to the following steps:
 - (a) Open **Design → MAGs** to view the MAG list and click **Create → Overlay MAG** to open the wizard.
 - (b) For the base MAG, search for: `02.) #IN260-BASE# - SAP IDOC DESADV.DELVRY07 -to- UN/EDIFACT D.96A DESADV` and select this base MAG to move to the next step.
 - (c) Keep the **Base Source MIG** unchanged (idoc structure for all partners).

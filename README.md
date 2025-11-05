@@ -41,21 +41,21 @@ Each exercise builds on the previous one, guiding you through the complete lifec
 - **[Exercise 2: Creating a Trading Partner Agreement (TPA) from a Template](exercises/Exercise_02.md)**  
   Use a predefined template to create a TPA, configure activity parameters, and validate the agreement using test payloads.
 
-- **[Create Trading Partner MIG for Sales Order Request](exercises/Exercise_03.md)**  
+- **[Exercise 3: Create Trading Partner MIG for Sales Order Request](exercises/Exercise_03.md)**  
   Build a source MIG from a sample payload, apply qualifiers, and refine the structure for mapping.
 
-- **[Finalize the Business Transaction Activity Sales Order Request](exercises/Exercise_04.md)**  
+- **[Exercise 4: Finalize the Business Transaction Activity Sales Order Request](exercises/Exercise_04.md)**  
   Create an Overlay MAG, resolve mapping issues, simulate the flow, and validate the output against expected results.
 
 ### 🔸 Optional Deep-Dive Exercises
 
-- **[Finalize the Business Transaction Activity Order Response](exercises/Exercise_05.md)**  
+- **[Exercise 5: Finalize the Business Transaction Activity Order Response](exercises/Exercise_05.md)**  
   Work with code lists and code value mappings to complete the outbound Sales Order Response.
 
-- **[Finalize the Business Transaction Activity Delivery Notification](exercises/Exercise_06.md)**  
+- **[Exercise 6: Finalize the Business Transaction Activity Delivery Notification](exercises/Exercise_06.md)**  
   Enhance the Delivery Notification with pre- and post-processing logic, including sorting and packaging structure.
 
-- **[Finalize the Business Transaction Activity Invoice](exercises/Exercise_07.md)**  
+- **[Exercise 7: Finalize the Business Transaction Activity Invoice](exercises/Exercise_07.md)**  
   Add trading partner-specific parameters and implement complex mapping logic for invoice processing.
 
 ## Product Catalog
