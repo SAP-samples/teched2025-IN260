@@ -3,8 +3,8 @@ Before you start the exercises, complete the following steps:
 1. Download the test data file: [Testdata.zip](files/Testdata.zip).
 2. Extract the ZIP file (for example, to your desktop).
 3. Run modify-content.bat and enter your participant number when prompted.
-4. Open Visual Studio Code.
-5. In Visual Studio Code, click *Open Folder* and select the test data folder you extracted. This is required for *Exercise 3*.
+4. Open the folder in which you have extracted the Testdata.zip
+5. double click _teched2025-IN260-Testdata.code-workspace_. This will open visual Studio Code with files you need in Exercise 3.
 6. open Bruno
 7. Start Bruno on your laptop to import the necessary data.
 8. In Bruno, click *Open Collection*, navigate to the test data folder, then to “Bruno Collection.” Select the folder “in-260---order-to-cash---sap-idoc-with-un-edifact” and open it.

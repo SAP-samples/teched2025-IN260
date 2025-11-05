@@ -19,7 +19,7 @@ A unique interchange control number should be included when sending documents fo
 ## Step 2 - Create a Number Range object
 In the new window, create your number range for the Interchange Control Number (ICN) by following these steps:
 - (a) Click **Add**; a pop-up will open.
-- (b) Enter the name `ICN_EDIFACT_IN260_XX` (replace XX with your User ID).
+- (b) Enter the name `ICN_EDIFACT_IN260_UserXX` (replace XX with your User ID).
 - (c) Set the minimum value to `0`.
 - (d) Set the maximum value to `99999999999999`.
 - (e) Enter the field length `14`.
@@ -45,7 +45,7 @@ Now, create your trading partner profile so that you can build your specific Tra
 First, set single identifiers for outgoing UN/EDIFACT interchanges:
 - (a) Stay on the Trading Partner Profile and open the **Identifiers** tab.
 - (b) Click **Create**; a pop-up will open.
-- (c) Enter the identification number `E-XX`, where XX is your User ID. Ensure the identification number is no longer than 14 characters; if necessary, remove leading zeros.
+- (c) Enter the identification number `E-UserXX`, where XX is your User ID. Ensure the identification number is no longer than 14 characters; if necessary, remove leading zeros.
 - (d) Enter the Alias: `TP_UNEDIFACT_ID`.
 - (e) Select the Type System: `UN/EDIFACT`.
 - (f) Select the Scheme: `Mutually defined` with the value `ZZZ`.
@@ -56,7 +56,7 @@ First, set single identifiers for outgoing UN/EDIFACT interchanges:
 ## Step 5 - Create a Single Identifier for SAP IDoc
 Create another required identifier as in Step 4:
 - (a) Click **Create** and enter:
-  - Identification: `I-XX`, where XX is your User ID. Ensure the identification number is no longer than 10 characters; if necessary, remove leading zeros.
+  - Identification: `I-UserXX`, where XX is your User ID. Ensure the identification number is no longer than 10 characters; if necessary, remove leading zeros.
   - Alias: `TP_IDOC_ID`
   - Type System: `SAP S/4HANA On Premise IDoc`
   - Scheme: `N/A`
@@ -68,8 +68,8 @@ Create another required identifier as in Step 4:
 Create an Identifier Group for incoming UN/EDIFACT interchanges, which might have different sender identifiers in the UNB segment:
 - (a) Scroll down to **Identifier Groups**.
 - (b) Click **Create**; a pop-up will open.
-- (c) Enter the identification number `GE-XX`, where G stands for group and XX is your User ID. Ensure the identification number is no longer than 14 characters; if necessary, remove leading zeros.
-- (d) Enter the Alias: `TP_UN/EDIFACT_G`.
+- (c) Enter the identification number `GE-UserXX`, where G stands for group and XX is your User ID. Ensure the identification number is no longer than 14 characters; if necessary, remove leading zeros.
+- (d) Enter the Alias: `TP_UNEDIFACT_G`.
 - (e) Select the Type System: `UN/EDIFACT`.
 - (f) Select the Scheme: `Mutually defined` with the value `ZZZ`.
 - (g) Click **Save**.
@@ -79,7 +79,7 @@ Create an Identifier Group for incoming UN/EDIFACT interchanges, which might hav
 ## Step 7 - Add an Identifier to the Identifier Group
 You should now see the new identifier group entry. Add identifiers to it as follows:
 - (a) Click **Add**.
-- (b) In the pop-up, enter Identification: `E1-XX`.
+- (b) In the pop-up, enter Identification: `E1-UserXX`.
 - (c) Enter Sub-Organization Name: `Suborg. E1`.
 - (d) Click **Save**.
 
@@ -90,7 +90,7 @@ Add a second identifier to the same group:
 - (a) Open the details view of the identifier group.
 - (b) Click **Add**.
 - (c) Enter:
-  - Identification: `E2-XX`
+  - Identification: `E2-UserXX`
   - Sub-Organization Name: `Suborg. E2`
 - (d) Click **Save**.
 - (e) Enable Activation Status so the group's identifiers are recognized as sender identifiers for incoming UN/EDIFACT interchanges.
@@ -163,7 +163,7 @@ Add the following parameters:
 
 | Parameter Key | Value | Purpose |
 | --- | --- | --- |
-| `DESADV_ContractPartyReferenceNumber` | `REF-IN260-XX` | Injection into the MAG |
+| `DESADV_ContractPartyReferenceNumber` | `REF-IN260-UserXX` | Injection into the MAG |
 | `DESADV_KindOfNumberOfTotalPackages` | `CBP` | Injection into an XSLT script in a post-processing flow |
 | `SAP_EDI_REC_Sender_System_ID` | `CPIFALLBAC` | Injection into the SAP IDoc EDI_DC40 header segment in incoming transactions |
 | `SAP_EDI_REC_Sender_Partner_Function` | `AG` | Injection into the SAP IDoc EDI_DC40 header segment in incoming transactions |
@@ -175,7 +175,7 @@ Add the following parameters:
 Assign the number range from Step 2 to the trading partner. This number is used to insert a trading partner–specific interchange control number into the UNB interchange header (data element 0020: Interchange Control Reference). Proceed as follows:
 - (a) Switch to the **Number Ranges** tab.
 - (b) Click **Add**.
-- (c) Select the Number Range `ICN_EDIFACT_IN260_XX`.
+- (c) Select the Number Range `ICN_EDIFACT_IN260_UserXX`.
 - (d) Enter the Alias: `ICN_EDIFACT`.
 - (e) Click **Save**.
 
