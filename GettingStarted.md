@@ -1,4 +1,7 @@
 # Getting Started
+
+The number you find in front of you has three digits like **User037**. In this exercise all numbers are two digits. Please ignore the first **0** and use then e.g. **User37** .
+
 Before you start the exercises, complete the following steps:
 1. Download the test data file: [Testdata.zip](files/Testdata.zip).
 2. Extract the ZIP file (for example, to your desktop).
