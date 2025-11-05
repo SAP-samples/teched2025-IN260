@@ -46,7 +46,7 @@ In order to do a correct sorting according the finally requested sorted stucture
 Define the rule for copying the line item details of E1EDL24 to each corresponding handling units E1EDL44 with qualifier VELIN = "3" via the following steps:
 - (a) Collapse the whole structure starting from root node **DELVRY07** (Delivery Interface) and expand it so that you just see the direct child group nodes **EDI_DC40** and **E1EDL20**.
 - (b) Expand the group node **E1EDL20** (Delivery header) so that you can see the child group nodes of this group.
-- (c) Expand the group node **E1EDL44** with qualifier VELIN = "3" (Handling unit) within **E1EDL37** (Handling units header) so that you can see all descendants, and drag and drop this group node to **Receiving node**.
+- (c) Expand the group node **E1EDL37** (Handling units header) so that you can see all descendants. Expand **E1EDL44** with qualifier VELIN = "3" (Handling unit) and drag and drop this group node to **Receiving node**.
 - (d) Drag and drop the child leaf node **EXIDV** (External Handling Unit Identification) to **Node with reference ID**.
 - (c) Expand the group node **E1EDL24** (Delivery Items) so that you can see all descendants and drag and drop this group node to **Referenced node**.
 - (d) Drag and drop the child leaf node **MATNR** (Material Number (18 Characters)) to **Referenced ID Node**.
