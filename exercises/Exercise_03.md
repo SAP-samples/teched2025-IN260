@@ -27,7 +27,7 @@ The next significant step is to create a source MIG to fit the given payload ava
 - (e) The wizard automatically displays the second step, where you should search for the **Purchase Order Message**.
 - (f) Select the listed **ORDERS** mesage type and select in the forth step the version **D.96A**.
 - (g) Select the entry **EnvelopeForMessagesS3** in the fourth step.
-- (h) Select the payload for uploading from the given folder of the testdata: `.\Testdata\IN 260 - Order to Cash - SAP IDoc with UN-EDIFACT\01.a) Sales Order Request - Inbound` and select the file  `IN260-XX-EDIFACT-ORDERS.edi`. 
+- (h) Select the payload for uploading from the given folder of the testdata: `.\Testdata\IN 260 - Order to Cash - SAP IDoc with UN-EDIFACT\01.a) Sales Order Request - Inbound` and select the file  `Source -IN260-EDIFACT-ORDERS.edi`. 
 - (i) Select the option "Use file content as example values".
 - (j) Click the **Next** button.
 
