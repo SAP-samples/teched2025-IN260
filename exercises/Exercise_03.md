@@ -129,7 +129,7 @@ The following table shows which qualifier markers should be additionally set:
 |  | SG2 | [3035 = “BY”] |  |  |  | Segment Group 2: NAD-LOC-FII-SG3-SG4-SG5 - Buyer |
 |  |  | NAD |  |  |  | Name and address |
 | `┌──────>` |  | SG5 |  |  |  | Segment Group 5: CTA-COM |
-|  |  |  | **CTA** |  |  | Contact information |
+| `│       ` |  |  | **CTA** |  |  | Contact information |
 | `└───────` |  |  |  | ***3139*** |  | Contact function, coded |
 | `┌──────>` | **SG7** |  |  |  |  | Segment Group 7: CUX-PCD-DTM |
 | `│       ` |  | CUX |  |  |  | Currencies |
