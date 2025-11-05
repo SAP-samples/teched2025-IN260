@@ -141,11 +141,11 @@ PX -- Pallet
 Change the MAG in the Business Transaction Activity **02.) Delivery Notification - Outbound** with your created Overlay MAG and apply these changes PD via the following steps:
 - (a) Go to your TPA and change it into edit mode.
 - (b) Select in the business transaction activity **02.) Delivery Notification - Outbound** the step **Mapping**
-- (c) Change the given MAG with your MAG: `01.b) IN260-UserXX -  - SAP IDOC DESADV.DELVRY07 -to- UN/EDIFACT D.96A DESADV` and (d) click on **Save**.
+- (c) Change the given MAG with your MAG: `01.b) IN260-UserXX - SAP IDOC DESADV.DELVRY07 -to- UN/EDIFACT D.96A DESADV` and (d) click on **Save**.
 - (e) Click **Update**;
 - (f) Select `02.) Delivery Notification - Outbound` in the dialog and (g) click **Update**.
 
-***Remark:*** If you like, you can do a simulate in the MAG before you go ahead with the next stepp.
+***Remark:*** If you like, you can do a simulate in the MAG before you go ahead with the next step.
 
 ![IN260 Figure 06.07](assets/IN260_06.07.png)
 
@@ -171,7 +171,7 @@ In order to get a correct order at the target payload side, you need the post-pr
 
 ## Step 10 - Add the Customized Post-Processing in the TPA
 You have to add the Customized Post-Processing to the BTA **02.) Delivery Notification – Outbound** by the following steps: 
-- (a) Go to your TPA and change it into edit mode and elect in the business transaction activity **02.) Delivery Notification - Outbound** the step **Target Interchange**
+- (a) Go to your TPA and change it into edit mode and select in the business transaction activity **02.) Delivery Notification - Outbound** the step **Target Interchange**
 - (b) Click on the target **Interchange** step at receiver side.
 - (c) In the details panel, enable the **Customized Post-Processing**.
 - (d) Add in thefield **Process Direct Adress** the address: 
