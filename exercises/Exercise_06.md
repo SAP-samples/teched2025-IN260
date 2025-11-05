@@ -58,7 +58,7 @@ Define the rule for copying the line item details of E1EDL24 to each correspondi
 ## Step 05 - Duplicate the Handling Units at Target Side
 Initially, just the Delivery Header parts are mapped to a UN/EDIFACT segment group SG10, which covers in this case the packaging details of the shipment. You also need further packaging details for pallets that are within the shipment and further handling units that are on the pallets. For this purpose, you can do a duplicate by the following steps:
 - (a) Change to tab **Main Transformation**.
-- (b) You should now see the additional group **E1EDL24Copy** which was created bvy step (04). But the required data from this group are not mapped yet.
+- (b) You should now see the additional group **E1EDL24Copy** under E1EDL20/E1EDL37/E1EDL44[VELIN 3] which was created by step (04). But the required data from this group are not mapped yet.
 - (c) For this purpose, you need further target groups, which can be added by clickin on **SG 10 ... --> Duplicate**.
 - (d) In the pop-up window **Duplicate Node "SG10** clik on button **Create** for
 - (e) Adding the new duplicated group in where you should enter the name `Pallets`.
