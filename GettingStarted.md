@@ -14,9 +14,8 @@ Before you start the exercises, complete the following steps:
 9.  Open the *Tenant*: https://url.sap/2712tu (hint: hold *Ctrl* while clicking the link to open it in a new tab).
 10.  For login, use “UserXX,” where XX is the number on your desk. The trainers will provide the password.
 11.  Create a new *Integration Package* named “IN260-UserXX” (replace XX with your user number) and save the package.
-12. Navigate to the package “Teched 2025 - IN260 - Communication Flows” and open the *Artifacts* tab.
+12. Navigate to the package “TechEd 2025 - IN260 - Post Processing Flows” and open the *Artifacts* tab.
 13. In the *Actions* column, use the “…” menu to *Copy* the *iFlow*. Rename it by replacing “copy” with “UserXX” (replace XX with your user number). Set the destination *Package* to the one you created in step 9.
 14. Navigate to the copied *iFlow* and configure it by setting the *User ID* to your number (XX). Then *Deploy* the *iFlow*.
-
 
 You have now prepared everything and can start with [Exercise 1](exercises/Exercise_01.md).
