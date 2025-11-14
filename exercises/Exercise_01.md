@@ -1,16 +1,16 @@
 # Exercise 1: Create the necessary Trading Partner Profile
 In this exercise, you will learn how to set up a complete Trading Partner Profile for EDI processing within a B2B integration scenario. The steps guide you through:
-- Creating a unique Interchange Control Number (ICN) using number ranges.
 - Setting up a Trading Partner Profile, including company details and identifiers for UN/EDIFACT and IDoc payloads.
 - Configuring Identifier Groups to manage multiple sender identifiers.
 - Defining Trading Partner System Details, including type systems and communication channels.
+- Creating a unique Interchange Control Number (ICN) using number ranges.
 - Creating Trading Partner Parameters to support dynamic data injection into mappings and headers.
 - Assigning Number Ranges to ensure proper tracking of EDI transactions.
 
 By completing this exercise, you will gain hands-on experience in configuring the foundational elements required for secure and structured electronic data interchange between business partners.
 
 ## Step 1 - Go to the Number Range objects
-A unique interchange control number should be included when sending documents for EDI processing. To add an interchange number, use Number Ranges. Each IN260 participant should create their own interchange number. For this purpose:
+A unique interchange control number should be included into the UN/EDIFACT interchanges when sending EDI documents to the trading parter. To add an interchange number, use Number Ranges. Each IN260 participant should create their own interchange number. For this purpose:
 - (a) Click **Integrations and APIs** inside the Monitor section.
 - (b) Select the **Number Ranges** card.
 
