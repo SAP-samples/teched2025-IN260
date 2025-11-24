@@ -66,6 +66,7 @@ A new TPA for your trading partner will be created. In the default **Overview** 
 - (c) Check if **Type System Version** is set to `D.96A`.
 - (d) Click the value help for **Identifier in Trading Partners Type System** to open a pop-up.
 - (e) In the pop-up, open the **Identifier Groups** tab.
+***Caution:** In the tab **Single Identifiers**, you see a very similar alias value. Please don't let this one irritate you. Ensure sure you have selected the **Identifier Groups** tab.*
 - (f) Select the identifier group with **Group Name**: `GE-UserXX` (replace XX with your User ID).
 - (g) In **My Company Details**, set **Identifier in Trading Partner Type System** to `COMP_E_D`.
 - (h) Click **Save**.
