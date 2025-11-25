@@ -12,21 +12,21 @@ By completing this exercise, you will gain hands-on experience in configuring th
 ## Step 1 - Go to the Number Range objects
 A unique interchange control number should be included into the UN/EDIFACT interchanges when sending EDI documents to the trading parter. To add an interchange number, use Number Ranges. Each IN260 participant should create their own interchange number. For this purpose:
 - (a) Click **Integrations and APIs** inside the Monitor section.
-- (b) Select the **Number Ranges** card.
+- (b) Select the **Number Ranges** tile.
 
 ![IN260 Figure 01.01](assets/IN260_01.01.png)
 
 ## Step 2 - Create a Number Range object
 In the new window, create your number range for the Interchange Control Number (ICN) by following these steps:
 - (a) Click **Add**; a pop-up will open.
-- (b) Enter the name `ICN_EDIFACT_IN260_UserXX` (replace XX with your User ID).
-- (c) Set the minimum value to `0`.
-- (d) Set the maximum value to `99999999999999`.
-- (e) Enter the field length `14`.
-- (f) Select the checkbox for `Rotate`.
+- (b) Enter the name **`ICN_EDIFACT_IN260_UserXX`** (replace XX with your assigned User ID).
+- (c) Set the minimum value to **`0`**.
+- (d) Set the maximum value to **`99999999999999`**.
+- (e) Enter the field length **`14`**.
+- (f) Select the checkbox for **`Rotate`**.
 - (g) Click **OK**.
 
-Note: The interchange control number is a unique identifier assigned to each interchange of EDI transactions. It is used to track and manage data exchange between trading partners. The group control number, on the other hand, is used to identify and manage the individual groups of transactions within an interchange.
+> **Note:** The interchange control number is a unique identifier assigned to each interchange of EDI transactions. It is used to track and manage data exchange between trading partners. The group control number, on the other hand, is used to identify and manage the individual groups of transactions within an interchange.
 
 ![IN260 Figure 01.02](assets/IN260_01.02.png)
 
@@ -44,7 +44,7 @@ Now, create your trading partner profile so that you can build your specific Tra
 ## Step 4 - Create a Single Identifier for UN/EDIFACT
 First, set single identifiers for outgoing UN/EDIFACT interchanges:
 - (a) Stay on the Trading Partner Profile and open the **Identifiers** tab.
-- (b) Click **Create**; a pop-up will open.
+- (b) Click **Create** in Single Identifier section; a pop-up will open.
 - (c) Enter the identification number `E-UserXX`, where XX is your User ID. Ensure the identification number is no longer than 14 characters; if necessary, remove leading zeros.
 - (d) Enter the Alias: `TP_UNEDIFACT_ID`.
 - (e) Select the Type System: `UN/EDIFACT`.
@@ -54,7 +54,7 @@ First, set single identifiers for outgoing UN/EDIFACT interchanges:
 ![IN260 Figure 01.04](assets/IN260_01.04.png)
 
 ## Step 5 - Create a Single Identifier for SAP IDoc
-Create another required identifier as in Step 4:
+Create another required single identifier as in Step 4:
 - (a) Click **Create** and enter:
   - Identification: `I-UserXX`, where XX is your User ID. Ensure the identification number is no longer than 10 characters; if necessary, remove leading zeros.
   - Alias: `TP_IDOC_ID`
