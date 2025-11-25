@@ -26,6 +26,21 @@ Throughout the exercises, you will:
 - Simulate and validate B2B message flows using the SAP Integration Suite.
 - Apply advanced mapping techniques including qualifiers, code lists, and post-processing.
 
+## System URL and login information 
+
+To complete the exercises, the access to the following systems have been provided. \
+**In case you are not able to access any of these systems please contact the workshop instructors**.
+
+- [SAP Integration Suite - Tenant 1](https://workshop-eu-03a.integrationsuite-cpi033.cfapps.eu10-005.hana.ondemand.com/shell/design)
+- [SAP Integration Suite - Tenant 2](https://workshop-eu-03b.integrationsuite-cpi035.cfapps.eu20-001.hana.ondemand.com/shell/design)
+
+> [!IMPORTANT]
+> - _For a smooth experience, tenants have been preconfigured, and you already have all the roles and permissions needed to complete this exercise._
+> - _User ID and password information will be provided to you by the instructors._
+> - _When you run through the exercise steps, you need to ensure that the technical IDs of the integration artifacts that you will create are unique. Hence, add a participant number to your integration artifacts. The instructors will assign the participant number to you._
+> - _Please adhere strictly to the instructions regarding the naming conventions for the artifacts you create. This will ensure successful completion of the tasks without conflicting with other participants._
+> - _Do not delete, change or undeploy any artifact in the tenant other than yours._
+
 ## Exercises Overview
 
 Each exercise builds on the previous one, guiding you through the complete lifecycle of a B2B integration setup.
