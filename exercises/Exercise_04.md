@@ -28,7 +28,7 @@ Once your trading-partner-specific source MIG is ready, create an **Overlay MAG*
   `01.a) IN260-UserXX - UN/EDIFACT D.96A ORDERS – Source`
 - (f) Keep the **Base Target MIG** unchanged (IDoc structure for all partners).
 - (g) Use the same **Target MIG** as the base target:
-  `01.a) [Company Name] - SAP IDOC ORDERS.ORDERS05 for Customer EDI - Target`
+  `01.a) IN260-BestRun - SAP IDOC ORDERS.ORDERS05 for Customer EDI - Target`
 - (h) In step 4, name the Overlay MAG:
   `01.a) IN260-UserXX - UN/EDIFACT D.96A ORDERS –to– SAP IDOC ORDERS.ORDERS05`
 - (i) Click **Create**.
@@ -144,7 +144,11 @@ Trigger the inbound test via **Bruno** and save the result:
 ![IN260 Figure 04.11](assets/IN260_04.11.png)
 
 ## Step 12: Compare with the Reference Result
-Use Visual Studio Code  to compare your result with the expected target:
+Use Visual Studio Code  to compare your result with the expected target. 
+
+***Important***: Due to the selection of the **Select Best Proposal** mapping elements, the Integration Advisor may now display different results. The adjustments should then be adjusted individually in accordance with the further explanations. This is because the corresponding proposals are created dynamically by the individual contributions at the relevant time. These can always be different.
+
+In order do the comarison, do the followingt steps:
 - (a) In VS Code, **File → Open File…** and 
 - (b) Open the files so that you see these in **OPEN EDITORS**
   - `Downloads/IDOC_ORDERS.ORDERS05_Result.xml` (your result)

@@ -1,4 +1,5 @@
-# Exercise 7: Finalize the Business Transaction Activity Invoice **03.) Invoice – Outbound**
+# Exercise 7: Finalize the Business Transaction Activity - 03.) Invoice – Outbound
+
 In this exercise, you will configure and enhance the Business Transaction Activity 03.) Invoice – Outbound using the SAP Integration Suite. The objective is to define trading partner-specific parameters, use them in mapping functions within a Mapping Guideline (MAG), and create further complex mapping functions that can also be used.
 
 This exercise also demonstrates the possibilities of XPath 2.0 functions in conjunction with XSLT functions such as `xsl: variable` and `xsl: sequence`. You will learn how to utilize these functions to manipulate and transform XML data effectively.
@@ -65,6 +66,8 @@ Depending on the cardinality of the to-be-mapped target nodes and their ancestor
   <xsl:sequence select="concat('The ', $vLabel, ' is ', $vPercent, '%')"/>
   ```
   The expected input format: [Label]:[Percent] → Output: "The [label] (lowercase) is [percent] (two decimals)%".
+
+  ***Remark***: Also change in this and all further functions the XX with your user id.
   
 - (c) Click on the button **Validate** to validate the correctness of the syntax.
 - (d) Now simulate with the test source file  that is provided in the folder `03.) Invoice - Outbound.
@@ -79,7 +82,7 @@ You can also define a specific condition for the generation of a target leaf nod
 - (a) Drag and drop a mapping element:
   - From: `/INVOIC02/E1EDKA1 [PARVW = AG]/LAND1` (Country key)
   - To: `/Interchange/INVOIC/SG6 [5283 = 7]/TAX/C243/5278` (Duty/tax/fee rate)
-- (b) Go to tab **Mapping Linst** and,
+- (b) Go to tab **Mapping List** and,
 - (c) Enable the **Condition**-
 - (d) You will see a new tab **Condition**, which you should open, and
 - (e) Enter the condition code `boolean($nodes_in/LAND1 = 'DE')`
@@ -153,16 +156,16 @@ You can assign this shared function to different mapping elements, like:
 - (b) Create a mapping element, 
   - From: `/INVOIC02/E1EDK01/BELNR` (IDOC document number)
   - To: `/Interchange/INVOIC/SG15 [5463 = A | C]/ALC/C552/5189` (Charge/allowance description, coded)
-  - Add the function parameter: `$nodes_in/Descr` with the association to the global parameter `UserXX_AllowanceChargeInformation`
+  - Add the **function parameter**: `Descr` with the association to the global parameter `UserXX_AllowanceChargeInformation`
   - Assign mapping function: `fx_AllowanceChargeOutput`
 - (c) Create a mapping element, 
   - At: `/Interchange/INVOIC/SG15 [5463 = A | C]/SG18 [5245 = 1 | 2]/PCD/C501/5245` (Percentage qualifier)
-   - Add the function parameter: `$nodes_in/PctQual` with the association to the global parameter `UserXX_AllowanceChargeInformation`
+   - Add the **function parameter**: `PctQual` with the association to the global parameter `UserXX_AllowanceChargeInformation`
   - Assign mapping function: `fx_AllowanceChargeOutput`
 - (b) Create a mapping element, 
   - From: `/INVOIC02/E1EDK01/BELNR` (IDOC document number)
   - To: `/Interchange/INVOIC/SG15 [5463 = A | C]/SG18 [5245 = 1 | 2]/PCD/C501/5482` (Percentage)
-  - Add the function parameter: `$nodes_in/Percent` with the association to the global parameter `UserXX_AllowanceChargeInformation`
+  - Add the **function parameter**: `Percent` with the association to the global parameter `UserXX_AllowanceChargeInformation`
   - Assign mapping function: `fx_AllowanceChargeOutput`
 - (e) Do a simulation, and you will see the computed results at the target side.
 
@@ -173,7 +176,7 @@ The properties of the target nodes are provided as parameters, which can be inco
 - (a) Create a mapping element, 
   - From: `/INVOIC02/E1EDP01/E1EDP19 [QUALF = 001]/KTEXT` (IDOC short text)
   - To: `/Interchange/INVOIC/SG25/IMD [7077 = B]/C273/7009` (Item description identification)
-  ***Remark:*** This mapping element does not cover the properties, but it is necessary for completion.
+  ***Remark:*** This mapping element does not cover any mapping function, but it is necessary for completion.
 - (b) Create a mapping element, 
   - From: `/INVOIC02/E1EDP01/E1EDPT1 [TDID = 004]/E1EDPT2/TDLINE` (Text line)
   - To: `/Interchange/INVOIC/SG25/IMD [7077 = B]/C273/7008` (Item description)
@@ -187,17 +190,15 @@ The properties of the target nodes are provided as parameters, which can be inco
   ```
   ***Remark:*** The `$target_tag_min_length` is the given parameter for the property max length, as it is defined in the target MIG.
 
-- (d) Click on the button **Share* for setting it to shared function code and enter the name `fx_ItemDescription`.
-- (e) Change the source node parameter from: `$nodes_in/TDLINE` to `$nodes_in/
-TDLINE_1`
+- (d) Click on the button **Share** for setting it to shared function code and enter the name `fx_ItemDescription`.
+- (e) Change the **source node parameter** from: `$nodes_in/TDLINE` to `$nodes_in/TDLINE_1` by clicking on the value `TDLINE`.
 - (f) Create a mapping element, 
   - From: `/INVOIC02/E1EDP01/E1EDPT1 [TDID = 004]/E1EDPT2/TDLINE` (Text line)
   - To: `/Interchange/INVOIC/SG25/IMD [7077 = B]/C273/7008 [2]` (Item description)
-  - Change the source node parameter from: `$nodes_in/TDLINE` to `$nodes_in/
-TDLINE_2`
+  - Change the **source node parameter** from: `$nodes_in/TDLINE` to `$nodes_in/TDLINE_2`
 - (g) Select for the second mapping element the shared mapping function: `fx_ItemDescription`.
-- (g) Do a simulation
-- (h) You see the behaviour of this function. 
+- (h) Do a simulation
+- (i) You see the behaviour of this function. 
 
 ![IN260 Figure 07.11](assets/IN260_07.11.png)
 
@@ -207,7 +208,7 @@ You can also build more complex generic functions with different kinds of calcul
   - From: `/INVOIC02/E1EDP01/E1EDP01/MENGE` (Quantity)
     And: `/INVOIC02/E1EDP01/E1EDP01/VPREI` (Price (net))
   - To: `/Interchange/INVOIC/SG25/SG28 [5125 = AAA]/PRI/C509/5118` (Price)
-  - Add the function parameter: `$nodes_in/Net` with the association to the global parameter `UserXX_AllowanceChargeInformation`
+  - Add the **function parameter**: `Net` with the association to the global parameter `UserXX_AllowanceChargeInformation`
 - (b) Insert the following mapping function code:
   ``` XML
   <xsl:variable name="vTag" select="local-name($nodes_in/*[position() = last()])"/>
@@ -227,7 +228,7 @@ You can also build more complex generic functions with different kinds of calcul
   - From: `/INVOIC02/E1EDP01/E1EDP01/MENGE` (Quantity)
     And: `/INVOIC02/E1EDP01/E1EDP01/VPREI` (Price (net))
   - To: `/Interchange/INVOIC/SG25/SG28 [5125 = AAB]/PRI/C509/5118` (Price)
-  - Add the function parameter: `$nodes_in/Gross` with the association to the global parameter `UserXX_AllowanceChargeInformation`
+  - Add the **function parameter**: `Gross` with the association to the global parameter `UserXX_AllowanceChargeInformation`
 - (e) Select for the second mapping element the shared mapping function: `fx_LineItemPrices`.
 - (f) Create a mapping element, 
   - From: `/INVOIC02/E1EDP01/E1EDP01/VPREI` (Price (net))
@@ -238,7 +239,7 @@ You can also build more complex generic functions with different kinds of calcul
   - From: `/INVOIC02/E1EDP01/E1EDP01/MENGE` (Quantity)
     And: `/INVOIC02/E1EDP01/E1EDP01/VPREI` (Price (net))
   - To: `/Interchange/INVOIC/SG25/SG33 [5283 = 7]/MOA [5025 = 124]/C516/5004` (Monetary Amount)
-  - Add the function parameter: `$nodes_in/Tax` with the association to the global parameter `UserXX_AllowanceChargeInformation`
+  - Add the **function parameter**: `Tax` with the association to the global parameter `UserXX_AllowanceChargeInformation`
   - Select for the second mapping element the shared mapping function: `fx_LineItemPrices`.
 - (h) Do a simulation
 - (i) You see the behaviour of this function. 
@@ -252,7 +253,6 @@ You can also do a summary of repeated line items via the following steps:
     And: `/INVOIC02/E1EDP01/E1EDP01/VPREI` (Price (net))
   - To: `	
 /Interchange/INVOIC/SG48 [5025 = 124]/MOA/C516/5004` (Monetary Amount)
-  - Add the function parameter: `$nodes_in/Tax` with the association to the global parameter `UserXX_AllowanceChargeInformation`
 - (b) Insert the following mapping function code:
   ``` XML
   <xsl:variable name="vTag" select="local-name($nodes_in/*[position() = last()])"/>
@@ -267,24 +267,29 @@ You can also do a summary of repeated line items via the following steps:
     if($vTag = 'Gross') then $vGross else
     if($vTag = 'Tax') then $vGross - $vNet else ()"/>
   <xsl:sequence select="format-number($vResult, '0.00')"/>
-- (c) Click on the button **Share* for setting it to shared function code and enter the name `fx_TotalPrices`.
-- (f) Create a mapping element, 
+- (c) Click on the button **Share** for setting it to shared function code and enter the name `fx_TotalPrices`.
+- (d) Add the **function parameter**: `Tax` with the association to the global parameter `UserXX_AllowanceChargeInformation`
+- (e) Create a mapping element, 
   - From: `/INVOIC02/E1EDK01/CURCY` (Currency)
-    To: `/Interchange/INVOIC/SG48 [5025 = 124]/MOA/C516/6345` (Currency, coded)
-    ***Remark:** This mapping element is just for completion
-- (a) Create a mapping element, 
+  - To: `/Interchange/INVOIC/SG48 [5025 = 124]/MOA/C516/6345
+` (Currency, coded)
+  ***Remark***: This mapping element doesn't have a mapping function. It is just necessary for the completion of the whole MAG.
+- (f) Create a mapping element, 
   - From: `/INVOIC02/E1EDP01/E1EDP01/MENGE` (Quantity)
     And: `/INVOIC02/E1EDP01/E1EDP01/VPREI` (Price (net))
   - To: `	
 /Interchange/INVOIC/SG48 [5025 = 77]/MOA/C516/5004` (Monetary Amount)
-  - Add the function parameter: `$nodes_in/Tax` with the association to the global parameter `UserXX_AllowanceChargeInformation
-- (e) Select for the second mapping element the shared mapping function: `fx_TotalPrices`.
-- (f) Create a mapping element, 
+  - Add the **function parameter**: `Gross` with the association to the global parameter `UserXX_AllowanceChargeInformation
+- (g) Select for the second mapping element the shared mapping function: `fx_TotalPrices`.
+- (h) Create a mapping element, 
   - From: `/INVOIC02/E1EDK01/CURCY` (Currency)
-    To: `/Interchange/INVOIC/SG48 [5025 = 77]/MOA/C516/6345` (Currency, coded)
-    ***Remark:** This mapping element is just for completion
-- (h) Do a simulation
-- (i) You see the behaviour of this function. 
+  - To: `/Interchange/INVOIC/SG48 [5025 = 77]/MOA/C516/6345
+` (Currency, coded)
+  ***Remark***: This mapping element doesn't have a mapping function. It is just necessary for the completion of the whole MAG.
+- (i) Do a simulation
+- (j) You see the behaviour of this function. 
+
+Add
 
 ![IN260 Figure 07.13](assets/IN260_07.13.png)
 

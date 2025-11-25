@@ -45,23 +45,23 @@ The following table displays which segments or segment groups should be selected
 
 | Node | Name |
 | --- | --- |
-| `DTM` | Date/time/period |
-| `FTX` | Free text |
-| `SG1` | Segment Group 1: RFF-DTM |
-| `SG2` | Segment Group 2: NAD-LOC-FII-SG3-SG4-SG5 |
+|`DTM`| Date/time/period |
+|`FTX`| Free text |
+|`SG1`| Segment Group 1: RFF-DTM |
+|`SG2`| Segment Group 2: NAD-LOC-FII-SG3-SG4-SG5 |
 | **In SG2** | Segment Group 2: NAD-LOC-FII-SG3-SG4-SG5 |
-| `SG3` | Segment Group 3: RFF-DTM |
+| --> `SG3`| Segment Group 3: RFF-DTM |
 | **In SG2 --> SG5** | Segment Group 5: CTA-COM |
-| `COM` | Communication contact | 
-| `SG8` | Segment Group 8: PAT-DTM-PCD-MOA |
+| --> `COM`| Communication contact | 
+|`SG8`| Segment Group 8: PAT-DTM-PCD-MOA |
 | **In SG8** | Segment Group 8: PAT-DTM-PCD-MOA |
-| `DTM` | Date/time/period |
-| `PCD` | Percentage details |
+| --> `DTM`| Date/time/period |
+| --> `PCD`| Percentage details |
 | **In SG25** | In Line Item Segment Group | 
-| `PIA` | Additional product id |
-| `QTY` | Quantity |
+| --> `PIA`| Additional product id |
+| --> `QTY`| Quantity |
 | **In Summary Part** |  |
-| `CNT` | Control total |
+|`CNT`| Control total |
 
   ***Remark:*** 
   - Segments and Groups with disabled check boxes can't be selected.
@@ -72,11 +72,12 @@ The following table displays which segments or segment groups should be selected
 In the wizard step (6), you can enter all the information that belongs to the overview of the new MIG. Follow the following steps:
 - (a) Enter in **Name** the name of the MIG such as: `01.a) IN260-UserXX - UN/EDIFACT D.96A ORDERS – Source`
 - (b) Select the **Direction**: `In` for Inbound. 
-- (c) Select in the **Own Business Conext** the valus in the **Own Business Conext** category **Business Procss**: `Create Order`
-- (d) **Product Classification**: `Food Beverage and Tobacco Products`
-- (e) **Industry Classification**: `Wholesale Distribution`
-- (f) **Country/Region**: `Germany`
-- (e) **Business Process Role**: `Buyer`
+- (c) Select in the **Own Business Context** the values in the categories
+  - **Business Process**: `Create Order`
+  - **Product Classification**: `Food Beverage and Tobacco Products`
+  - **Industry Classification**: `Wholesale Distribution`
+  - **Country/Region**: `Germany`
+  - **Business Process Role**: `Buyer`
 - (h) Click on the **Create** button.
 
 ***Remarks:***
@@ -114,55 +115,55 @@ The following table shows which qualifier markers should be additionally set:
 |  | DTM | [2005 = “137”] |  |  |  | Date/time/period - Document/message date/time |
 |  |  | C507 |  |  |  | Date/time/period |
 |  |  |  | 2005 |  |  | Date/time/period qualifier |
-| `┌──────>` |  |  | **2380** |  |  | Date/time/period - CCYYMMDD |
-| `└───────` |  |  | ***2379*** |  |  | Date/time/period format qualifier |
+|`┌──────>`|  |  | **2380** |  |  | Date/time/period - CCYYMMDD |
+|`└───────`|  |  | ***2379*** |  |  | Date/time/period format qualifier |
 |  | DTM | [2005 = “2”] |  |  |  | Date/time/period - Delivery date/time, requested |
 |  |  | C507 |  |  |  | Date/time/period |
 |  |  |  | 2005 |  |  | Date/time/period qualifier |
-| `┌──────>` |  |  | **2380** |  |  | Date/time/period |
-| `└───────` |  |  | ***2379*** |  |  | Date/time/period format qualifier |
+|`┌──────>`|  |  | **2380** |  |  | Date/time/period |
+|`└───────`|  |  | ***2379*** |  |  | Date/time/period format qualifier |
 |  | DTM | [2005 = “10”] |  |  |  | Date/time/period - Shipment date/time, requested |
 |  |  | C507 |  |  |  | Date/time/period |
 |  |  |  | 2005 |  |  | Date/time/period qualifier |
-| `┌──────>` |  |  | **2380** |  |  | Date/time/period |
-| `└───────` |  |  | ***2379*** |  |  | Date/time/period format qualifier |
+|`┌──────>`|  |  | **2380** |  |  | Date/time/period |
+|`└───────`|  |  | ***2379*** |  |  | Date/time/period format qualifier |
 |  | SG2 | [3035 = “BY”] |  |  |  | Segment Group 2: NAD-LOC-FII-SG3-SG4-SG5 - Buyer |
 |  |  | NAD |  |  |  | Name and address |
-| `┌──────>` |  | SG5 |  |  |  | Segment Group 5: CTA-COM |
-| `│       ` |  |  | **CTA** |  |  | Contact information |
-| `└───────` |  |  |  | ***3139*** |  | Contact function, coded |
-| `┌──────>` | **SG7** |  |  |  |  | Segment Group 7: CUX-PCD-DTM |
-| `│       ` |  | CUX |  |  |  | Currencies |
-| `│       ` |  |  | C504 |  |  | Currency details |
-| `└───────` |  |  |  | ***6347*** |  | Currency details qualifier |
+|`┌──────>`|  | SG5 |  |  |  | Segment Group 5: CTA-COM |
+|`│       `|  |  | **CTA** |  |  | Contact information |
+|`└───────`|  |  |  | ***3139*** |  | Contact function, coded |
+|`┌──────>`| **SG7** |  |  |  |  | Segment Group 7: CUX-PCD-DTM |
+|`│       `|  | CUX |  |  |  | Currencies |
+|`│       `|  |  | C504 |  |  | Currency details |
+|`└───────`|  |  |  | ***6347*** |  | Currency details qualifier |
 |  | SG25 |  |  |  |  | Segment Group 25: LIN-PIA-IMD-MEA-QTY-PCD-ALI-DTM-MOA-GIN-GIR-QVR-DOC-PAI-FTX-SG52 |
 |  |  | LIN |  |  |  | Line item |
 |  |  | PIA | [4347 = “1”] |  |  | Additional product id - Additional identification |
 |  |  |  | 4347 |  |  | Product id. function qualifier |
-| `┌──────>` |  |  | **C212** |  |  | Item number identification |
-| `│       ` |  |  |  | 7140 |  | Item number |
-| `└───────` |  |  |  | ***7143*** |  | Item number type, coded |
-| `┌──────>` |  |  | **C212** |  |  | Item number identification |
-| `│       ` |  |  |  | 7140 |  | Item number |
-| `└───────` |  |  |  | ***7143*** |  | Item number type, coded |
-| `┌──────>` |  | **IMD** |  |  |  | Item description |
-| `└───────` |  |  | ***7077*** |  |  | Item description type, coded |
-| `┌──────>` |  | **MEA** |  |  |  | Measurements |
-| `│       ` |  |  | 6311 |  |  | Measurement application qualifier |
-| `│       ` |  |  | C502 |  |  | Measurement details |
-| `└───────` |  |  |  | ***6313*** |  | Measurement dimension, coded |
-| `┌──────>` |  | **SG28** |  |  |  | Segment Group 28: PRI-CUX-APR-RNG-DTM |
-| `│       ` |  |  | PRI |  |  | Price details |
-| `│       ` |  |  |  | C509 |  | Price information |
-| `└───────` |  |  |  |  | ***5125*** | Price qualifier |
-| `┌──────>` |  |  | **CUX** |  |  | Currencies |
-| `│       ` |  |  |  | C504 |  | Currency details |
-| `└───────` |  |  |  |  | ***6347*** | Currency details qualifier |
-| `┌──────>` |  | **SG30** |  |  |  | Segment Group 30: PAC-MEA-QTY-DTM-SG31-SG32 |
-| `│       ` |  |  | PAC |  |  | Package |
-| `│       ` |  |  |  | 7224 |  | Number of packages |
-| `│       ` |  |  |  | C531 |  | Packaging details |
-| `└───────` |  |  |  |  | ***7075*** | Packaging level, coded |
+|`┌──────>`|  |  | **C212** |  |  | Item number identification |
+|`│       `|  |  |  | 7140 |  | Item number |
+|`└───────`|  |  |  | ***7143*** |  | Item number type, coded |
+|`┌──────>`|  |  | **C212**_2 |  |  | Item number identification |
+|`│       `|  |  |  | 7140 |  | Item number |
+|`└───────`|  |  |  | ***7143*** |  | Item number type, coded |
+|`┌──────>`|  | **IMD** |  |  |  | Item description |
+|`└───────`|  |  | ***7077*** |  |  | Item description type, coded |
+|`┌──────>`|  | **MEA** |  |  |  | Measurements |
+|`│       `|  |  | 6311 |  |  | Measurement application qualifier |
+|`│       `|  |  | C502 |  |  | Measurement details |
+|`└───────`|  |  |  | ***6313*** |  | Measurement dimension, coded |
+|`┌──────>`|  | **SG28** |  |  |  | Segment Group 28: PRI-CUX-APR-RNG-DTM |
+|`│       `|  |  | PRI |  |  | Price details |
+|`│       `|  |  |  | C509 |  | Price information |
+|`└───────`|  |  |  |  | ***5125*** | Price qualifier |
+|`┌──────>`|  |  | **CUX** |  |  | Currencies |
+|`│       `|  |  |  | C504 |  | Currency details |
+|`└───────`|  |  |  |  | ***6347*** | Currency details qualifier |
+|`┌──────>`|  | **SG30** |  |  |  | Segment Group 30: PAC-MEA-QTY-DTM-SG31-SG32 |
+|`│       `|  |  | PAC |  |  | Package |
+|`│       `|  |  |  | 7224 |  | Number of packages |
+|`│       `|  |  |  | C531 |  | Packaging details |
+|`└───────`|  |  |  |  | ***7075*** | Packaging level, coded |
 
 ## Step 06 - Deselect Unnecessary Nodes
 It is possible that some nodes are still selected, which can be deselected to achieve high precision.
@@ -191,51 +192,51 @@ The following table displays where you have to set the further simple qualified 
 |  | DTM | [2005 = “137”] |  |  |  | Date/time/period - Document/message date/time |
 |  |  | C507 |  |  |  | Date/time/period |
 |  |  |  | 2005 |  |  | Date/time/period qualifier |
-| `┌(102)─>` |  |  | **2380** |  |  | Date/time/period - CCYYMMDD |
-| `└───────` |  |  | ***2379*** |  |  | Date/time/period format qualifier |
+|`┌(102)─>`|  |  | **2380** |  |  | Date/time/period - CCYYMMDD |
+|`└───────`|  |  | ***2379*** |  |  | Date/time/period format qualifier |
 |  | DTM | [2005 = “2”] |  |  |  | Date/time/period - Delivery date/time, requested |
 |  |  | C507 |  |  |  | Date/time/period |
 |  |  |  | 2005 |  |  | Date/time/period qualifier |
-| `┌(203)─>` |  |  | **2380** |  |  | Date/time/period |
-| `└───────` |  |  | ***2379*** |  |  | Date/time/period format qualifier |
+|`┌(203)─>`|  |  | **2380** |  |  | Date/time/period |
+|`└───────`|  |  | ***2379*** |  |  | Date/time/period format qualifier |
 |  | DTM | [2005 = “10”] |  |  |  | Date/time/period - Shipment date/time, requested |
 |  |  | C507 |  |  |  | Date/time/period |
 |  |  |  | 2005 |  |  | Date/time/period qualifier |
-| `┌(203)─>` |  |  | **2380** |  |  | Date/time/period |
-| `└───────` |  |  | ***2379*** |  |  | Date/time/period format qualifier |
+|`┌(203)─>`|  |  | **2380** |  |  | Date/time/period |
+|`└───────`|  |  | ***2379*** |  |  | Date/time/period format qualifier |
 |  | SG2 | [3035 = “BY”] |  |  |  | Segment Group 2: NAD-LOC-FII-SG3-SG4-SG5 - Buyer |
 |  |  | NAD |  |  |  | Name and address |
-|  |  | SG5 |  |  |  | Segment Group 5: CTA-COM |
-| `┌(OC)──>` |  |  | **CTA** |  |  | Contact information |
-| `└───────` |  |  |  | ***3139*** |  | Contact function, coded |
-| `┌(2)───>` | **SG7** |  |  |  |  | Segment Group 7: CUX-PCD-DTM |
-| `│       ` |  | CUX |  |  |  | Currencies |
-| `│       ` |  |  | C504 |  |  | Currency details |
-| `└───────` |  |  |  | ***6347*** |  | Currency details qualifier |
+|`┌(OC)──>`|  | **SG5** |  |  |  | Segment Group 5: CTA-COM |
+|`│       `|  |  | CTA  |  |  | Contact information |
+|`└───────`|  |  |  | ***3139*** |  | Contact function, coded |
+|`┌(2)───>`| **SG7** |  |  |  |  | Segment Group 7: CUX-PCD-DTM |
+|`│       `|  | CUX |  |  |  | Currencies |
+|`│       `|  |  | C504 |  |  | Currency details |
+|`└───────`|  |  |  | ***6347*** |  | Currency details qualifier |
 |  | SG25 |  |  |  |  | Segment Group 25: LIN-PIA-IMD-MEA-QTY-PCD-ALI-DTM-MOA-GIN-GIR-QVR-DOC-PAI-FTX-SG52 |
 |  |  | LIN |  |  |  | Line item |
 |  |  | PIA | [4347 = “1”] |  |  | Additional product id - Additional identification |
 |  |  |  | 4347 |  |  | Product id. function qualifier |
-| `┌(SA)──>` |  |  | **C212** |  |  | Item number identification |
-| `│       ` |  |  |  | 7140 |  | Item number |
-| `└───────` |  |  |  | ***7143*** |  | Item number type, coded |
-| `┌(IN)─>` |  |  | **C212** |  |  | Item number identification |
-| `│       ` |  |  |  | 7140 |  | Item number |
-| `└───────` |  |  |  | ***7143*** |  | Item number type, coded |
-| `┌(B)───>` |  | **IMD** |  |  |  | Item description |
-| `└───────` |  |  | ***7077*** |  |  | Item description type, coded |
-| `┌(AAA)─>` |  | **SG28** |  |  |  | Segment Group 28: PRI-CUX-APR-RNG-DTM |
-| `│       ` |  |  | PRI |  |  | Price details |
-| `│       ` |  |  |  | C509 |  | Price information |
-| `└───────` |  |  |  |  | ***5125*** | Price qualifier |
-| `┌(2)───>` |  |  | **CUX** |  |  | Currencies |
-| `│       ` |  |  |  | C504 |  | Currency details |
-| `└───────` |  |  |  |  | ***6347*** | Currency details qualifier |
-| `┌(1)──>` |  | **SG30** |  |  |  | Segment Group 30: PAC-MEA-QTY-DTM-SG31-SG32 |
-| `│       ` |  |  | PAC |  |  | Package |
-| `│       ` |  |  |  | 7224 |  | Number of packages |
-| `│       ` |  |  |  | C531 |  | Packaging details |
-| `└───────` |  |  |  |  | ***7075*** | Packaging level, coded |
+|`┌(SA)──>`|  |  | **C212** |  |  | Item number identification |
+|`│       `|  |  |  | 7140 |  | Item number |
+|`└───────`|  |  |  | ***7143*** |  | Item number type, coded |
+|`┌(IN)─>`|  |  | **C212** |  |  | Item number identification |
+|`│       `|  |  |  | 7140 |  | Item number |
+|`└───────`|  |  |  | ***7143*** |  | Item number type, coded |
+|`┌(B)───>`|  | **IMD** |  |  |  | Item description |
+|`└───────`|  |  | ***7077*** |  |  | Item description type, coded |
+|`┌(AAA)─>`|  | **SG28** |  |  |  | Segment Group 28: PRI-CUX-APR-RNG-DTM |
+|`│       `|  |  | PRI |  |  | Price details |
+|`│       `|  |  |  | C509 |  | Price information |
+|`└───────`|  |  |  |  | ***5125*** | Price qualifier |
+|`┌(2)───>`|  |  | **CUX** |  |  | Currencies |
+|`│       `|  |  |  | C504 |  | Currency details |
+|`└───────`|  |  |  |  | ***6347*** | Currency details qualifier |
+|`┌(1)──>`|  | **SG30** |  |  |  | Segment Group 30: PAC-MEA-QTY-DTM-SG31-SG32 |
+|`│       `|  |  | PAC |  |  | Package |
+|`│       `|  |  |  | 7224 |  | Number of packages |
+|`│       `|  |  |  | C531 |  | Packaging details |
+|`└───────`|  |  |  |  | ***7075*** | Packaging level, coded |
 
 ## Step 08 - Set a Compound Qualification
 It is possible to define compound qualifications, which means two qualifiers refine a qualifying node. This is necessary in case of the MEA segment, which will be set accordingly:
@@ -262,43 +263,53 @@ To increase readability and correctness, it is helpful to refine MIG by assignin
 - (e) Select the **Primitive Type**: `Date`
 - (f) Set the min length `8`and (g) max length `8`.
 - (h) Select the **Date Time Format**: `CCYYMMDD` 
+- Finally click on the button **Save** and afterwards on the button **Cancel**.
 
-[IN260 Figure 03.09](assets/IN260_03.09.png)
+![IN260 Figure 03.09](assets/IN260_03.09.png)
 
 The following table shows you which of the nodes should be refined:
 ***Remark:** Nodes not considered are hidden.
 
 | Node |  |  |  | Name | Prim. Type | Length | Date Format |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| ORDERS |  |  |  | `Sales order message` |  |  |  |
-|  | DTM [2005 = “137”] |  |  | `Document/message date/time` |  |  |  |
-|  |  | C507/2380 [2379 = “102”] |  | `Date in format CCYYMMDD` | `Date` | `8 .. 8` | `CCYYMMDD` |
-|  | DTM [2005 = “2”] |  |  | `Delivery date/time, requested` |  |  |  |
-|  |  | C507/2380 [2379 = “203”] |  | `Date time in format CCYYMMDDHHMM` | `DateTime` | `12 .. 12` | `CCYYMMDDhhmm` |
-|  | DTM [2005 = “10”] |  |  | `Shipment date/time, requested` |  |  |  |
-|  |  | C507/2380 [2379 = “203”] |  | `Date time in format CCYYMMDDHHMM` | `DateTime` | `12 .. 12` | `CCYYMMDDhhmm` |
-|  | FTX [4451 = “AAI”] |  |  | `Free text - General information` |  |  |  |
-|  | SG1 [1153 = “VC”] |  |  | `Vendor contract number` |  |  |  |
-|  | SG2 [3035 = “BY”] |  |  | `Buyer` |  |  |  |
-|  |  | SG3 [1153 = “VR”] |  | `Vendor ID number` |  |  |  |
-|  |  | SG5 [3139 = “OC”] |  | `Order contact` |  |  |  |
-|  |  |  | COM [3155 = “TE”] | `Telephone` |  |  |  |
-|  | SG2 [3035 = “SU”] |  |  | `Supplier` |  |  |  |
-|  | SG2 [3035 = “DP”] |  |  | `Delivery party` |  |  |  |
-|  | SG7 [6347 = “2”] |  |  | `Reference currency` |  |  |  |
-|  | SG8 [4279 = “22”] |  |  | `Discount` |  |  |  |
-|  |  | DTM [2005 = “263”] |  | `Invoicing period` |  |  |  |
-|  |  | PCD [5245 = “12”] |  | `Discount percentage` |  |  |  |
-|  | SG25 |  |  | `Line Items` |  |  |  |
-|  |  | PIA [4347 = “1”] |  | `Additional identification` |  |  |  |
-|  |  |  | C212 [7143 = “SA”] | `Supplier's article number` |  |  |  |
-|  |  |  | C212 [7143 = “IN”] | `Buyer's item number` |  |  |  |
-|  |  | MEA [6311 = “AAI”][6313 = “AAL”] |  | `Item net weight` |  |  |  |
-|  |  | QTY [6063 = “21”] |  | `Ordered quantity` |  |  |  |
-|  |  | SG28 [5125 = “AAA”] |  | `Reference price` |  |  |  |
-|  |  |  | CUX [6347 = “2”] | `Currencies - Reference currency` |  |  |  |
-|  |  | SG30 [7075 = “1”] |  | `Inner Package` |  |  |  |
-|  | CNT [6069 = “2”] |  |  | `Number of line items in message` |  |  |  |
+| ORDERS |  |  |  |`Sales order message`|  |  |  |
+|  | DTM [2005 = “137”] |  |  |`Document/message date/time`|  |  |  |
+|  |  | C507/2380 [2379 = “102”] |  |`Date in format CCYYMMDD`|`Date`|`8 .. 8`|`CCYYMMDD`|
+|  | DTM [2005 = “2”] |  |  |`Delivery date/time, requested`|  |  |  |
+|  |  | C507/2380 [2379 = “203”] |  |`Date time in format CCYYMMDDHHMM`|`DateTime`|`12 .. 12`|`CCYYMMDDhhmm`|
+|  | DTM [2005 = “10”] |  |  |`Shipment date/time, requested`|  |  |  |
+|  |  | C507/2380 [2379 = “203”] |  |`Date time in format CCYYMMDDHHMM`|`DateTime`|`12 .. 12`|`CCYYMMDDhhmm`|
+|  | FTX [4451 = “AAI”] |  |  |`Free text - General information`|  |  |  |
+|  | SG1 [1153 = “VC”] |  |  |`Vendor contract number`|  |  |  |
+|  | SG2 [3035 = “BY”] |  |  |`Buyer`|  |  |  |
+|  |  | SG3 [1153 = “VR”] |  |`Vendor ID number`|  |  |  |
+|  |  | SG5 [3139 = “OC”] |  |`Order contact`|  |  |  |
+|  |  |  | COM [3155 = “TE”] |`Telephone`|  |  |  |
+|  | SG2 [3035 = “SU”] |  |  |`Supplier`|  |  |  |
+|  | SG2 [3035 = “DP”] |  |  |`Delivery party`|  |  |  |
+|  | SG7 [6347 = “2”] |  |  |`Reference currency`|  |  |  |
+|  | SG8 [4279 = “22”] |  |  |`Discount`|  |  |  |
+|  |  | DTM [2005 = “263”] |  |`Invoicing period`|  |  |  |
+|  |  | PCD [5245 = “12”] |  |`Discount percentage`|  |  |  |
+|  | SG25 |  |  |`Line Items`|  |  |  |
+|  |  | PIA [4347 = “1”] |  |`Additional identification`|  |  |  |
+|  |  |  | C212 [7143 = “SA”] |`Supplier's article number`|  |  |  |
+|  |  |  | C212 [7143 = “IN”] |`Buyer's item number`|  |  |  |
+|  |  | MEA [6311 = “AAI”][6313 = “AAL”] |  |`Item net weight`|  |  |  |
+|  |  | QTY [6063 = “21”] |  |`Ordered quantity`|  |  |  |
+|  |  | SG28 [5125 = “AAA”] |  |`Reference price`|  |  |  |
+|  |  |  | CUX [6347 = “2”] |`Reference currency`|  |  |  |
+|  |  | SG30 [7075 = “1”] |  |`Inner Package`|  |  |  |
+|  | CNT [6069 = “2”] |  |  |`Number of line items in message`|  |  |  |
+
+## Step 10 - Check if the MIG is correct
+You can use a simulation to check whether the finalized MIG is correct. To do this, you must do the following:
+- (a) Select in the main menu **Simulate --> Simulate with Payload Data ...**
+- (b) Browse in the pop-up window for the file that you need for the simulation, which is `Source - IN260-EDIFACT-ORDERS.edi` in the folder: `C:\Users\XX\Downloads\Testdata`
+- (c) Click on button **OK**.
+- (d) You will see a new column **Simulation** in where you see the values on the corresponding leaf nodes.
+
+![IN260 Figure 03.10](assets/IN260_03.10.png)
 
 ***Remark:*** If you have now successfully saved this Trading Partner MIG, you're finished with this exercise and can proceed with the next exercise, 03.
 

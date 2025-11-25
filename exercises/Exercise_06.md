@@ -83,13 +83,13 @@ Once you're ready with the duplicates, you can now add the following constants a
 | **Constant** | `2` |  | --> |  `/Interchange/DESADV/SG10 [1]/CPS/7164` | Hierarchical id. number |
 | **Function** | `/DELVRY07/E1EDL20/E1EDL37/E1EDL37/EXIDV` | External Handling Unit Identification | `<xsl:sequence select="concat('01;', $nodes_in/EXIDV)"/>` |  `/Interchange/DESADV/SG10 [1]/CPS/7166` | Hierarchical parent id. |
 | **Constant** | `2` |  | --> |  `/Interchange/DESADV/SG10 [1]/CPS/7075` | Packaging level, coded |
+| **Function** | `/DELVRY07/E1EDL20/E1EDL37/E1EDL44 [VELIN = 3]/E1EDL44/POSNR` | Item number of the SD document | `<xsl:sequence select="count($nodes_in/POSNR)"/>` |  `/Interchange/DESADV/SG10 [1]/SG11/PAC/7224` | Number of packages |
 | **Code Value Mapping** | `/DELVRY07/E1EDL20/E1EDL37/E1EDL37/VHILM` | Packaging Materials | See **Code Value Mapping VHILM to 7065** below |  `/Interchange/DESADV/SG10 [1]/SG11/PAC/C202/7065` | Type of packages identification |
 | **Group** | `/DELVRY07/E1EDL20/E1EDL37/E1EDL44 [VELIN = 3]` | Handling unit | --> |  `/Interchange/DESADV/SG10 [2]` | Units |
 | **Constant** | `3` |  | --> |  `/Interchange/DESADV/SG10 [2]/CPS/7164` | Hierarchical id. number |
-| **Function** | `/DELVRY07/E1EDL20/E1EDL37/E1EDL37/EXIDV + /DELVRY07/E1EDL20/E1EDL37/E1EDL44 [VELIN = 3]/E1EDL44/EXIDV` | External Handling Unit Identification | `<xsl:sequence select="concat('01;', $nodes_in/EXIDV[1], ';', $nodes_in/POSNR[1])"/>` |  `/Interchange/DESADV/SG10 [2]/CPS/7166` | Hierarchical parent id. |
+| **Function** | `/DELVRY07/E1EDL20/E1EDL37/E1EDL37/EXIDV` *and* `/DELVRY07/E1EDL20/E1EDL37/E1EDL44 [VELIN = 3]/E1EDL44/POSNR` | External Handling Unit Identification *and* Item number of the SD document | `<xsl:sequence select="concat('01;', $nodes_in/EXIDV[1], ';', $nodes_in/POSNR[1])"/>` |  `/Interchange/DESADV/SG10 [2]/CPS/7166` | Hierarchical parent id. |
 | **Constant** | `3` | | --> |  `/Interchange/DESADV/SG10 [2]/CPS/7075` | Packaging level, coded |
 | **Pass-Through** | `/DELVRY07/E1EDL20/E1EDL37/E1EDL44 [VELIN = 3]/E1EDL44/VEMNG` | Base Quantity Packed in the Handling Unit Item | --> |  `/Interchange/DESADV/SG10 [2]/SG11/PAC/7224` | Number of packages |
-| **Function** | `/DELVRY07/E1EDL20/E1EDL37/E1EDL44 [VELIN = 3]/E1EDL44/POSNR` | Item number of the SD document | `<xsl:sequence select="count($nodes_in/POSNR)"/>` |  `/Interchange/DESADV/SG10 [1]/SG11/PAC/7224` | Number of packages |
 | **Code Value Mapping** | `/DELVRY07/E1EDL20/E1EDL37/E1EDL44 [VELIN = 3]/E1EDL44/VEMEH` | Base Unit of Measure of the Quantity to be Packed (VEMNG) | See **Code Value Mapping VEMEH to 7065** below |  `/Interchange/DESADV/SG10 [2]/SG11/PAC/C202/7065` | Type of packages identification |
 | **Group** | `/DELVRY07/E1EDL20/E1EDL37/E1EDL44 [VELIN = 3]/E1EDL24Copy` | Copy of Delivery Items | --> |  `/Interchange/DESADV/SG10 [2]/SG15` | Line Items |
 | **Pass-Through** | `/DELVRY07/E1EDL20/E1EDL37/E1EDL44 [VELIN = 3]/E1EDL24Copy/E1EDL24/POSNR` | Item number of the SD document | --> |  `/Interchange/DESADV/SG10 [2]/SG15/LIN/1082` | Line item number |
@@ -98,7 +98,7 @@ Once you're ready with the duplicates, you can now add the following constants a
 | **Constant** | `F` |  | --> |  `/Interchange/DESADV/SG10 [2]/SG15/IMD [7077 = F]/7077` | Item description type, coded |
 | **Pass-Through** | `/DELVRY07/E1EDL20/E1EDL37/E1EDL44 [VELIN = 3]/E1EDL24Copy/E1EDL24/ARKTX` | Short Text for Sales Order Item | --> |  `/Interchange/DESADV/SG10 [2]/SG15/IMD [7077 = F]/C273/7008` | Item description |
 | **Constant** | `131` |  | --> |  `/Interchange/DESADV/SG10 [2]/SG15/QTY [6063 = 131]/C186/6063` | Quantity qualifier |
-| **Function** | `/DELVRY07/E1EDL20/E1EDL37/E1EDL44 [VELIN = 3]/E1EDL44/VELIN + /DELVRY07/E1EDL20/E1EDL37/E1EDL44 [VELIN = 3]/E1EDL24Copy/E1EDL24/LFIMG` | Type of Handling-unit Item Content + Actual quantity delivered (in sales units)  | `<xsl:sequence select="xs:integer($nodes_in/LFIMG div count($nodes_in/VELIN))"/>` |  `/Interchange/DESADV/SG10 [2]/SG15/QTY [6063 = 131]/C186/6060` | Quantity |
+| **Function** | `/DELVRY07/E1EDL20/E1EDL37/E1EDL44 [VELIN = 3]/E1EDL44/VELIN` *and* `/DELVRY07/E1EDL20/E1EDL37/E1EDL44 [VELIN = 3]/E1EDL24Copy/E1EDL24/LFIMG` | Type of Handling-unit Item Content + Actual quantity delivered (in sales units)  | `<xsl:sequence select="xs:integer($nodes_in/LFIMG div count($nodes_in/VELIN))"/>` |  `/Interchange/DESADV/SG10 [2]/SG15/QTY [6063 = 131]/C186/6060` | Quantity |
 | **Code Value Mapping** | `/DELVRY07/E1EDL20/E1EDL37/E1EDL44 [VELIN = 3]/E1EDL24Copy/E1EDL24/GEWEI` | Weight Unit | See **Code Value Mapping GEWEI to 6411** below  |  `/Interchange/DESADV/SG10 [2]/SG15/QTY [6063 = 131]/C186/6411` | Measure unit qualifier |
 
 
@@ -108,7 +108,7 @@ Once you're ready with the duplicates, you can now add the following constants a
 
 | Source Code Value | Target Code Value |
 | --- | --- |
-| `PL -- Pallet` | `231 -- Purchase order response` |
+| `PL -- Pallet` | `PX -- Pallet` |
 
 
 Default Value:
@@ -175,7 +175,7 @@ You have to add the Customized Post-Processing to the BTA **02.) Delivery Notifi
 - (b) Click on the target **Interchange** step at receiver side.
 - (c) In the details panel, enable the **Customized Post-Processing**.
 - (d) Add in thefield **Process Direct Adress** the address: 
-  `tpm/post-processing/UserXX/02-delivery-notification-outbound/un-edifact` 
+  `/tpm/post-processing/UserXX/02-delivery-notification-outbound/un-edifact` 
 - (e) Click **Save**. 
 - (d) Do an update as described in step 07.
 

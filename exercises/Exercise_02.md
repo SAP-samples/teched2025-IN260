@@ -57,21 +57,26 @@ Create a new TPA by copying from the template:
 
 General note: Selecting all transactions is not always necessary. Choose only the transactions that are relevant for your trading partner.
 
-![IN260 Figure 02.06](assets/IN260_02.06.png)
+![IN260 Figure 02.03](assets/IN260_02.06.png)
 
 ## Step 4 - Finalize the TPA Overview
 A new TPA for your trading partner will be created. In the default **Overview** tab, finalize the details:
 - (a) Update the agreement name and description, replacing `[IN260]` with `IN260-UserXX` (replace XX with your User ID).
-- (b) Check if **Trading Partner Details**, is set to**Type System** to `UN/EDIFACT`.
-- (c) Check if **Type System Version** is set to `D.96A`.
-- (d) Click the value help for **Identifier in Trading Partners Type System** to open a pop-up.
-- (e) In the pop-up, open the **Identifier Groups** tab.
-***Caution:** In the tab **Single Identifiers**, you see a very similar alias value. Please don't let this one irritate you. Ensure sure you have selected the **Identifier Groups** tab.*
-- (f) Select the identifier group with **Group Name**: `GE-UserXX` (replace XX with your User ID).
-- (g) In **My Company Details**, set **Identifier in Trading Partner Type System** to `COMP_E_D`.
-- (h) Click **Save**.
+- (b) Review, the following values in **My Company Details**, if these are correct:
+  -  **System**:`S/4 HANA System`
+  -  **Type System**: `SAP S/4 HANA On Premise IDoc`
+  -  **Type System Version**: `755`
+  -  **Identifier in Company Type System**: `Company_IDOC_ID`
+  -  **Identifier in Trading Partner Type System**: `COMP_E_D`
+- (c) Review, the following values in **Trading Partner Details**, if these are correct:
+  -  **System**:`UN-EDIFACT_B2BSystem`
+  -  **Type System**: `UN/EDIFACT`
+  -  **Type System Version**: `D.96A`
+  -  **Identifier in Company Type System**: `TP_UNEDIFACT_G`
+  -  **Identifier in Trading Partner Type System**: `TP_IDOC_ID`
+- (d) Click **Save**.
 
-![IN260 Figure 02.07](assets/IN260_02.07.png)
+![IN260 Figure 02.04](assets/IN260_02.04.png)
 
 ## Step 5 - Review, update, and activate the TPA
 To finalize and activate the TPA:

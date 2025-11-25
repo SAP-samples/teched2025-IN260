@@ -16,7 +16,7 @@ In this exercise, you will:
 
 Before starting this exercise, ensure you have:
 
-- The required CSV file (`CL_UserXX_7065_PackageType.csv`) is available in the designated folder.
+- The required CSV file (`CL_UserXX_7065_PackageType.csv`) is available in the designated folder. The XX in the name should be changed with your user id. 
 - Example source and expected target payload files for simulation and validation.
 
 
@@ -26,8 +26,8 @@ Before creating the B2B integration content for sales order response processing,
 - (d) Select the section **Custom Type Systems**.
 - (c) Select **Custom Codelists**, which are the collection of all the reusable customized codelists in your tenant.
 - (d) Click on the **Add** button for creating a new custom codelist.
-- (e) In the new pop-up window, enter in **ID**: `CL_UserXX_6411_MEA_Units`.
-- (f) Give a name, which code is: `MeasureUnitCodeList`.
+- (e) In the new pop-up window, enter in **ID**: `CL_UserXX_6411_MEA_Units`. Where by the XX should be substituted with your user id.
+- (f) Give a name, which code is: `Measure Unit Codelist`.
 - (g) This codelist represents a specific type of measure units, but it is mainly a subset of the UN/CEFACT Recommendation 20 codelist, therefore enable **Copy code values from Codelist**..
 - (h) Select the **Type System**: `UN/CEFACT`.
 - (i) Select the **Codelist**: `Rec_20`.
@@ -48,8 +48,8 @@ Before creating the B2B integration content for sales order response processing,
 The same kind of codelists can be shaped for different purposes. This is especially required for the Trading Partner MIG for the Sales Order Response. Therefore, do the same procedure as follows:
 - (a) Before you start with creation, you can see your already created codelists, if you expand them (`CL_UserXX_6411_MEA_Units`) and click on the version `1.0`.
 - (b) Click for creation of the second unit code list on the **Add** button and follow the steps (01.d) to (01.k) with the following parameters and code values:
-  - **ID**: `CL_UserXX_6411_QTY_Units`.
-  - **Name**: `MeasureUnitCodeList`.
+  - **ID**: `CL_UserXX_6411_QTY_Units`. Whereby the XX should be subsituted with your user id.
+  - **Name**: `Quantity Unit Codelist`.
   - Enable **Copy code values from Codelist**..
   - **Type System**: `GS1 EANCOM`.
   - **Codelist**: `6411`.
@@ -83,8 +83,8 @@ Due to time constraints, you can now create a copy of an already prepared Tradin
 You can also add code lists in this Trading Partner MIG, which are then valid and usable for this MIG only. For this reason, do the following steps if the Trading Partner MIG is in **Edit** mode:
 - (a) Go to tab **MIG Codelists**
 - (b) Click on the **Create** button.
-- (c) Enter in the new entry for the latest code list the **Identifier:** `CL_UserXX_7065_PackageType`.
-- (d) Enter the **Name:** `package type code list`.
+- (c) Enter in the new entry for the latest code list the **Identifier:** `CL_UserXX_7065_PackageType`. Consider, the XX should be changed with your user id.
+- (d) Enter the **Name:** `Package Type Codelist`.
 - (e) Click in the area where the label **CodeValues** is.
 - (f) A new details panel will be shown at the bottom, where you should go to the tab **Code Values**.
 - (g) Navigate to **Upload --> Add from CSV File** and (h) upload the csv file `CL_UserXX_7065_PackageType.csv` from the agreed folder.
@@ -194,7 +194,7 @@ Both the source and target code lists should be mapped. A pass-through is enough
 Base MAG mapping elements can be modified to cover a code value mapping. The following steps can realize this:
 - (a) Select mapping element
   - *Source:* `/ORDERS05/E1EDK01/BSART `(Document Type) to
-  - *Target:* `Interchange/ORDRSP/BGM/C002/1225` (Document/message name, coded)
+  - *Target:* `Interchange/ORDRSP/BGM/C002/1001` (Document/message name, coded)
 - (b) Click in the **Function** details view on the button **Create Editable Copy**.
 - (c) You'll see now an editable **Function** in which you should click on the button **Switch to Code Value Mapping**.
 - (d) Details view should be changed to **Code Value Mapping** in where you should select the **Default Value:** `230 -- purchase order change request`
@@ -219,7 +219,7 @@ Base MAG mapping elements can be modified to cover a code value mapping. The fol
 You can set multiple mappings from the same source node by following these steps:
 - (a) Select mapping element
   - *Source:* `/ORDERS05/E1EDK01/BSART `(Document Type) to
-  - *Target:* `Interchange/ORDRSP/BGM/C002/1001` (Document/message name, coded)
+  - *Target:* `Interchange/ORDRSP/BGM/1225` (Message function, coded)
 - (b) In the details tab **Code Value Mapping** click on **Add → All remaining source values**
 - (c) You will see now the complete list of the customized code values at the source side (see table below)
 - (d) Set the corresponding code values at the target side as shown in the table below.
@@ -237,9 +237,9 @@ You can set multiple mappings from the same source node by following these steps
 
 ![IN260 Figure 05.12](assets/IN260_05.12.png)
 
-## Step 13 - Step 17 is optional! You may follow with Step 18 directly! ##
-
 ## Step 13 - Map Repeating Line Items
+***Remark***: Step 13 - Step 17 is optional! You may follow with Step 18 directly!
+
 It makes no difference; code values can also be the same by following the same steps with repeatable groups, such as from ***E1EDP01 (Line Items)*** to ***SG26 (individual ordered items)***.
 - (a) Select mapping element
   - *Source:* `/ORDERS05/E1EDP01/E1EDP01/ACTION`(Action code for the item) to
@@ -293,7 +293,7 @@ Reusable code value mappings can be stored as a global code value mapping direct
   | `POR -- Portion` | `PTN -- Portion (EAN Code)` |
 
 - (c) Click on the button **Create Global Mapping**
-- (d) In the pop-window, enter the **Name** `UserXX - BestRun_UoM to CL_UserXX_6411_QTY_Units`
+- (d) In the pop-window, enter the **Name** `UserXX - BestRun_UoM to CL_UserXX_6411_QTY_Units`. Please consider the XX must be substituted with user user id.
 - (e) Click on the **Create** button.
 - (f) And you'll see in a new window the new global code value mapping.
   
@@ -326,10 +326,11 @@ An own global code value mapping can also overwrite the given code value mapping
 
 ## Step 18 - Build Compound Mappings
 It is also possible to create compound code value mappings, where a combination of code values from different source nodes maps to a target code value, which is then written to the target node. This is possible by the following steps:
-- (a) Create a first mapping element **:** ``
+- (a) Create a first mapping element **:**
   - *Source:* `/ORDERS05/E1EDP01/E1EDP01/PSTYV`(Sales document item category) to
   - *Target:* `/Interchange/ORDRSP/SG26/SG32/PAC/C202/7065` Type of packages identification
-- (b) Drag and drop to the target leaf node a mapping line from the *source:* `/orders05/e1edp01/e1edc01 [sgtyp = 001]/e1edc01/matkl` (idoc material class).
+- (b) Drag and drop to the target leaf node a mapping line from the 
+  - *Source:* `/ORDERS05/E1EDP01/E1EDC01[SGTYP = 001]/E1EDC01/MATKL` (IDOC Material Class).
 - (c) Go now to the details tab **Code Value Mapping**, where you can then see an empty table with three columns.
 - (d) Select as **Default Value:** `CT -- Carton`.
 - (e) Add each entry via the selection of **Add** and (f) **One source value**
