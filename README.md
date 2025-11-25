@@ -31,7 +31,7 @@ Throughout the exercises, you will:
 To complete the exercises, the access to the following systems have been provided. \
 **In case you are not able to access any of these systems please contact the workshop instructors**.
 
-- [SAP Integration Suite Tenant](https://url.sap/2712tu)
+- [SAP Integration Suite Tenant](https://workshop-eu-03b.integrationsuite-cpi035.cfapps.eu20-001.hana.ondemand.com/shell/design)
 
 > [!IMPORTANT]
 > - _For a smooth experience, tenants have been preconfigured, and you already have all the roles and permissions needed to complete this exercise._
